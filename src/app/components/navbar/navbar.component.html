@@ -1,0 +1,8 @@
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+        *ngFor="let link of links"
+        (click)="clickLinkHandler(link)"
+        [active]="isActive(link)">
+        {{ link }}
+    </a>
+</nav>
