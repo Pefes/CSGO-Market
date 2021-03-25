@@ -1,0 +1,16 @@
+mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+img {
+    width: 80%;
+    height: auto;
+    border: 1px solid red;
+    align-self: center;
+}
+
+mat-card-content {
+    width: 100%;
+}

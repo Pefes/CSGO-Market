@@ -1,0 +1,13 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+
+    market-item {
+        display: flex;
+        width: 350px;
+        height: 350px;
+        overflow: hidden;
+        margin: 25px;
+        border: 1px solid black;
+    }
+}

@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-header>
+        {{ data.name }}
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <img src="{{ imageUrl }}"/>
+    <mat-card-content>
+        <p>Type: {{ data.type }}</p>
+        <p>Weapone Type: {{ data.weapon_type }}</p>
+        <p>Gun Type: {{ data.gun_type }}</p>
+        <p>Exterior: {{ data.exterior }}</p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <button mat-button>BUY</button>
+    </mat-card-actions>
+</mat-card>
