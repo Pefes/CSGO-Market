@@ -1,17 +1,24 @@
-<mat-card>
-    <mat-card-header>
-        {{ data.name }}
-    </mat-card-header>
-    <mat-divider></mat-divider>
-    <img src="{{ imageUrl }}"/>
-    <mat-card-content>
-        <p>Type: {{ data.type }}</p>
-        <p>Weapone Type: {{ data.weapon_type }}</p>
-        <p>Gun Type: {{ data.gun_type }}</p>
-        <p>Exterior: {{ data.exterior }}</p>
-    </mat-card-content>
-    <mat-divider></mat-divider>
-    <mat-card-actions>
-        <button mat-button>BUY</button>
-    </mat-card-actions>
-</mat-card>
+<article>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ data.name }}</mat-card-title>
+        </mat-card-header>
+        <div class="imageWrapper">
+            <img src="{{ imageUrl }}"/>
+        </div>
+        <mat-card-content>
+            <div class="dataWrapper">
+                <div>Type:</div>
+                <div>{{ data.type }}</div>
+            </div>
+            <div class="dataWrapper">
+                <div>Exterior:</div>
+                <div>{{ data.exterior }}</div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">BUY</button>
+        </mat-card-actions>
+    </mat-card>
+    <div class="background"></div>
+</article>
