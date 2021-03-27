@@ -97,5 +97,8 @@ article:hover {
         height: 10%;
         margin: 0;
         padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }

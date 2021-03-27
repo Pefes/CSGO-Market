@@ -1,5 +1,9 @@
 <section>
     <ng-container *ngFor="let item of items">
-        <item [data]="item"></item>
+        <item
+            [data]="item"
+            [showBuyButton]="true"
+            [showSellButton]="true">
+        </item>
     </ng-container>
 </section>

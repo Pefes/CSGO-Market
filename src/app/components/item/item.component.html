@@ -17,7 +17,23 @@
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary">BUY</button>
+            <div class="buttons">
+                <button
+                    mat-raised-button
+                    color="primary"
+                    *ngIf="showBuyButton"
+                    (click)="buyButtonHandler()">
+                    BUY
+                </button>
+                <button
+                    mat-raised-button
+                    color="primary"
+                    *ngIf="showSellButton"
+                    (click)="sellButtonHandler()">
+                    SELL
+                </button>
+            </div>
+            <div class="price">$25</div>
         </mat-card-actions>
     </mat-card>
     <div class="background"></div>
