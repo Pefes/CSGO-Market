@@ -9,7 +9,7 @@ import { CSGO_API_IMAGE_URL, CSGO_API_URL } from "../data/variables.data";
   providedIn: "root"
 })
 export class ApiService {
-  
+
   constructor(private http: HttpClient) { }
 
   public getMarketItems(): Observable<any> {
@@ -20,7 +20,7 @@ export class ApiService {
       return {
         ...response,
         items_list: Object.values(response.items_list)
-      }
+      };
     }));
   }
 

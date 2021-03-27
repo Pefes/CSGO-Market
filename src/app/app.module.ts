@@ -9,7 +9,8 @@ import { LayoutComponent } from "./layout/layout/layout.component";
 import { MaterialModule } from "./modules/material/material.module";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MarketComponent } from "./views/market/market.component";
-import { ItemComponent } from './components/item/item.component';
+import { ItemComponent } from "./components/item/item.component";
+import { ItemListComponent } from "./components/item-list/item-list.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ItemComponent } from './components/item/item.component';
     LayoutComponent,
     NavbarComponent,
     MarketComponent,
-    ItemComponent
+    ItemComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import { ApiService } from "src/app/services/api.service";
   styleUrls: ["./market.component.scss"]
 })
 export class MarketComponent implements OnInit {
-  public marketItems: any;
+  public marketItems: any[] = [];
 
   constructor(private api: ApiService) { }
 
@@ -16,7 +16,6 @@ export class MarketComponent implements OnInit {
   }
 
   private _getMarketItems(): void {
-    this.api.getMarketItems().subscribe(data => { this.marketItems = data.items_list });
+    this.api.getMarketItems().subscribe(data => { this.marketItems = data.items_list; });
   }
-
 }

@@ -1,0 +1,11 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+
+    item {
+        display: flex;
+        width: 350px;
+        height: 350px;
+        margin: 25px;
+    }
+}
