@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from "@angular/core";
 import { CSGO_API_IMAGE_URL } from "src/app/data/variables.data";
 
 @Component({
-  selector: "market-item",
-  templateUrl: "./market-item.component.html",
-  styleUrls: ["./market-item.component.scss"]
+  selector: "item",
+  templateUrl: "./item.component.html",
+  styleUrls: ["./item.component.scss"]
 })
-export class MarketItemComponent implements OnInit {
+export class ItemComponent implements OnInit {
   public imageUrl: string = "";
 
   private _data: any;

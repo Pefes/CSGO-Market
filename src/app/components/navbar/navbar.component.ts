@@ -7,8 +7,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent {
-  public links: string[] = ["Home", "Dashboard", "Login"];
-  private _activeLink = "Home";
+  public links: string[] = ["Market", "Dashboard", "Login"];
+  private _activeLink = "Market";
 
   constructor(private router: Router) { }
 

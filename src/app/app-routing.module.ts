@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { MarketComponent } from "./views/market/market.component";
 
 const routes: Routes = [
-  { path: "home", component: MarketComponent }
+  { path: "market", component: MarketComponent }
 ];
 
 @NgModule({
