@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PRICE_HIGHEST, PRICE_LOWEST } from "src/app/data/variables.data";
 
 @Component({
   selector: 'item-list-filters',
@@ -6,6 +7,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./item-list-filters.component.scss']
 })
 export class ItemListFiltersComponent {
+
+  public sortingOptions: any[] = [PRICE_HIGHEST, PRICE_LOWEST];
+  public selectedSortingOption: string = "";
 
   public filtersApplied: any = {};
 
