@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { map } from "rxjs/operators";
-import { marketItems } from "../data/marketItems.data";
+import { marketItems } from "../data/market-items.data";
 import { CSGO_API_IMAGE_URL, CSGO_API_URL } from "../data/variables.data";
 
 @Injectable({

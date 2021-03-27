@@ -1,0 +1,30 @@
+mat-icon {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+mat-icon:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    mat-form-field {
+        margin: 10px;
+    }
+}
+
+.actions {
+    display: flex;    
+    justify-content: flex-end;
+
+    button:first-of-type {
+        margin-right: 15px;
+    }
+}

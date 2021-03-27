@@ -11,6 +11,8 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MarketComponent } from "./views/market/market.component";
 import { ItemComponent } from "./components/item/item.component";
 import { ItemListComponent } from "./components/item-list/item-list.component";
+import { ItemListFiltersComponent } from './components/item-list-filters/item-list-filters.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { ItemListComponent } from "./components/item-list/item-list.component";
     NavbarComponent,
     MarketComponent,
     ItemComponent,
-    ItemListComponent
+    ItemListComponent,
+    ItemListFiltersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

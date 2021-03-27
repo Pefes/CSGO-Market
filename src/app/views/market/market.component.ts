@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { propertiesToFilter } from "src/app/config/properties-to-filter.config";
 import { ApiService } from "src/app/services/api.service";
 
 @Component({
@@ -8,6 +9,8 @@ import { ApiService } from "src/app/services/api.service";
 })
 export class MarketComponent implements OnInit {
   public marketItems: any[] = [];
+  public filteredMarketItems: any[] = [];
+  public propertiesToFilter: any[] = propertiesToFilter;
 
   constructor(private api: ApiService) { }
 
@@ -16,6 +19,13 @@ export class MarketComponent implements OnInit {
   }
 
   private _getMarketItems(): void {
-    this.api.getMarketItems().subscribe(data => { this.marketItems = data.items_list; });
+    this.api.getMarketItems().subscribe(data => {
+      this.marketItems = data.items_list;
+      this.filteredMarketItems = [ ...this.marketItems ];
+    });
+  }
+
+  public filtersAppliedHandler(data: any[]): void {
+    this.filteredMarketItems = [ ...data ];
   }
 }

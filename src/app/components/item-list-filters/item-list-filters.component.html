@@ -1,0 +1,21 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>Filter/Sort</mat-panel-title>
+        <mat-panel-description>Click to see filters and sorting</mat-panel-description>
+    </mat-expansion-panel-header>
+    <section class="filters">
+        <ng-container *ngFor="let filter of propertiesToFilter">
+            <mat-form-field appearance="outline">
+                <mat-label>{{ filter.property | titlecase}}</mat-label>
+                <input matInput
+                    [(ngModel)]="filtersApplied[filter.property]"
+                    placeholder="{{ filter.property | titlecase }}">
+                <mat-icon matSuffix (click)="clearSingleFilter(filter.property)">close</mat-icon>
+            </mat-form-field>
+        </ng-container>
+    </section>
+    <section class="actions">
+        <button mat-raised-button (click)="clearAllFilters()">Clear</button>
+        <button mat-raised-button (click)="applyFilters()">Filter</button>
+    </section>
+</mat-expansion-panel>
