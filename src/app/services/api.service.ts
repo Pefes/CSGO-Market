@@ -24,6 +24,10 @@ export class ApiService {
     }));
   }
 
+  public getOwnedItems(): Observable<any> {
+    return this.getMarketItems();
+  }
+
   public getItemImage(imageId: string): Observable<any> {
     return this.http.get(`${ CSGO_API_IMAGE_URL }${ imageId }`);
   }

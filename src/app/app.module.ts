@@ -13,6 +13,7 @@ import { ItemComponent } from "./components/item/item.component";
 import { ItemListComponent } from "./components/item-list/item-list.component";
 import { ItemListFiltersComponent } from './components/item-list-filters/item-list-filters.component';
 import { FormsModule } from "@angular/forms";
+import { EquipmentComponent } from './views/equipment/equipment.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from "@angular/forms";
     MarketComponent,
     ItemComponent,
     ItemListComponent,
-    ItemListFiltersComponent
+    ItemListFiltersComponent,
+    EquipmentComponent
   ],
   imports: [
     BrowserModule,

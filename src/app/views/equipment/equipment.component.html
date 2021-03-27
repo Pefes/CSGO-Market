@@ -1,0 +1,6 @@
+<item-list-filters
+    [propertiesToFilter]="propertiesToFilter"
+    [items]="ownedItems"
+    (onFiltersApplied)="filtersAppliedHandler($event)">
+</item-list-filters>
+<item-list [items]="filteredOwnedItems"></item-list>
