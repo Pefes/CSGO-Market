@@ -32,6 +32,13 @@
                     (click)="sellButtonHandler()">
                     SELL
                 </button>
+                <button
+                    mat-raised-button
+                    color="primary"
+                    *ngIf="showOpenButton"
+                    (click)="openButtonHandler()">
+                    OPEN
+                </button>
             </div>
             <div class="price">$25</div>
         </mat-card-actions>

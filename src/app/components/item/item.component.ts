@@ -21,6 +21,7 @@ export class ItemComponent {
 
   @Input() showBuyButton: boolean = false;
   @Input() showSellButton: boolean = false;
+  @Input() showOpenButton: boolean = false;
 
   constructor(private _dialogService: MatDialog) { }
 
@@ -41,6 +42,13 @@ export class ItemComponent {
   
   public sellButtonHandler(): void {
     this.openYesNoDialog("Are you sure you want to sell this item?")
+    .afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  public openButtonHandler(): void {
+    this.openYesNoDialog("Are you sure you want to open this case?")
     .afterClosed().subscribe(result => {
       console.log(result);
     });

@@ -100,5 +100,10 @@ article:hover {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .buttons button {
+            margin: 0;
+            margin-right: 8px;
+        }
     }
 }
