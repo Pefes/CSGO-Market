@@ -20,7 +20,7 @@ export class EquipmentComponent implements OnInit {
 
   private _getOwnedItems(): void {
     this.api.getOwnedItems().subscribe(data => {
-      this.ownedItems = data.items_list;
+      this.ownedItems = data;
       this.filteredOwnedItems = [ ...this.ownedItems ];
     });
   }

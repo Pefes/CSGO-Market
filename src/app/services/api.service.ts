@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { map } from "rxjs/operators";
 import { marketItems } from "../data/market-items.data";
-import { CSGO_API_IMAGE_URL, CSGO_API_URL } from "../data/variables.data";
+import { CSGO_API_IMAGE_URL, CSGO_API_URL } from "../data/variables-messages.data";
 
 @Injectable({
   providedIn: "root"
@@ -13,15 +13,15 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   public getMarketItems(): Observable<any> {
-    // return this.http.get(CSGO_API_URL)
+    return this.http.get("api/getMarketItems?limit=50").pipe(map((data: any) => data.data));
 
     // MOCK DATA
-    return of(marketItems).pipe(map((response: any) => {
-      return {
-        ...response,
-        items_list: Object.values(response.items_list)
-      };
-    }));
+    // return of(marketItems).pipe(map((response: any) => {
+    //   return {
+    //     ...response,
+    //     items_list: Object.values(response.items_list)
+    //   };
+    // }));
   }
 
   public getOwnedItems(): Observable<any> {

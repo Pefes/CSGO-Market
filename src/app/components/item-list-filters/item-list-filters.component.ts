@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PRICE_HIGHEST, PRICE_LOWEST } from "src/app/data/variables.data";
+import { PRICE_HIGHEST, PRICE_LOWEST } from "src/app/data/variables-messages.data";
 
 @Component({
   selector: 'item-list-filters',

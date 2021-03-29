@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { CSGO_API_IMAGE_URL } from "src/app/data/variables.data";
+import { CSGO_API_IMAGE_URL } from "src/app/data/variables-messages.data";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 
 @Component({
@@ -16,7 +16,7 @@ export class ItemComponent {
   public get data(): any { return this._data; }
   @Input() public set data(data: any) {
     this._data = data;
-    this.imageUrl = `${ CSGO_API_IMAGE_URL }${ this._data.icon_url}`;
+    this.imageUrl = `${ CSGO_API_IMAGE_URL }${ this._data.iconUrl }`;
   }
 
   @Input() showBuyButton: boolean = false;

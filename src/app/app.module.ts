@@ -15,6 +15,7 @@ import { ItemListFiltersComponent } from './components/item-list-filters/item-li
 import { FormsModule } from "@angular/forms";
 import { EquipmentComponent } from './views/equipment/equipment.component';
 import { YesNoDialogComponent } from './components/yes-no-dialog/yes-no-dialog.component';
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { YesNoDialogComponent } from './components/yes-no-dialog/yes-no-dialog.c
     ItemListComponent,
     ItemListFiltersComponent,
     EquipmentComponent,
-    YesNoDialogComponent
+    YesNoDialogComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,

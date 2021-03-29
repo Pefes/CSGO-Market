@@ -20,7 +20,8 @@ export class MarketComponent implements OnInit {
 
   private _getMarketItems(): void {
     this.api.getMarketItems().subscribe(data => {
-      this.marketItems = data.items_list;
+      console.log(data);
+      this.marketItems = data;
       this.filteredMarketItems = [ ...this.marketItems ];
     });
   }
