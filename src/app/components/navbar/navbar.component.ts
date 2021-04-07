@@ -13,13 +13,13 @@ export class NavbarComponent {
   private _activeLink = "Market";
 
   constructor(
-    private router: Router,
+    private _router: Router,
     private _dialogService: MatDialog
     ) { }
 
   public clickLinkHandler(link: string): void {
     this._activeLink = link;
-    this.router.navigateByUrl(this._activeLink.toLocaleLowerCase());
+    this._router.navigateByUrl(this._activeLink.toLocaleLowerCase());
   }
 
   public isActive(link: string): boolean {
@@ -28,6 +28,14 @@ export class NavbarComponent {
 
   public loginButtonHandler(): void {
     const dialogRef = this._dialogService.open(LoginDialogComponent, { data: { login: true } });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  public registerButtonHandler(): void {
+    const dialogRef = this._dialogService.open(LoginDialogComponent, { data: { login: false } });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
