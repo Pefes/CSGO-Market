@@ -2,9 +2,12 @@
     <ng-container *ngFor="let item of items">
         <item
             [data]="item"
-            [showBuyButton]="true"
-            [showSellButton]="true"
-            [showOpenButton]="true">
+            [showBuyButton]="showBuyButton"
+            [showSellButton]="showSellButton"
+            [showOpenButton]="showOpenButton"
+            (buyButtonClicked)="buyButtonHandler($event)"
+            (sellButtonClicked)="sellButtonHandler($event)"
+            (openButtonClicked)="buyButtonHandler($event)">
         </item>
     </ng-container>
 </section>

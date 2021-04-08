@@ -12,14 +12,15 @@ export class EquipmentComponent implements OnInit {
   public filteredOwnedItems: any[] = [];
   public propertiesToFilter: any[] = propertiesToFilter;
 
-  constructor(private api: ApiService) { }
+  constructor(private _api: ApiService) { }
 
   public ngOnInit(): void {
     this._getOwnedItems();
   }
 
   private _getOwnedItems(): void {
-    this.api.getOwnedItems().subscribe(data => {
+    this._api.getOwnedItems().subscribe(data => {
+      console.log(data);
       this.ownedItems = data;
       this.filteredOwnedItems = [ ...this.ownedItems ];
     });
@@ -29,4 +30,7 @@ export class EquipmentComponent implements OnInit {
     this.filteredOwnedItems = [ ...data ];
   }
 
+  public itemRemovedHandler(itemId: string): void {
+    this.ownedItems = this.ownedItems.filter(item => item._id !== itemId);
+    this.filteredOwnedItems = this.filteredOwnedItems.filter(item => item._id !== itemId);  }
 }

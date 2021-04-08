@@ -3,4 +3,8 @@
     [items]="marketItems"
     (onFiltersApplied)="filtersAppliedHandler($event)">
 </item-list-filters>
-<item-list [items]="filteredMarketItems"></item-list>
+<item-list
+    [items]="filteredMarketItems"
+    [showBuyButton]="true"
+    (itemRemoved)="itemRemovedHandler($event)">
+</item-list>

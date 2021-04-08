@@ -10,10 +10,10 @@ import { CSGO_API_IMAGE_URL, CSGO_API_URL } from "../data/variables-messages.dat
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getMarketItems(): Observable<any> {
-    return this.http.get("api/getMarketItems?limit=50").pipe(map((data: any) => data.data));
+    return this._http.get("api/getMarketItems?limit=50").pipe(map((data: any) => data.data));
 
     // MOCK DATA
     // return of(marketItems).pipe(map((response: any) => {
@@ -25,10 +25,14 @@ export class ApiService {
   }
 
   public getOwnedItems(): Observable<any> {
-    return this.getMarketItems();
+    return this._http.get("api/getOwnedItems?limit=50").pipe(map((data: any) => data.data));
+  }
+
+  public buyItem(itemId: string): Observable<any> {
+    return this._http.post("api/buyItem", { itemId });
   }
 
   public getItemImage(imageId: string): Observable<any> {
-    return this.http.get(`${ CSGO_API_IMAGE_URL }${ imageId }`);
+    return this._http.get(`${ CSGO_API_IMAGE_URL }${ imageId }`);
   }
 }

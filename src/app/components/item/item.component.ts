@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { CSGO_API_IMAGE_URL } from "src/app/data/variables-messages.data";
+import { CSGO_API_IMAGE_URL, SUCCESS } from "src/app/data/variables-messages.data";
+import { ApiService } from "src/app/services/api.service";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 
 @Component({
@@ -19,38 +20,24 @@ export class ItemComponent {
     this.imageUrl = `${ CSGO_API_IMAGE_URL }${ this._data.iconUrl }`;
   }
 
-  @Input() showBuyButton: boolean = false;
-  @Input() showSellButton: boolean = false;
-  @Input() showOpenButton: boolean = false;
+  @Input() public showBuyButton: boolean = false;
+  @Input() public showSellButton: boolean = false;
+  @Input() public showOpenButton: boolean = false;
+  @Output() public buyButtonClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public sellButtonClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public openButtonClicked: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private _dialogService: MatDialog) { }
+  constructor() { }
 
-  public openYesNoDialog(contentText: string): MatDialogRef<YesNoDialogComponent> {
-    return this._dialogService.open(YesNoDialogComponent, {
-      data: {
-        contentText: contentText
-      }
-    });
-  }
-
-  public buyButtonHandler(): void {
-    this.openYesNoDialog("Are you sure you want to buy this item?")
-    .afterClosed().subscribe(result => {
-      console.log(result);
-    });
+  public buyButtonClickedHandler(): void {
+    this.buyButtonClicked.emit(this.data._id);
   }
   
-  public sellButtonHandler(): void {
-    this.openYesNoDialog("Are you sure you want to sell this item?")
-    .afterClosed().subscribe(result => {
-      console.log(result);
-    });
+  public sellButtonClickedHandler(): void {
+    this.sellButtonClicked.emit(this.data._id);
   }
 
-  public openButtonHandler(): void {
-    this.openYesNoDialog("Are you sure you want to open this case?")
-    .afterClosed().subscribe(result => {
-      console.log(result);
-    });
+  public openButtonClickedHandler(): void {
+    this.openButtonClicked.emit(this.data._id);
   }
 }

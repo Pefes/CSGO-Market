@@ -12,14 +12,14 @@ export class MarketComponent implements OnInit {
   public filteredMarketItems: any[] = [];
   public propertiesToFilter: any[] = propertiesToFilter;
 
-  constructor(private api: ApiService) { }
+  constructor(private _api: ApiService) { }
 
   public ngOnInit(): void {
     this._getMarketItems();
   }
 
   private _getMarketItems(): void {
-    this.api.getMarketItems().subscribe(data => {
+    this._api.getMarketItems().subscribe(data => {
       console.log(data);
       this.marketItems = data;
       this.filteredMarketItems = [ ...this.marketItems ];
@@ -28,5 +28,10 @@ export class MarketComponent implements OnInit {
 
   public filtersAppliedHandler(data: any[]): void {
     this.filteredMarketItems = [ ...data ];
+  }
+
+  public itemRemovedHandler(itemId: string): void {
+    this.marketItems = this.marketItems.filter(item => item._id !== itemId);
+    this.filteredMarketItems = this.filteredMarketItems.filter(item => item._id !== itemId);
   }
 }

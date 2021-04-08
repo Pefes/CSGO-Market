@@ -3,4 +3,9 @@
     [items]="ownedItems"
     (onFiltersApplied)="filtersAppliedHandler($event)">
 </item-list-filters>
-<item-list [items]="filteredOwnedItems"></item-list>
+<item-list
+    [items]="filteredOwnedItems"
+    [showSellButton]="true"
+    [showOpenButton]="true"
+    (itemRemoved)="itemRemovedHandler($event)">
+</item-list>
