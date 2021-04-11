@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PRICE_HIGHEST, PRICE_LOWEST } from "src/app/data/variables-messages.data";
+import { PRICE_HIGHEST, PRICE_LOWEST, SORT_ASCENDING, SORT_DESCENDING } from "src/app/data/variables-messages.data";
+import { ItemListFiltersData } from "src/app/models/item-list-filters-data.model";
 
 @Component({
   selector: 'item-list-filters',
@@ -14,8 +15,7 @@ export class ItemListFiltersComponent {
   public filtersApplied: any = {};
 
   @Input() public propertiesToFilter: any[] = [];
-  @Input() public items: any[] = [];
-  @Output() public onFiltersApplied: EventEmitter<any[]> = new EventEmitter<any[]>();
+  @Output() public onFiltersApplied: EventEmitter<ItemListFiltersData> = new EventEmitter<ItemListFiltersData>();
 
   constructor() {
     this._initFiltersAppliedData();
@@ -38,25 +38,11 @@ export class ItemListFiltersComponent {
   }
 
   public applyFilters(): void {
-    const filteredItems = this.items.filter(item => {
-      for (let [key, value] of Object.entries(this.filtersApplied)) {
-        if (!this._validateTextInput(item[key], value))
-          return false;
+    this.onFiltersApplied.emit({
+      ...this.filtersApplied,
+      sorting: {
+        price: this.selectedSortingOption === PRICE_HIGHEST ? SORT_DESCENDING : SORT_ASCENDING
       }
-      return true;
     });
-
-    this.onFiltersApplied.emit(filteredItems);
   }
-
-  private _validateTextInput(propertyValue: string, filter: any): boolean {
-    if (!filter)
-      return true;
-
-    if (!propertyValue)
-      return false;
-    
-    return propertyValue.toLocaleLowerCase().includes((filter as string).toLocaleLowerCase());
-  }
-
 }

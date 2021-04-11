@@ -1,10 +1,9 @@
 <item-list-filters
     [propertiesToFilter]="propertiesToFilter"
-    [items]="ownedItems"
     (onFiltersApplied)="filtersAppliedHandler($event)">
 </item-list-filters>
 <item-list
-    [items]="filteredOwnedItems"
+    [items]="ownedItems"
     [showSellButton]="true"
     [showOpenButton]="true"
     (itemRemoved)="itemRemovedHandler($event)">

@@ -45,7 +45,13 @@ export class ItemListComponent {
   public sellButtonHandler(itemId: string): void {
     this.openYesNoDialog("Are you sure you want to sell this item?")
     .afterClosed().subscribe(result => {
-      console.log(result);
+      if (result) {
+        this._api.sellItem(itemId).subscribe(response => {
+          if (response.status === SUCCESS) {
+            this.itemRemoved.emit(itemId);
+          }
+        });
+      }
     });
   }
 
