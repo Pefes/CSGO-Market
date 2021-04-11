@@ -7,9 +7,9 @@ article {
 article:hover {
     .background {
         transform: translateX(8px) translateY(8px);
-        -webkit-box-shadow: 5px 5px 33px 0px red;
-        -moz-box-shadow: 5px 5px 33px 0px red;
-        box-shadow: 5px 5px 33px 0px red;
+        -webkit-box-shadow: 5px 5px 33px 0px var(--app-primary);
+        -moz-box-shadow: 5px 5px 33px 0px var(--app-primary);
+        box-shadow: 5px 5px 33px 0px var(--app-primary);
     }
 
     mat-card {
@@ -19,16 +19,16 @@ article:hover {
 
 .background {
     position: absolute;
-    background-color: red;
+    background-color: var(--app-primary);
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     transform: translateX(4px) translateY(4px);
     transition: transform 1s ease, box-shadow 1s ease;
-    -webkit-box-shadow: 10px 10px 33px -15px red;
-    -moz-box-shadow: 10px 10px 33px -15px red;
-    box-shadow: 10px 10px 33px -15px red;
+    -webkit-box-shadow: 10px 10px 33px -15px var(--app-primary);
+    -moz-box-shadow: 10px 10px 33px -15px var(--app-primary);
+    box-shadow: 10px 10px 33px -15px var(--app-primary);
 }
 
 :host mat-card {
@@ -38,8 +38,8 @@ article:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: var(--background-secondary);
-    border: 1px solid var(--border);
+    background-color: var(--app-background-secondary);
+    border: 1px solid #353535;
     border-radius: 0;
     transition: transform 1s ease;
 
