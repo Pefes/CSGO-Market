@@ -28,7 +28,7 @@ export class AuthenticationService {
   }
 
   private _setSession(authenticationResponse: any): void {
-    const expiresAt = moment().add(authenticationResponse.expiresIn, "milliseconds");
+    const expiresAt = moment().add(authenticationResponse.data.expiresIn, "milliseconds");
 
     localStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, authenticationResponse.data.accessToken);
     localStorage.setItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, JSON.stringify(expiresAt.valueOf()));
@@ -39,10 +39,15 @@ export class AuthenticationService {
     localStorage.removeItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
   }
 
-  public getExpirationTime(): Moment {
+  public getExpirationTime(): Moment | null {
     const expirationString = localStorage.getItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
-    const expiresAt = JSON.parse(expirationString ?? "");
-    return moment(expiresAt);
+    
+    if (expirationString) {
+      const expiresAt = JSON.parse(expirationString ?? "");
+      return moment(expiresAt);
+    }
+    
+    return null;
   }
 
   public getAccesToken(): string | null {
@@ -50,7 +55,8 @@ export class AuthenticationService {
   }
 
   public isLoggedIn(): boolean {
-    return moment().isBefore(this.getExpirationTime());
+    const expirationTime = this.getExpirationTime();
+    return expirationTime !== null && moment().isBefore(expirationTime);
   }
 
   public isLoggedOut(): boolean {

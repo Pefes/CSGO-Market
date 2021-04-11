@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { CSGO_API_IMAGE_URL, SUCCESS } from "src/app/data/variables-messages.data";
-import { ApiService } from "src/app/services/api.service";
-import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
+import { CSGO_API_IMAGE_URL } from "src/app/data/variables-messages.data";
 
 @Component({
   selector: "item",
@@ -25,7 +22,7 @@ export class ItemComponent {
   @Input() public showOpenButton: boolean = false;
   @Output() public buyButtonClicked: EventEmitter<string> = new EventEmitter<string>();
   @Output() public sellButtonClicked: EventEmitter<string> = new EventEmitter<string>();
-  @Output() public openButtonClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public openButtonClicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -38,6 +35,6 @@ export class ItemComponent {
   }
 
   public openButtonClickedHandler(): void {
-    this.openButtonClicked.emit(this.data._id);
+    this.openButtonClicked.emit(this.data);
   }
 }

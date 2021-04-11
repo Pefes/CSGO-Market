@@ -11,7 +11,11 @@
                     <input matInput
                         [(ngModel)]="filtersApplied[filter.property]"
                         placeholder="{{ filter.property | titlecase }}">
-                    <mat-icon matSuffix (click)="clearSingleFilter(filter.property)">close</mat-icon>
+                    <mat-icon matSuffix
+                        [class.hideCloseIcon]="!filtersApplied[filter.property]"
+                        (click)="clearSingleFilter(filter.property)">
+                        close
+                    </mat-icon>
                 </mat-form-field>
             </ng-container>
             </div>

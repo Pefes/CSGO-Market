@@ -17,6 +17,7 @@ import { EquipmentComponent } from './views/equipment/equipment.component';
 import { YesNoDialogComponent } from './components/yes-no-dialog/yes-no-dialog.component';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 import { AuthenticationInterceptor } from "./services/authentication-interceptor";
+import { OpenContainerDialogComponent } from './components/open-container-dialog/open-container-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthenticationInterceptor } from "./services/authentication-interceptor
     ItemListFiltersComponent,
     EquipmentComponent,
     YesNoDialogComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    OpenContainerDialogComponent
   ],
   imports: [
     BrowserModule,

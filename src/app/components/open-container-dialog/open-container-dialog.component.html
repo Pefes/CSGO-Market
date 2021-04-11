@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{ itemData.name }} | Open</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <section class="caseConsistsOf">
+        <img src="{{ getIconFullUrl(itemData.iconUrl) }}"/>
+        <p>{{ itemData.name }} contains one of these items:</p>
+    </section>
+    <section class="contentItems">
+        <ng-container *ngFor="let contentItem of itemData.content">
+            <article>
+                <div class="imageWrapper">
+                    <img src="{{ getIconFullUrl(contentItem.iconUrl) }}"/>
+                </div>
+                <p>{{ contentItem.name }}</p>
+            </article>
+        </ng-container>
+    </section>
+</div>
+<mat-divider class="bottomDivider"></mat-divider>
+<div mat-dialog-actions class="dialogActions">
+    <button mat-raised-button (click)="buttonClickHandler(false)">Cancel</button>
+    <button mat-raised-button color="primary" (click)="buttonClickHandler(true)">Open</button>
+</div>

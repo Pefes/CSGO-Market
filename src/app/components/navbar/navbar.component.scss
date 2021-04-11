@@ -1,0 +1,21 @@
+nav {
+    margin-bottom: 15px;
+}
+
+.actionButtonsWrapper button {
+    margin-right: 10px;
+}
+
+:host nav ::ng-deep {
+
+    .mat-tab-links {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mat-ink-bar {
+        -webkit-box-shadow: 0px 0px 20px 1px var(--app-primary);
+        -moz-box-shadow: 0px 0px 20px 1px var(--app-primary);
+        box-shadow: 0px 0px 20px 1px var(--app-primary);
+    }
+}

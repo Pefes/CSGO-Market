@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { SUCCESS } from "src/app/data/variables-messages.data";
 import { ApiService } from "src/app/services/api.service";
+import { OpenContainerDialogComponent } from "../open-container-dialog/open-container-dialog.component";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 
 @Component({
@@ -26,6 +27,12 @@ export class ItemListComponent {
       data: {
         contentText: contentText
       }
+    });
+  }
+
+  public openOpenContainerDialog(itemData: any): MatDialogRef<OpenContainerDialogComponent> {
+    return this._dialogService.open(OpenContainerDialogComponent, {
+      data: itemData
     });
   }
 
@@ -55,9 +62,8 @@ export class ItemListComponent {
     });
   }
 
-  public openButtonHandler(itemId: string): void {
-    this.openYesNoDialog("Are you sure you want to open this case?")
-    .afterClosed().subscribe(result => {
+  public openButtonHandler(itemData: any): void {
+    this.openOpenContainerDialog(itemData).afterClosed().subscribe(result => {
       console.log(result);
     });
   }

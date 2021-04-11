@@ -1,3 +1,7 @@
+:host {
+    --border: #353535;
+}
+
 article {
     position: relative;
     width: 100%;
@@ -39,7 +43,7 @@ article:hover {
     display: flex;
     flex-direction: column;
     background-color: var(--app-background-secondary);
-    border: 1px solid #353535;
+    border: 1px solid var(--border);
     border-radius: 0;
     transition: transform 1s ease;
 

@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
+import { AuthenticationService } from "src/app/services/authentication.service";
 import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 
 @Component({
@@ -9,12 +10,13 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent {
-  public links: string[] = ["Market", "Equipment", "Login"];
+  public links: string[] = ["Market", "Equipment"];
   private _activeLink = "Market";
 
   constructor(
     private _router: Router,
-    private _dialogService: MatDialog
+    private _dialogService: MatDialog,
+    private _authenticationService: AuthenticationService
     ) { }
 
   public clickLinkHandler(link: string): void {
@@ -40,5 +42,13 @@ export class NavbarComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
+  }
+
+  public logoutButtonHandler(): void {
+    this._authenticationService.logout();
+  }
+
+  public isLoggedIn(): boolean {
+    return this._authenticationService.isLoggedIn();
   }
 }

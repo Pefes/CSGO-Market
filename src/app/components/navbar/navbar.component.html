@@ -1,10 +1,16 @@
 <nav mat-tab-nav-bar>
-    <a mat-tab-link
-        *ngFor="let link of links"
-        (click)="clickLinkHandler(link)"
-        [active]="isActive(link)">
-        {{ link }}
-    </a>
+    <div>
+        <a mat-tab-link
+            *ngFor="let link of links"
+            (click)="clickLinkHandler(link)"
+            [active]="isActive(link)">
+            {{ link }}
+        </a>
+    </div>
+    
+    <div class="actionButtonsWrapper">
+        <button mat-raised-button *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">Login</button>
+        <button mat-raised-button *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">Register</button>
+        <button mat-raised-button *ngIf="isLoggedIn()" (click)="logoutButtonHandler()">Logout</button>
+    </div>
 </nav>
-<button mat-raised-button (click)="loginButtonHandler()">Login</button>
-<button mat-raised-button (click)="registerButtonHandler()">Register</button>

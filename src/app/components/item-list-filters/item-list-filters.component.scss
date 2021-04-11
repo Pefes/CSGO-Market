@@ -10,6 +10,11 @@ mat-icon:hover {
     background-color: var(--app-background-primary);
 }
 
+.hideCloseIcon {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .formFields {
     display: flex;
     justify-content: space-between;

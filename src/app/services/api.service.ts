@@ -37,6 +37,10 @@ export class ApiService {
     return this._http.post("api/sellItem", { itemId });
   }
 
+  public openContainer(containerId: string): Observable<any> {
+    return this._http.post("api/openContainer", { containerId });
+  }
+
   public getItemImage(imageId: string): Observable<any> {
     return this._http.get(`${ CSGO_API_IMAGE_URL }${ imageId }`);
   }
