@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { SUCCESS } from "src/app/data/variables-messages.data";
+import { Item } from "src/app/models/item.model";
 import { ApiService } from "src/app/services/api.service";
 import { OpenContainerDialogComponent } from "../open-container-dialog/open-container-dialog.component";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
@@ -12,7 +13,7 @@ import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 })
 export class ItemListComponent {
 
-  @Input() public items: any[] = [];
+  @Input() public items: Item[] = [];
   @Input() public showBuyButton: boolean = false;
   @Input() public showSellButton: boolean = false;
   @Input() public showOpenButton: boolean = false;
@@ -62,9 +63,11 @@ export class ItemListComponent {
     });
   }
 
-  public openButtonHandler(itemData: any): void {
+  public openButtonHandler(itemData: Item): void {
     this.openOpenContainerDialog(itemData).afterClosed().subscribe(result => {
-      console.log(result);
+      if (result) {
+        this.itemRemoved.emit(itemData._id);
+      }
     });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { CSGO_API_IMAGE_URL } from "src/app/data/variables-messages.data";
+import { Item } from "src/app/models/item.model";
 
 @Component({
   selector: "item",
@@ -10,11 +11,11 @@ export class ItemComponent {
 
   public imageUrl: string = "";
 
-  private _data: any;
-  public get data(): any { return this._data; }
-  @Input() public set data(data: any) {
+  private _data: Item = {} as Item;
+  public get data(): Item { return this._data; }
+  @Input() public set data(data: Item) {
     this._data = data;
-    this.imageUrl = `${ CSGO_API_IMAGE_URL }${ this._data.iconUrl }`;
+    this.imageUrl = this._data.iconUrl ? `${ CSGO_API_IMAGE_URL }${ this._data.iconUrl }` : "";
   }
 
   @Input() public showBuyButton: boolean = false;

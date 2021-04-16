@@ -18,6 +18,8 @@ import { YesNoDialogComponent } from './components/yes-no-dialog/yes-no-dialog.c
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
 import { AuthenticationInterceptor } from "./services/authentication-interceptor";
 import { OpenContainerDialogComponent } from './components/open-container-dialog/open-container-dialog.component';
+import { ShowDrawnItemDialogComponent } from './components/show-drawn-item-dialog/show-drawn-item-dialog.component';
+import { TextColorDirective } from './directives/text-color.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { OpenContainerDialogComponent } from './components/open-container-dialog
     EquipmentComponent,
     YesNoDialogComponent,
     LoginDialogComponent,
-    OpenContainerDialogComponent
+    OpenContainerDialogComponent,
+    ShowDrawnItemDialogComponent,
+    TextColorDirective
   ],
   imports: [
     BrowserModule,

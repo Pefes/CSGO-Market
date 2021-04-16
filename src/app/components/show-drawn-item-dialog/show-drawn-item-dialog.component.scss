@@ -1,0 +1,13 @@
+.imageWrapper {
+    -webkit-box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
+    -moz-box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
+    box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
+    border: 1px solid #313131;
+}
+
+.propertyWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+

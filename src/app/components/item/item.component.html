@@ -15,6 +15,10 @@
                 <div>Exterior:</div>
                 <div>{{ data.exterior }}</div>
             </div>
+            <div class="dataWrapper">
+                <div>Rarity:</div>
+                <div [textColor]="data.rarityColor">{{ data.rarity }}</div>
+            </div>
         </mat-card-content>
         <mat-card-actions>
             <div class="buttons">
@@ -35,12 +39,12 @@
                 <button
                     mat-raised-button
                     color="primary"
-                    *ngIf="showOpenButton"
+                    *ngIf="showOpenButton && data.openable"
                     (click)="openButtonClickedHandler()">
                     OPEN
                 </button>
             </div>
-            <div class="price">${{ data.price }}</div>
+            <div class="price" textColor>{{ data.price | currency }}</div>
         </mat-card-actions>
     </mat-card>
     <div class="background"></div>

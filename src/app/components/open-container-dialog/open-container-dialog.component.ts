@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { CSGO_API_IMAGE_URL } from "src/app/data/variables-messages.data";
+import { CSGO_API_IMAGE_URL, SUCCESS } from "src/app/data/variables-messages.data";
+import { Item } from "src/app/models/item.model";
 import { ApiService } from "src/app/services/api.service";
-import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
+import { ShowDrawnItemDialogComponent } from "../show-drawn-item-dialog/show-drawn-item-dialog.component";
 
 @Component({
   selector: 'open-container-dialog',
@@ -14,17 +15,20 @@ export class OpenContainerDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<OpenContainerDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public itemData: any,
-    private _dialogService: MatDialog,
-    private _api: ApiService) {
-      console.log(itemData);
-  }
+    private _api: ApiService,
+    private _dialogService: MatDialog) {}
 
   public buttonClickHandler(result: boolean): void {
     if (result) {
-      this._api.openContainer(this.itemData._id).subscribe(console.log);
+      this._api.openContainer(this.itemData._id).subscribe(response => {
+        if (response.status === SUCCESS) {
+          this._dialogService.open(ShowDrawnItemDialogComponent, { panelClass: "drawnItemDialogContainer", data: response.data.drawnItem });
+          this.dialogRef.close(true);
+        }
+      });
     }
 
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   public getIconFullUrl(iconUrl: string): string {

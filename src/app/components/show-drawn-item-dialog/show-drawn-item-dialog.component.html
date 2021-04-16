@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Congratulations!</h1>
+<div mat-dialog-content>
+    <p>You received a new item!</p>
+    <section class="imageWrapper">
+        <img src="{{ getIconFullUrl() }}"/>
+    </section>
+    <section>
+        <ng-container *ngFor="let property of propertiesToShow">
+            <div *ngIf="property == 'price'; else allProperties" class="propertyWrapper">
+                <div>{{ property | titlecase}}</div>
+                <div>{{ data[property] | currency}}</div>
+            </div>
+            <ng-template #allProperties>
+                <div class="propertyWrapper">
+                    <div>{{ property | titlecase}}</div>
+                    <div>{{ data[property] }}</div>
+                </div>
+            </ng-template>
+        </ng-container>
+    </section>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="buttonClickHandler()">Close</button>
+</div>
