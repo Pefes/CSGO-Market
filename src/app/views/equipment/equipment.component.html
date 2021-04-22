@@ -4,7 +4,9 @@
 </item-list-filters>
 <item-list
     [items]="ownedItems"
+    [querySize]="querySize"
     [showSellButton]="true"
     [showOpenButton]="true"
-    (itemRemoved)="itemRemovedHandler($event)">
+    (itemRemoved)="itemRemovedHandler($event)"
+    (paginatorChanged)="paginatorChangedHandler($event)">
 </item-list>

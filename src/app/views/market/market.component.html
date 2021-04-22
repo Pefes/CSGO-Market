@@ -5,5 +5,7 @@
 <item-list
     [items]="marketItems"
     [showBuyButton]="true"
-    (itemRemoved)="itemRemovedHandler($event)">
+    [querySize]="querySize"
+    (itemRemoved)="itemRemovedHandler($event)"
+    (paginatorChanged)="paginatorChangedHandler($event)">
 </item-list>

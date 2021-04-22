@@ -5,6 +5,7 @@ import { map } from "rxjs/operators";
 import { marketItems } from "../data/market-items.data";
 import { CSGO_API_IMAGE_URL, CSGO_API_URL } from "../data/variables-messages.data";
 import { ItemListFiltersData } from "../models/item-list-filters-data.model";
+import { ItemListPaginatorData } from "../models/item-list-paginator-data.model";
 
 @Injectable({
   providedIn: "root"
@@ -13,7 +14,7 @@ export class ApiService {
 
   constructor(private _http: HttpClient) { }
 
-  public getMarketItems(params?: ItemListFiltersData): Observable<any> {
+  public getMarketItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {
     return this._http.post("api/getMarketItems", params).pipe(map((data: any) => data.data));
 
     // MOCK DATA
@@ -25,7 +26,7 @@ export class ApiService {
     // }));
   }
 
-  public getOwnedItems(params?: ItemListFiltersData): Observable<any> {
+  public getOwnedItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {
     return this._http.post("api/getOwnedItems", params).pipe(map((data: any) => data.data));
   }
 

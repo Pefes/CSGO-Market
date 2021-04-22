@@ -9,15 +9,15 @@
         <mat-card-content>
             <div class="dataWrapper">
                 <div>Type:</div>
-                <div>{{ data.type }}</div>
+                <div>{{ checkIfEmpty(data.type) }}</div>
             </div>
             <div class="dataWrapper">
                 <div>Exterior:</div>
-                <div>{{ data.exterior }}</div>
+                <div>{{ checkIfEmpty(data.exterior) }}</div>
             </div>
             <div class="dataWrapper">
                 <div>Rarity:</div>
-                <div [textColor]="data.rarityColor">{{ data.rarity }}</div>
+                <div [textColor]="data.rarityColor">{{ checkIfEmpty(data.rarity) }}</div>
             </div>
         </mat-card-content>
         <mat-card-actions>

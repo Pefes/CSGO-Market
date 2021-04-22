@@ -35,14 +35,18 @@ export class ItemListFiltersComponent {
 
   public clearAllFilters(): void {
     this._initFiltersAppliedData();
+    this.selectedSortingOption = "";
   }
 
   public applyFilters(): void {
+    let sorting = null;
+    if (this.selectedSortingOption) {
+      sorting = { price: this.selectedSortingOption === PRICE_HIGHEST ? SORT_DESCENDING : SORT_ASCENDING };
+    }
+
     this.onFiltersApplied.emit({
       ...this.filtersApplied,
-      sorting: {
-        price: this.selectedSortingOption === PRICE_HIGHEST ? SORT_DESCENDING : SORT_ASCENDING
-      }
+      sorting
     });
   }
 }

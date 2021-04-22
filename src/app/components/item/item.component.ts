@@ -27,6 +27,10 @@ export class ItemComponent {
 
   constructor() { }
 
+  public checkIfEmpty(value: string): string {
+    return value ?? "-";
+  }
+
   public buyButtonClickedHandler(): void {
     this.buyButtonClicked.emit(this.data._id);
   }

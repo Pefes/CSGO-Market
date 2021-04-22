@@ -6,7 +6,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 export class TextColorDirective implements OnInit {
   
   @Input() public textColor: string = "";
-  private readonly _DEFAULT_COLOR: string = "green";
+  private readonly _DEFAULT_COLOR: string = "#00e200";
 
   constructor(private _elementRef: ElementRef) {}
 

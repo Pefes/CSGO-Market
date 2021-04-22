@@ -1,3 +1,10 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 section {
     display: flex;
     flex-wrap: wrap;
@@ -7,4 +14,8 @@ section {
         width: 325px;
         margin: 25px;
     }
+}
+
+mat-paginator {
+    width: 100%;
 }

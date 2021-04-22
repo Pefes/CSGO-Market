@@ -2,5 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
+    overflow: auto;
+}
+
+.content {
+    height: 100%;
 }

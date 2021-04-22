@@ -94,6 +94,7 @@ article:hover {
         .dataWrapper {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 5px;
         }
     }
     
@@ -109,6 +110,10 @@ article:hover {
         .buttons button {
             margin: 0;
             margin-right: 8px;
+        }
+
+        .price {
+            font-size: 18px;
         }
     }
 }

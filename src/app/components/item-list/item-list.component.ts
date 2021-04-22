@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { PageEvent } from "@angular/material/paginator";
 import { SUCCESS } from "src/app/data/variables-messages.data";
 import { Item } from "src/app/models/item.model";
+import { ItemListPaginatorData } from "src/app/models/item-list-paginator-data.model";
 import { ApiService } from "src/app/services/api.service";
 import { OpenContainerDialogComponent } from "../open-container-dialog/open-container-dialog.component";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
@@ -14,14 +16,20 @@ import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 export class ItemListComponent {
 
   @Input() public items: Item[] = [];
+  @Input() public querySize: number = 0;
   @Input() public showBuyButton: boolean = false;
   @Input() public showSellButton: boolean = false;
   @Input() public showOpenButton: boolean = false;
   @Output() public itemRemoved: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public paginatorChanged: EventEmitter<ItemListPaginatorData> = new EventEmitter<ItemListPaginatorData>();
 
   constructor(
     private _dialogService: MatDialog,
     private _api: ApiService) { }
+
+  public paginatorChangedHandler(event: PageEvent): void {
+    this.paginatorChanged.emit({ pageNumber: event.pageIndex, pageSize: event.pageSize });
+  }
 
   public openYesNoDialog(contentText: string): MatDialogRef<YesNoDialogComponent> {
     return this._dialogService.open(YesNoDialogComponent, {
@@ -31,7 +39,7 @@ export class ItemListComponent {
     });
   }
 
-  public openOpenContainerDialog(itemData: any): MatDialogRef<OpenContainerDialogComponent> {
+  public openOpenContainerDialog(itemData: Item): MatDialogRef<OpenContainerDialogComponent> {
     return this._dialogService.open(OpenContainerDialogComponent, {
       data: itemData
     });

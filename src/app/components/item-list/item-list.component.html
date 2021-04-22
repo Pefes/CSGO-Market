@@ -1,4 +1,13 @@
 <section>
+    <mat-paginator
+        [length]="querySize"
+        [pageSize]="25"
+        [pageSizeOptions]="[5, 25, 50]"
+        (page)="paginatorChangedHandler($event)"
+        [showFirstLastButtons]="true">
+    </mat-paginator>
+</section>
+<section>
     <ng-container *ngFor="let item of items">
         <item
             [data]="item"
@@ -10,4 +19,13 @@
             (openButtonClicked)="openButtonHandler($event)">
         </item>
     </ng-container>
+</section>
+<section>
+    <mat-paginator
+        [length]="querySize"
+        [pageSize]="25"
+        [pageSizeOptions]="[5, 25, 50]"
+        (page)="paginatorChangedHandler($event)"
+        [showFirstLastButtons]="true">
+    </mat-paginator>
 </section>
