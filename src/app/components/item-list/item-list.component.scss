@@ -5,8 +5,8 @@
     height: 100%;
 }
 
-section {
-    display: flex;
+.itemsListWrapper {
+    margin: 50px;
 }
 
 .itemsWrapper {
@@ -14,7 +14,22 @@ section {
     grid-template-columns: repeat(auto-fill, 325px);
     justify-content: center;
     grid-gap: 50px;
-    margin: 50px;
+}
+
+.noItemsFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    mat-icon {
+        font-size: 150px;
+        width: unset;
+        height: unset;
+    }
+
+    p {
+        font-size: 24px;
+    }
 }
 
 mat-paginator {

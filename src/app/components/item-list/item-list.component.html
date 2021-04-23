@@ -7,18 +7,24 @@
         [showFirstLastButtons]="true">
     </mat-paginator>
 </section>
-<section class="itemsWrapper">
-    <ng-container *ngFor="let item of items">
-        <item
-            [data]="item"
-            [showBuyButton]="showBuyButton"
-            [showSellButton]="showSellButton"
-            [showOpenButton]="showOpenButton"
-            (buyButtonClicked)="buyButtonHandler($event)"
-            (sellButtonClicked)="sellButtonHandler($event)"
-            (openButtonClicked)="openButtonHandler($event)">
-        </item>
-    </ng-container>
+<section class="itemsListWrapper">
+    <div class="itemsWrapper">
+        <ng-container *ngFor="let item of items">
+            <item
+                [data]="item"
+                [showBuyButton]="showBuyButton"
+                [showSellButton]="showSellButton"
+                [showOpenButton]="showOpenButton"
+                (buyButtonClicked)="buyButtonHandler($event)"
+                (sellButtonClicked)="sellButtonHandler($event)"
+                (openButtonClicked)="openButtonHandler($event)">
+            </item>
+        </ng-container>
+    </div>
+    <div class="noItemsFound" *ngIf="items.length === 0">
+        <mat-icon>search</mat-icon>
+        <p>No items found...</p>
+    </div>
 </section>
 <section>
     <mat-paginator
