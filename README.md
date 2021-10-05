@@ -65,7 +65,6 @@ npm start
 
 ## Built With
 
-* Angular 11
 * [Angular 11](https://angular.io/docs) - Frontend framework
 * [RxJs](https://rxjs.dev/guide/overview) - Library for asynchronous operations
 * Rest of dependencies are included in package.json file in "dependencies"
