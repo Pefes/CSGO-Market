@@ -1,8 +1,9 @@
 <section>
     <mat-paginator
         [length]="querySize"
-        [pageSize]="25"
+        [pageSize]="currentPageSize"
         [pageSizeOptions]="[5, 25, 50]"
+        [pageIndex]="currentPageIndex"
         (page)="paginatorChangedHandler($event)"
         [showFirstLastButtons]="true">
     </mat-paginator>
@@ -29,8 +30,9 @@
 <section>
     <mat-paginator
         [length]="querySize"
-        [pageSize]="25"
+        [pageSize]="currentPageSize"
         [pageSizeOptions]="[5, 25, 50]"
+        [pageIndex]="currentPageIndex"
         (page)="paginatorChangedHandler($event)"
         [showFirstLastButtons]="true">
     </mat-paginator>

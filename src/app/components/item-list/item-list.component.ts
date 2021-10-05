@@ -16,6 +16,9 @@ import { AuthenticationService } from "src/app/services/authentication.service";
 })
 export class ItemListComponent {
 
+  public currentPageSize: number = 25;
+  public currentPageIndex: number = 0;
+
   @Input() public items: Item[] = [];
   @Input() public querySize: number = 0;
   @Input() public showBuyButton: boolean = false;
@@ -30,6 +33,8 @@ export class ItemListComponent {
     private _authenticationService: AuthenticationService) { }
 
   public paginatorChangedHandler(event: PageEvent): void {
+    this.currentPageSize = event.pageSize;
+    this.currentPageIndex = event.pageIndex;
     this.paginatorChanged.emit({ pageNumber: event.pageIndex, pageSize: event.pageSize });
   }
 
