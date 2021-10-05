@@ -2,8 +2,17 @@ nav {
     margin-bottom: 15px;
 }
 
-.actionButtonsWrapper button {
-    margin-right: 10px;
+.actionButtonsWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    > * {
+        margin-right: 10px;
+    }
+
+    .cashCard {
+        padding: 8px;
+    }
 }
 
 :host nav ::ng-deep {

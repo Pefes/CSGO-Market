@@ -21,9 +21,9 @@ export class ItemComponent {
   @Input() public showBuyButton: boolean = false;
   @Input() public showSellButton: boolean = false;
   @Input() public showOpenButton: boolean = false;
-  @Output() public buyButtonClicked: EventEmitter<string> = new EventEmitter<string>();
-  @Output() public sellButtonClicked: EventEmitter<string> = new EventEmitter<string>();
-  @Output() public openButtonClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() public buyButtonClicked: EventEmitter<Item> = new EventEmitter<Item>();
+  @Output() public sellButtonClicked: EventEmitter<Item> = new EventEmitter<Item>();
+  @Output() public openButtonClicked: EventEmitter<Item> = new EventEmitter<Item>();
 
   constructor() { }
 
@@ -32,11 +32,11 @@ export class ItemComponent {
   }
 
   public buyButtonClickedHandler(): void {
-    this.buyButtonClicked.emit(this.data._id);
+    this.buyButtonClicked.emit(this.data);
   }
   
   public sellButtonClickedHandler(): void {
-    this.sellButtonClicked.emit(this.data._id);
+    this.sellButtonClicked.emit(this.data);
   }
 
   public openButtonClickedHandler(): void {

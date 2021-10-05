@@ -7,6 +7,7 @@ import { ItemListPaginatorData } from "src/app/models/item-list-paginator-data.m
 import { ApiService } from "src/app/services/api.service";
 import { OpenContainerDialogComponent } from "../open-container-dialog/open-container-dialog.component";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
+import { AuthenticationService } from "src/app/services/authentication.service";
 
 @Component({
   selector: "item-list",
@@ -25,7 +26,8 @@ export class ItemListComponent {
 
   constructor(
     private _dialogService: MatDialog,
-    private _api: ApiService) { }
+    private _api: ApiService,
+    private _authenticationService: AuthenticationService) { }
 
   public paginatorChangedHandler(event: PageEvent): void {
     this.paginatorChanged.emit({ pageNumber: event.pageIndex, pageSize: event.pageSize });
@@ -45,26 +47,28 @@ export class ItemListComponent {
     });
   }
 
-  public buyButtonHandler(itemId: string): void {
+  public buyButtonHandler(item: Item): void {
     this.openYesNoDialog("Are you sure you want to buy this item?")
     .afterClosed().subscribe(result => {
       if (result) {
-        this._api.buyItem(itemId).subscribe(response => {
+        this._api.buyItem(item._id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this.itemRemoved.emit(itemId);
+            this.itemRemoved.emit(item._id);
+            this._authenticationService.addValueToUserCash(-item.price);
           }
         });
       }
     });
   }
   
-  public sellButtonHandler(itemId: string): void {
+  public sellButtonHandler(item: Item): void {
     this.openYesNoDialog("Are you sure you want to sell this item?")
     .afterClosed().subscribe(result => {
       if (result) {
-        this._api.sellItem(itemId).subscribe(response => {
+        this._api.sellItem(item._id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this.itemRemoved.emit(itemId);
+            this.itemRemoved.emit(item._id);
+            this._authenticationService.addValueToUserCash(item.price);
           }
         });
       }

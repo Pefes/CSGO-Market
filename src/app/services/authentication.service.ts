@@ -81,4 +81,15 @@ export class AuthenticationService {
   public isLoggedOut(): boolean {
     return !this.isLoggedIn();
   }
+
+  public addValueToUserCash(value: number): void {
+    const userData: UserData | null = this._userData.getValue();
+
+    if (!this.isLoggedIn() || !userData?.cash) {
+      return;
+    }
+
+    this._userData.next({ ...this._userData.getValue(), cash: userData.cash + value });
+    localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.getValue()));
+  }
 }
