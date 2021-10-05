@@ -2,17 +2,21 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import * as moment from "moment";
 import { Moment } from "moment";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { shareReplay, tap } from "rxjs/operators";
-import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, LOGIN_URL, REGISTER_URL } from "../data/variables-messages.data";
+import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, LOGIN_URL, REGISTER_URL, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
+import { UserData } from "../models/user-data.model";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private _userData: BehaviorSubject<UserData | null> = new BehaviorSubject<UserData | null>(null);
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {
+    this._getLoggedInUserDataFromStorage();
+  }
 
   public register(username: string, password: string): Observable<any> {
     return this._http.post(REGISTER_URL, { username, password }).pipe(
@@ -22,21 +26,25 @@ export class AuthenticationService {
 
   public login(username: string, password: string): Observable<any> {
     return this._http.post(LOGIN_URL, { username, password }).pipe(
-      tap(this._setSession),
+      tap((data) => { this._setSession(data) }),
       shareReplay()
     );
   }
 
   private _setSession(authenticationResponse: any): void {
+    this._userData.next({ ...authenticationResponse.data.userData });
     const expiresAt = moment().add(authenticationResponse.data.expiresIn, "milliseconds");
 
     localStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, authenticationResponse.data.accessToken);
     localStorage.setItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.value));
   }
 
   public logout() {
+    this._userData.next(null);
     localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
     localStorage.removeItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
+    localStorage.removeItem(USER_DATA_STORAGE_KEY);
   }
 
   public getExpirationTime(): Moment | null {
@@ -52,6 +60,17 @@ export class AuthenticationService {
 
   public getAccesToken(): string | null {
     return localStorage.getItem(ACCESS_TOKEN_STORAGE_KEY);
+  }
+
+  private _getLoggedInUserDataFromStorage(): void {
+    if (this.isLoggedIn() && !this._userData.getValue()) {
+      const userDataFromLocalStorage = JSON.parse(localStorage.getItem(USER_DATA_STORAGE_KEY) ?? "");
+      this._userData.next(userDataFromLocalStorage);
+    }
+  }
+
+  public getLoggedInUserData(): Observable<UserData | null> {
+    return this._userData.asObservable();
   }
 
   public isLoggedIn(): boolean {

@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
+import { UserData } from "src/app/models/user-data.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 
@@ -12,12 +13,17 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 export class NavbarComponent {
   public links: string[] = ["Market", "Equipment"];
   private _activeLink = "Market";
+  public loggedInUserData: UserData | null = null;
 
   constructor(
     private _router: Router,
     private _dialogService: MatDialog,
     private _authenticationService: AuthenticationService
-    ) { }
+  ) {
+    this._authenticationService.getLoggedInUserData().subscribe(userData => {
+      this.loggedInUserData = userData;
+    });
+  }
 
   public clickLinkHandler(link: string): void {
     this._activeLink = link;

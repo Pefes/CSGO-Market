@@ -10,5 +10,6 @@ export const REGISTER = "Register";
 export const LOGIN = "Login";
 export const ACCESS_TOKEN_STORAGE_KEY = "accessTokenId";
 export const ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY = "accessTokenExpiresAt";
+export const USER_DATA_STORAGE_KEY = "userData";
 export const SUCCESS = "Success";
 export const FAIL = "Fail";
