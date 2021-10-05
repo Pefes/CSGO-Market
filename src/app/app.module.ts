@@ -11,15 +11,15 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MarketComponent } from "./views/market/market.component";
 import { ItemComponent } from "./components/item/item.component";
 import { ItemListComponent } from "./components/item-list/item-list.component";
-import { ItemListFiltersComponent } from './components/item-list-filters/item-list-filters.component';
+import { ItemListFiltersComponent } from "./components/item-list-filters/item-list-filters.component";
 import { FormsModule } from "@angular/forms";
-import { EquipmentComponent } from './views/equipment/equipment.component';
-import { YesNoDialogComponent } from './components/yes-no-dialog/yes-no-dialog.component';
-import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { EquipmentComponent } from "./views/equipment/equipment.component";
+import { YesNoDialogComponent } from "./components/yes-no-dialog/yes-no-dialog.component";
+import { LoginDialogComponent } from "./components/login-dialog/login-dialog.component";
 import { AuthenticationInterceptor } from "./services/authentication-interceptor";
-import { OpenContainerDialogComponent } from './components/open-container-dialog/open-container-dialog.component';
-import { ShowDrawnItemDialogComponent } from './components/show-drawn-item-dialog/show-drawn-item-dialog.component';
-import { TextColorDirective } from './directives/text-color.directive';
+import { OpenContainerDialogComponent } from "./components/open-container-dialog/open-container-dialog.component";
+import { ShowDrawnItemDialogComponent } from "./components/show-drawn-item-dialog/show-drawn-item-dialog.component";
+import { TextColorDirective } from "./directives/text-color.directive";
 
 @NgModule({
   declarations: [

@@ -1,27 +1,82 @@
-# CsgoMarket
+# CSGO Market \<in-progress>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+Web application that allows you to buy/sell items that comes from Counter Strike: Global Offensive game. You can also open containers and gain new valuable items.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Things you need to install
 
-## Build
+Node.js and npm
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+https://nodejs.org/en/download/
+```
 
-## Running unit tests
+Angular
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+https://angular.io/cli
+```
 
-## Running end-to-end tests
+### Installing
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+A step by step series of examples that tell you how to get a development env running
 
-## Further help
+Download Node.js
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+https://nodejs.org/en/download/
+```
+
+Clone repository or download .zip
+
+```
+git clone https://github.com/Pefes/CSGO-Market
+```
+
+Go into application's main directory
+
+```
+cd ./csgo-market
+```
+
+Run command
+
+```
+npm install
+```
+
+Run csgo-market-api server in background
+
+Run the application
+
+```
+npm start
+```
+
+
+## Deployment
+
+\<in-progress>
+
+## Built With
+
+* Angular 11
+* [Angular 11](https://angular.io/docs) - Frontend framework
+* [RxJs](https://rxjs.dev/guide/overview) - Library for asynchronous operations
+* Rest of dependencies are included in package.json file in "dependencies"
+
+## Authors
+
+* [Pefes](https://github.com/Pefes) 
+
+## Some outputs
+
+![img1](https://imgur.com/UhKUlFs.png)
+![img1](https://imgur.com/s67rk5e.png)
+![img1](https://imgur.com/bDcmJuZ.png)
+![img1](https://imgur.com/L9YP2xr.png)
