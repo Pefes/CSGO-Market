@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { AfterViewInit, Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { UserData } from "src/app/models/user-data.model";
@@ -12,7 +12,7 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 })
 export class NavbarComponent {
   public links: string[] = ["Market", "Equipment"];
-  private _activeLink = "Market";
+  private _activeLink: string = "Market";
   public loggedInUserData: UserData | null = null;
 
   constructor(
@@ -27,11 +27,11 @@ export class NavbarComponent {
 
   public clickLinkHandler(link: string): void {
     this._activeLink = link;
-    this._router.navigateByUrl(this._activeLink.toLocaleLowerCase());
+    this._router.navigateByUrl(this._activeLink.toLowerCase());
   }
 
   public isActive(link: string): boolean {
-    return this._activeLink === link;
+    return this._router.url === `/${ link.toLowerCase() }`;
   }
 
   public loginButtonHandler(): void {
