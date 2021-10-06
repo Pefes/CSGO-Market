@@ -13,3 +13,6 @@ export const ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY = "accessTokenExpiresAt";
 export const USER_DATA_STORAGE_KEY = "userData";
 export const SUCCESS = "Success";
 export const FAIL = "Fail";
+export const MARKET_URL = "market";
+export const EQUIPMENT_URL = "equipment";
+export const TRY_OUT_URL = "equipment";

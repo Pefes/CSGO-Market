@@ -1,11 +1,13 @@
 <nav mat-tab-nav-bar>
     <div>
-        <a mat-tab-link
-            *ngFor="let link of links"
-            (click)="clickLinkHandler(link)"
-            [active]="isActive(link)">
-            {{ link }}
-        </a>
+        <ng-container *ngFor="let link of links">
+            <a mat-tab-link
+                *ngIf="showLink(link.mustBeLoggedIn)"   
+                (click)="clickLinkHandler(link.url)"
+                [active]="isActive(link.url)">
+                {{ link.linkName }}
+            </a>
+        </ng-container>
     </div>
     
     <div class="actionButtonsWrapper">

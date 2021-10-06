@@ -1,10 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
+import { Router } from "@angular/router";
 import * as moment from "moment";
 import { Moment } from "moment";
 import { BehaviorSubject, Observable } from "rxjs";
 import { shareReplay, tap } from "rxjs/operators";
-import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, LOGIN_URL, REGISTER_URL, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
+import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, LOGIN_URL, MARKET_URL, REGISTER_URL, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
 import { UserData } from "../models/user-data.model";
 
 
@@ -14,7 +15,7 @@ import { UserData } from "../models/user-data.model";
 export class AuthenticationService {
   private _userData: BehaviorSubject<UserData | null> = new BehaviorSubject<UserData | null>(null);
 
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient, private _router: Router) {
     this._getLoggedInUserDataFromStorage();
   }
 
@@ -24,7 +25,7 @@ export class AuthenticationService {
     );
   }
 
-  public login(username: string, password: string): Observable<any> {
+  public logIn(username: string, password: string): Observable<any> {
     return this._http.post(LOGIN_URL, { username, password }).pipe(
       tap((data) => { this._setSession(data) }),
       shareReplay()
@@ -40,11 +41,13 @@ export class AuthenticationService {
     localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.value));
   }
 
-  public logout() {
+  public logOut() {
     this._userData.next(null);
     localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
     localStorage.removeItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
     localStorage.removeItem(USER_DATA_STORAGE_KEY);
+    
+    this._router.navigateByUrl(MARKET_URL);
   }
 
   public getExpirationTime(): Moment | null {

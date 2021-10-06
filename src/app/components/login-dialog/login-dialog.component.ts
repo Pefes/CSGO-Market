@@ -29,7 +29,7 @@ export class LoginDialogComponent {
 
   public submitButtonHandler(): void {
     if (this.login) {
-      this._authenticationService.login(this.username, this.password).subscribe(console.log)
+      this._authenticationService.logIn(this.username, this.password).subscribe(console.log)
     } else {
       this._authenticationService.register(this.username, this.password).subscribe(console.log);
     }

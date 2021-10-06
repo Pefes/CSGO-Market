@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
+import { EQUIPMENT_URL, MARKET_URL, TRY_OUT_URL } from "src/app/data/variables-messages.data";
 import { UserData } from "src/app/models/user-data.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
@@ -11,8 +12,13 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent {
-  public links: string[] = ["Market", "Equipment", "Try Out!"];
-  private _activeLink: string = "Market";
+  
+  public links: { linkName: string, url: string, mustBeLoggedIn: boolean }[] = [
+    { linkName: "Market", url: MARKET_URL, mustBeLoggedIn: false },
+    { linkName: "Equipment", url: EQUIPMENT_URL, mustBeLoggedIn: true },
+    { linkName: "Try Out!", url: TRY_OUT_URL, mustBeLoggedIn: false }
+  ];
+  private _activeLink: string = MARKET_URL;
   public loggedInUserData: UserData | null = null;
 
   constructor(
@@ -25,13 +31,17 @@ export class NavbarComponent {
     });
   }
 
-  public clickLinkHandler(link: string): void {
-    this._activeLink = link;
-    this._router.navigateByUrl(this._activeLink.toLowerCase());
+  public showLink(mustBeLoggedIn: boolean): boolean {
+    return !mustBeLoggedIn || this.isLoggedIn();
   }
 
-  public isActive(link: string): boolean {
-    return this._router.url === `/${ link.toLowerCase() }`;
+  public clickLinkHandler(url: string): void {
+    this._activeLink = url;
+    this._router.navigateByUrl(this._activeLink);
+  }
+
+  public isActive(url: string): boolean {
+    return this._router.url === `/${ url }`;
   }
 
   public loginButtonHandler(): void {
@@ -51,7 +61,7 @@ export class NavbarComponent {
   }
 
   public logoutButtonHandler(): void {
-    this._authenticationService.logout();
+    this._authenticationService.logOut();
   }
 
   public isLoggedIn(): boolean {
