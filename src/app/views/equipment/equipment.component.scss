@@ -4,7 +4,11 @@
     height: 100%;
 }
 
+item-list {
+    overflow: hidden;
+}
+
 item-list-filters {
     display: block;
-    margin-bottom: 15px;
+    z-index: 2;
 }

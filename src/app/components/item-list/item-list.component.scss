@@ -6,7 +6,8 @@
 }
 
 .itemsListWrapper {
-    margin: 50px;
+    overflow: auto;
+    padding: 50px 0;
 }
 
 .itemsWrapper {
@@ -34,4 +35,8 @@
 
 mat-paginator {
     width: 100%;
+}
+
+.itemListFooter {
+    border: 1px solid #313131;
 }
