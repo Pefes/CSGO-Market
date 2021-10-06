@@ -1,19 +1,19 @@
 <h1 mat-dialog-title>{{ getLabel() }}</h1>
-<div mat-dialog-content class="inputForm">
+<form class="inputForm" [formGroup]="form" (keyup.enter)="submitButtonHandler()">
     <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
         <input matInput
-            [(ngModel)]="username"
+            formControlName="username"
             placeholder="Username">
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput
             type="password"
-            [(ngModel)]="password"
+            formControlName="password"
             placeholder="Password">
     </mat-form-field>
-</div>
+</form>
 <div mat-dialog-actions>
     <button mat-raised-button (click)="submitButtonHandler()">{{ getLabel() }}</button>
     <button mat-raised-button (click)="cancelButtonHandler()">Cancel</button>

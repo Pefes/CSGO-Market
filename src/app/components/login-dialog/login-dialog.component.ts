@@ -1,4 +1,5 @@
 import { Component, Inject } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { LOGIN, REGISTER } from "src/app/data/variables-messages.data";
 import { LoginDialogData } from "src/app/models/login-dialog-data.model";
@@ -11,9 +12,12 @@ import { AuthenticationService } from "src/app/services/authentication.service";
 })
 export class LoginDialogComponent {
 
+  public form: FormGroup = new FormGroup({
+    username: new FormControl(""),
+    password: new FormControl("")
+  });
+
   public login: boolean = true;
-  public username: string = "";
-  public password: string = "";
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: LoginDialogData,
@@ -28,11 +32,15 @@ export class LoginDialogComponent {
   }
 
   public submitButtonHandler(): void {
+    const username = this.form.value.username;
+    const password = this.form.value.password;
+
     if (this.login) {
-      this._authenticationService.logIn(this.username, this.password).subscribe(console.log)
+      this._authenticationService.logIn(username, password).subscribe(console.log)
     } else {
-      this._authenticationService.register(this.username, this.password).subscribe(console.log);
+      this._authenticationService.register(username, password).subscribe(console.log);
     }
+
     this.dialogRef.close(true);
   }
 

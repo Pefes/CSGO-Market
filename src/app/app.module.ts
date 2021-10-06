@@ -12,7 +12,7 @@ import { MarketComponent } from "./views/market/market.component";
 import { ItemComponent } from "./components/item/item.component";
 import { ItemListComponent } from "./components/item-list/item-list.component";
 import { ItemListFiltersComponent } from "./components/item-list-filters/item-list-filters.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EquipmentComponent } from "./views/equipment/equipment.component";
 import { YesNoDialogComponent } from "./components/yes-no-dialog/yes-no-dialog.component";
 import { LoginDialogComponent } from "./components/login-dialog/login-dialog.component";
@@ -45,7 +45,8 @@ import { BackgroundColorDirective } from './directives/background-color.directiv
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

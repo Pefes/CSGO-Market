@@ -3,26 +3,26 @@
         <mat-panel-title>Filter/Sort</mat-panel-title>
         <mat-panel-description>Click to see filters and sorting</mat-panel-description>
     </mat-expansion-panel-header>
-    <section class="formFields">
+    <section class="formFields" [formGroup]="filtersForm" (keyup.enter)="applyFilters()">
         <div class="filters">
             <ng-container *ngFor="let filter of propertiesToFilter">
                 <mat-form-field appearance="outline">
                     <mat-label>{{ filter.property | titlecase}}</mat-label>
                     <input matInput
-                        [(ngModel)]="filtersApplied[filter.property]"
+                        formControlName="{{ filter.property }}"
                         placeholder="{{ filter.property | titlecase }}">
                     <mat-icon matSuffix
-                        [class.hideCloseIcon]="!filtersApplied[filter.property]"
+                        [class.hideCloseIcon]="!filtersForm.value[filter.property]"
                         (click)="clearSingleFilter(filter.property)">
                         close
                     </mat-icon>
                 </mat-form-field>
             </ng-container>
-            </div>
+        </div>
         <div class="sorting">
             <mat-form-field appearance="outline">
                 <mat-label>Sort by</mat-label>
-                <mat-select [(ngModel)]="selectedSortingOption">
+                <mat-select formControlName="sortingOption">
                     <mat-option value="" selected>None</mat-option>
                     <ng-container *ngFor="let option of sortingOptions">
                         <mat-option value="{{ option }}">{{ option }}</mat-option>
