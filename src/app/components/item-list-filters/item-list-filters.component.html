@@ -3,6 +3,7 @@
         <mat-panel-title>Filter/Sort</mat-panel-title>
         <mat-panel-description>Click to see filters and sorting</mat-panel-description>
     </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
     <section class="formFields" [formGroup]="filtersForm" (keyup.enter)="applyFilters()">
         <div class="filters">
             <ng-container *ngFor="let filter of propertiesToFilter">
@@ -31,6 +32,7 @@
             </mat-form-field>
         </div>
     </section>
+    <mat-divider></mat-divider>
     <section class="actions">
         <button mat-raised-button (click)="clearAllFilters()">Clear</button>
         <button mat-raised-button (click)="applyFilters()">Apply</button>
