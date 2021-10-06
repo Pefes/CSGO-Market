@@ -11,7 +11,7 @@
                 <div class="imageWrapper">
                     <img src="{{ getIconFullUrl(contentItem.iconUrl) }}"/>
                 </div>
-                <p>{{ contentItem.name }}</p>
+                <p [backgroundColor]="contentItem.rarityColor">{{ contentItem.name }}</p>
             </article>
         </ng-container>
     </section>

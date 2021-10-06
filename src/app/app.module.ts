@@ -20,6 +20,7 @@ import { AuthenticationInterceptor } from "./services/authentication-interceptor
 import { OpenContainerDialogComponent } from "./components/open-container-dialog/open-container-dialog.component";
 import { ShowDrawnItemDialogComponent } from "./components/show-drawn-item-dialog/show-drawn-item-dialog.component";
 import { TextColorDirective } from "./directives/text-color.directive";
+import { BackgroundColorDirective } from './directives/background-color.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TextColorDirective } from "./directives/text-color.directive";
     LoginDialogComponent,
     OpenContainerDialogComponent,
     ShowDrawnItemDialogComponent,
-    TextColorDirective
+    TextColorDirective,
+    BackgroundColorDirective
   ],
   imports: [
     BrowserModule,

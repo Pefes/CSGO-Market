@@ -11,7 +11,7 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent {
-  public links: string[] = ["Market", "Equipment"];
+  public links: string[] = ["Market", "Equipment", "Try Out!"];
   private _activeLink: string = "Market";
   public loggedInUserData: UserData | null = null;
 
