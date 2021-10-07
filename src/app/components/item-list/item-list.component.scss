@@ -10,6 +10,18 @@
     padding: 50px 0;
 }
 
+.itemsListWrapper::-webkit-scrollbar {
+    background-color: var(--app-background-secondary);
+}
+
+.itemsListWrapper::-webkit-scrollbar-thumb {
+    background-color: var(--app-primary);
+    border-radius: 5px;
+    -webkit-box-shadow: inset 8px 8px 6px 0px rgba(255, 255, 255, 0.32);
+    -moz-box-shadow: inset 8px 8px 6px 0px rgba(255, 255, 255, 0.32);
+    box-shadow: inset 8px 8px 6px 0px rgba(255, 255, 255, 0.32);
+}
+
 .itemsWrapper {
     display: grid;
     grid-template-columns: repeat(auto-fill, 325px);
