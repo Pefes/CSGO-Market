@@ -21,6 +21,7 @@ import { OpenContainerDialogComponent } from "./components/open-container-dialog
 import { ShowDrawnItemDialogComponent } from "./components/show-drawn-item-dialog/show-drawn-item-dialog.component";
 import { TextColorDirective } from "./directives/text-color.directive";
 import { BackgroundColorDirective } from './directives/background-color.directive';
+import { SnakeBorderCardComponent } from './components/snake-border-card/snake-border-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BackgroundColorDirective } from './directives/background-color.directiv
     OpenContainerDialogComponent,
     ShowDrawnItemDialogComponent,
     TextColorDirective,
-    BackgroundColorDirective
+    BackgroundColorDirective,
+    SnakeBorderCardComponent
   ],
   imports: [
     BrowserModule,
