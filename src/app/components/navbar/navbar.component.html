@@ -13,8 +13,8 @@
     <div class="actionButtonsWrapper">
         <!-- <mat-card class="cashCard" textColor *ngIf="isLoggedIn()">Cash: {{ loggedInUserData?.cash | currency}}</mat-card> -->
         <snake-border-card textColor *ngIf="isLoggedIn()">{{ loggedInUserData?.cash | currency}}</snake-border-card>
-        <button mat-raised-button *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">Login</button>
-        <button mat-raised-button *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">Register</button>
+        <button mat-stroked-button color="primary" *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">Login</button>
+        <button mat-raised-button color="primary" *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">Register</button>
         <button mat-raised-button *ngIf="isLoggedIn()" (click)="logoutButtonHandler()">Logout</button>
     </div>
 </nav>
