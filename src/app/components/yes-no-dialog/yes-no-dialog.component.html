@@ -3,7 +3,7 @@
     <p>{{ contentText }}</p>
 </div>
 <div mat-dialog-actions>
-    <button mat-raised-button *ngIf="showYesButton" (click)="buttonClickHandler(true)">Yes</button>
+    <button mat-raised-button color="primary" *ngIf="showYesButton" (click)="buttonClickHandler(true)">Yes</button>
     <button mat-raised-button *ngIf="showNoButton" (click)="buttonClickHandler(false)">No</button>
-    <button mat-raised-button *ngIf="showCancelButton" (click)="buttonClickHandler(null)">Cancel</button>
+    <button mat-stroked-button *ngIf="showCancelButton" (click)="buttonClickHandler(null)">Cancel</button>
 </div>

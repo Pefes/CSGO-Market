@@ -2,6 +2,10 @@
     margin-bottom: 15px;
 }
 
+:host ::ng-deep mat-expansion-panel {
+    border-radius: 0px;
+}
+
 mat-icon {
     display: flex !important;
     justify-content: center;
