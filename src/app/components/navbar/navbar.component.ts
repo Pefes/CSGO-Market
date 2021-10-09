@@ -1,3 +1,4 @@
+import { animate, query, stagger, state, style, transition, trigger } from "@angular/animations";
 import { AfterViewInit, Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
@@ -9,7 +10,23 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 @Component({
   selector: "navbar",
   templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"]
+  styleUrls: ["./navbar.component.scss"],
+  animations: [
+    trigger("cashChanged", [
+      transition(":decrement", [
+        animate("50ms", style({ transform: "translate3d(2px, 0, 0) rotate(2deg)" })),
+        animate("50ms", style({ transform: "translate3d(-2px, 0, 0) rotate(-2deg)" })),
+        animate("50ms", style({ transform: "translate3d(1px, 0, 0) rotate(-1deg)" })),
+        animate("50ms", style({ transform: "translate3d(-1px, 0, 0) rotate(1deg)" }))
+      ]),
+      transition(":increment", [
+        animate("50ms", style({ transform: "translate3d(2px, 0, 0) rotate(2deg)" })),
+        animate("50ms", style({ transform: "translate3d(-2px, 0, 0) rotate(-2deg)" })),
+        animate("50ms", style({ transform: "translate3d(1px, 0, 0) rotate(-1deg)" })),
+        animate("50ms", style({ transform: "translate3d(-1px, 0, 0) rotate(1deg)" }))
+      ])
+    ])
+  ]
 })
 export class NavbarComponent {
   
