@@ -4,6 +4,7 @@ import { ItemListFiltersData } from "src/app/models/item-list-filters-data.model
 import { ItemListPaginatorData } from "src/app/models/item-list-paginator-data.model";
 import { Item } from "src/app/models/item.model";
 import { ApiService } from "src/app/services/api.service";
+import { ItemsService } from "src/app/services/items.service";
 
 @Component({
   selector: 'equipment',
@@ -17,7 +18,15 @@ export class EquipmentComponent implements OnInit {
   private _itemListPaginatorData: ItemListPaginatorData = {} as ItemListPaginatorData;
   private _itemListFiltersData: ItemListFiltersData = {} as ItemListFiltersData;
 
-  constructor(private _api: ApiService) { }
+  constructor(private _api: ApiService, private _itemsService: ItemsService) {
+    this._itemsService.ownedItemAdded().subscribe((item: Item) => {
+      this.ownedItems.unshift(item);
+    });
+
+    this._itemsService.ownedItemRemoved().subscribe((itemId: string) => {
+      this.ownedItems = this.ownedItems.filter(item => item._id !== itemId);  
+    });
+  }
 
   public ngOnInit(): void {
     this._getOwnedItems();
@@ -39,13 +48,5 @@ export class EquipmentComponent implements OnInit {
   public paginatorChangedHandler(paginatorData: ItemListPaginatorData): void {
     this._itemListPaginatorData = paginatorData;
     this._getOwnedItems();
-  }
-
-  public itemRemovedHandler(itemId: string): void {
-    this.ownedItems = this.ownedItems.filter(item => item._id !== itemId);
-  }
-
-  public itemAddedHandler(newItem: Item): void {
-    this.ownedItems.unshift(newItem);
   }
 }

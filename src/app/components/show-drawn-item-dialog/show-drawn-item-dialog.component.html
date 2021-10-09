@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Congratulations!</h1>
 <div mat-dialog-content>
-    <p>You received a new item!</p>
+    <p>You received new item!</p>
     <section class="imageWrapper">
         <snake-border-card [themeColor]="'#' + data.rarityColor">
             <img src="{{ getIconFullUrl() }}"/>
@@ -29,5 +29,6 @@
 </div>
 <mat-divider></mat-divider>
 <div mat-dialog-actions>
-    <button mat-raised-button (click)="buttonClickHandler()">Close</button>
+    <button mat-raised-button (click)="buttonCloseClickHandler()">Close</button>
+    <button mat-raised-button color="primary" (click)="buttonSellClickHandler()">Sell</button>
 </div>

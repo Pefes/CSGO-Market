@@ -8,6 +8,7 @@ import { ApiService } from "src/app/services/api.service";
 import { OpenContainerDialogComponent } from "../open-container-dialog/open-container-dialog.component";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 import { AuthenticationService } from "src/app/services/authentication.service";
+import { ItemsService } from "src/app/services/items.service";
 
 @Component({
   selector: "item-list",
@@ -24,14 +25,13 @@ export class ItemListComponent {
   @Input() public showBuyButton: boolean = false;
   @Input() public showSellButton: boolean = false;
   @Input() public showOpenButton: boolean = false;
-  @Output() public itemRemoved: EventEmitter<string> = new EventEmitter<string>();
-  @Output() public itemAdded: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() public paginatorChanged: EventEmitter<ItemListPaginatorData> = new EventEmitter<ItemListPaginatorData>();
 
   constructor(
     private _dialogService: MatDialog,
     private _api: ApiService,
-    private _authenticationService: AuthenticationService) { }
+    private _authenticationService: AuthenticationService,
+    private _itemsService: ItemsService) { }
 
   public paginatorChangedHandler(event: PageEvent): void {
     this.currentPageSize = event.pageSize;
@@ -59,7 +59,7 @@ export class ItemListComponent {
       if (result) {
         this._api.buyItem(item._id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this.itemRemoved.emit(item._id);
+            this._itemsService.removeMarketItem(item._id);
             this._authenticationService.addValueToUserCash(-item.price);
           }
         });
@@ -73,7 +73,7 @@ export class ItemListComponent {
       if (result) {
         this._api.sellItem(item._id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this.itemRemoved.emit(item._id);
+            this._itemsService.removeOwnedItem(item._id);
             this._authenticationService.addValueToUserCash(item.price);
           }
         });
@@ -82,11 +82,6 @@ export class ItemListComponent {
   }
 
   public openButtonHandler(itemData: Item): void {
-    this.openOpenContainerDialog(itemData).afterClosed().subscribe(result => {
-      if (result.result) {
-        this.itemRemoved.emit(itemData._id);
-        this.itemAdded.emit(result.data);
-      }
-    });
+    this.openOpenContainerDialog(itemData);
   }
 }
