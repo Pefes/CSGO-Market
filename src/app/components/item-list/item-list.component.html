@@ -25,6 +25,7 @@
         [pageSizeOptions]="[5, 25, 50]"
         [pageIndex]="currentPageIndex"
         (page)="paginatorChangedHandler($event)"
-        [showFirstLastButtons]="true">
+        [showFirstLastButtons]="true"
+        [disabled]="paginatorDisabled">
     </mat-paginator>
 </section>

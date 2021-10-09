@@ -32,7 +32,14 @@ export class ItemListComponent {
 
   public currentPageSize: number = 25;
   public currentPageIndex: number = 0;
+  public paginatorDisabled: boolean = false;
 
+  private _items: Item[] = [];
+  public get items(): Item[] { return this._items };
+  public set items(newItems: Item[]) {
+    this._items = [...newItems];
+    this.paginatorDisabled = false;
+  }
   @Input() public items: Item[] = [];
   @Input() public querySize: number = 0;
   @Input() public showBuyButton: boolean = false;
@@ -50,6 +57,7 @@ export class ItemListComponent {
     this.currentPageSize = event.pageSize;
     this.currentPageIndex = event.pageIndex;
     this.paginatorChanged.emit({ pageNumber: event.pageIndex, pageSize: event.pageSize });
+    this.paginatorDisabled = true;
   }
 
   public openYesNoDialog(contentText: string): MatDialogRef<YesNoDialogComponent> {
