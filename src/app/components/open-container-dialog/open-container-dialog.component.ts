@@ -23,12 +23,12 @@ export class OpenContainerDialogComponent {
       this._api.openContainer(this.itemData._id).subscribe(response => {
         if (response.status === SUCCESS) {
           this._dialogService.open(ShowDrawnItemDialogComponent, { panelClass: OPEN_CONTAINER_DIALOG_PANEL_CLASS, data: response.data.drawnItem });
-          this.dialogRef.close(true);
+          this.dialogRef.close({ result: true, data: response.data.drawnItem });
+        } else {
+          this.dialogRef.close({ result: false, data: null });
         }
       });
     }
-
-    this.dialogRef.close(false);
   }
 
   public getIconFullUrl(iconUrl: string): string {

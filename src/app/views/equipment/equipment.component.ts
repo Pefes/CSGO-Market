@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { propertiesToFilter } from "src/app/config/properties-to-filter.config";
 import { ItemListFiltersData } from "src/app/models/item-list-filters-data.model";
 import { ItemListPaginatorData } from "src/app/models/item-list-paginator-data.model";
+import { Item } from "src/app/models/item.model";
 import { ApiService } from "src/app/services/api.service";
 
 @Component({
@@ -10,7 +11,7 @@ import { ApiService } from "src/app/services/api.service";
   styleUrls: ['./equipment.component.scss']
 })
 export class EquipmentComponent implements OnInit {
-  public ownedItems: any[] = [];
+  public ownedItems: Item[] = [];
   public propertiesToFilter: any[] = propertiesToFilter;
   public querySize: number = 0;
   private _itemListPaginatorData: ItemListPaginatorData = {} as ItemListPaginatorData;
@@ -42,5 +43,9 @@ export class EquipmentComponent implements OnInit {
 
   public itemRemovedHandler(itemId: string): void {
     this.ownedItems = this.ownedItems.filter(item => item._id !== itemId);
+  }
+
+  public itemAddedHandler(newItem: Item): void {
+    this.ownedItems.unshift(newItem);
   }
 }

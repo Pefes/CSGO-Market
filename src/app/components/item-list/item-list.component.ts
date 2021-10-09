@@ -25,6 +25,7 @@ export class ItemListComponent {
   @Input() public showSellButton: boolean = false;
   @Input() public showOpenButton: boolean = false;
   @Output() public itemRemoved: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public itemAdded: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() public paginatorChanged: EventEmitter<ItemListPaginatorData> = new EventEmitter<ItemListPaginatorData>();
 
   constructor(
@@ -82,8 +83,9 @@ export class ItemListComponent {
 
   public openButtonHandler(itemData: Item): void {
     this.openOpenContainerDialog(itemData).afterClosed().subscribe(result => {
-      if (result) {
+      if (result.result) {
         this.itemRemoved.emit(itemData._id);
+        this.itemAdded.emit(result.data);
       }
     });
   }
