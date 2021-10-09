@@ -15,4 +15,5 @@ body {
 
 .drawnItemDialogContainer mat-dialog-container {
     box-shadow: 0px 0px 200px 0px var(--app-primary);
+    border: 1px solid var(--border);
 }

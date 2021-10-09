@@ -8,10 +8,16 @@
     </section>
     <section>
         <ng-container *ngFor="let property of propertiesToShow">
-            <div *ngIf="property == 'price'; else allProperties" class="propertyWrapper">
+            <div *ngIf="property == 'price'; else rarity" class="propertyWrapper">
                 <div>{{ property | titlecase}}</div>
-                <div>{{ data[property] | currency}}</div>
+                <div textColor>{{ data[property] | currency}}</div>
             </div>
+            <ng-template #rarity>
+                <div *ngIf="property == 'rarity'; else allProperties" class="propertyWrapper">
+                    <div>{{ property | titlecase}}</div>
+                    <div [textColor]="data.rarityColor">{{ data[property] | currency}}</div>
+                </div>
+            </ng-template>
             <ng-template #allProperties>
                 <div class="propertyWrapper">
                     <div>{{ property | titlecase}}</div>
