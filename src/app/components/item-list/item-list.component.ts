@@ -9,11 +9,24 @@ import { OpenContainerDialogComponent } from "../open-container-dialog/open-cont
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { ItemsService } from "src/app/services/items.service";
+import { animate, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: "item-list",
   templateUrl: "./item-list.component.html",
-  styleUrls: ["./item-list.component.scss"]
+  styleUrls: ["./item-list.component.scss"],
+  animations: [
+    trigger("itemAddRemove", [
+      transition(":enter", [
+        style({ opacity: 0 }),
+        animate("500ms", style({ opacity: 1 }))
+      ]),
+      transition(":leave", [
+        style({ opacity: 1 }),
+        animate("500ms", style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class ItemListComponent {
 

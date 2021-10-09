@@ -2,6 +2,7 @@
     <div class="itemsWrapper">
         <ng-container *ngFor="let item of items">
             <item
+                @itemAddRemove
                 [data]="item"
                 [showBuyButton]="showBuyButton"
                 [showSellButton]="showSellButton"
