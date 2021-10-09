@@ -2,7 +2,9 @@
 <div mat-dialog-content>
     <p>You received a new item!</p>
     <section class="imageWrapper">
-        <img src="{{ getIconFullUrl() }}"/>
+        <snake-border-card [themeColor]="'#' + data.rarityColor">
+            <img src="{{ getIconFullUrl() }}"/>
+        </snake-border-card>
     </section>
     <section>
         <ng-container *ngFor="let property of propertiesToShow">

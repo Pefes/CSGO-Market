@@ -16,3 +16,4 @@ export const FAIL = "Fail";
 export const MARKET_URL = "market";
 export const EQUIPMENT_URL = "equipment";
 export const TRY_OUT_URL = "equipment";
+export const OPEN_CONTAINER_DIALOG_PANEL_CLASS = "drawnItemDialogContainer";
