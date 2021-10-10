@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: "https://csgo-market-api.herokuapp.com/"
 };
