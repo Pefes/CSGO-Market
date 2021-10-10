@@ -17,7 +17,7 @@
             </div>
             <div class="dataWrapper">
                 <div>Rarity:</div>
-                <div [textColor]="data.rarityColor">{{ checkIfEmpty(data.rarity) }}</div>
+                <div [textColor]="'#' + data.rarityColor">{{ checkIfEmpty(data.rarity) }}</div>
             </div>
             <mat-divider class="itemDivider"></mat-divider>
         </mat-card-content>
@@ -45,7 +45,7 @@
                     OPEN
                 </button>
             </div>
-            <div class="price" textColor>{{ data.price | currency }}</div>
+            <div class="price" [textColor]="'var(--cash)'">{{ data.price | currency }}</div>
         </mat-card-actions>
     </mat-card>
     <div class="background"></div>

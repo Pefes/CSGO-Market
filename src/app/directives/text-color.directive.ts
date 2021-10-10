@@ -11,7 +11,7 @@ export class TextColorDirective implements OnInit {
   constructor(private _elementRef: ElementRef) {}
 
   public ngOnInit(): void {
-    const color = this.textColor ? `#${ this.textColor }` : this._DEFAULT_COLOR;
+    const color = this.textColor || this._DEFAULT_COLOR;
     this._elementRef.nativeElement.style.color = color;
   }
 }

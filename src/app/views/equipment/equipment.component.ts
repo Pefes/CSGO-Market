@@ -20,7 +20,7 @@ export class EquipmentComponent implements OnInit {
 
   constructor(private _api: ApiService, private _itemsService: ItemsService) {
     this._itemsService.ownedItemAdded().subscribe((item: Item) => {
-      this.ownedItems.unshift(item);
+      this.ownedItems = [item, ...this.ownedItems];
     });
 
     this._itemsService.ownedItemRemoved().subscribe((itemId: string) => {
