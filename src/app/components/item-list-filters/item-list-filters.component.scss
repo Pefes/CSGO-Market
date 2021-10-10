@@ -46,3 +46,13 @@ mat-icon:hover {
         margin-right: 15px;
     }
 }
+
+@media (max-width: 530px) {
+    .formFields {
+        flex-direction: column;
+
+        mat-form-field {
+            width: 95%;
+        }
+    }
+}
