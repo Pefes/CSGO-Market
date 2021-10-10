@@ -61,7 +61,7 @@ npm start
 
 ## Deployment
 
-\<in-progress>
+\<in-progress> ---> instead you can look at the images below :arrow_down: :arrow_down:
 
 ## Built With
 
