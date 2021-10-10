@@ -50,7 +50,7 @@ Run command
 npm install
 ```
 
-Run csgo-market-api server in background
+Run csgo-market-api server with MongoDB in the background
 
 Run the application
 
@@ -75,7 +75,11 @@ npm start
 
 ## Some outputs
 
-![img1](https://imgur.com/UhKUlFs.png)
-![img1](https://imgur.com/s67rk5e.png)
-![img1](https://imgur.com/bDcmJuZ.png)
-![img1](https://imgur.com/L9YP2xr.png)
+![img1](https://imgur.com/OpHNOXj.png)
+![img1](https://imgur.com/DqbLiRy.png)
+![img1](https://imgur.com/4wFJpdn.png)
+![img1](https://imgur.com/MQvpUpY.png)
+![img1](https://imgur.com/JeQ1Tcg.png)
+![img1](https://imgur.com/uC471wK.png)
+![img1](https://imgur.com/bIokzr7.png)
+![img1](https://imgur.com/sFjEl63.png)
