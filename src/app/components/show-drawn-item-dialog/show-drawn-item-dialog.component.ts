@@ -54,6 +54,6 @@ export class ShowDrawnItemDialogComponent implements OnInit {
   }
 
   public getIconFullUrl(): string {
-    return `${ CSGO_API_IMAGE_URL }${ this.data.iconUrl }`;
+    return `${ this._api.getApiUrl("api/getItemImage?imageUrl=") }${ this.data.iconUrl }`;
   }
 }

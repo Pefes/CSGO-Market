@@ -33,4 +33,31 @@ nav {
     :host nav ::ng-deep .mat-tab-links {
         flex-direction: column-reverse;
     }
+
+    .linksWrapper {
+        width: 100%;
+        display: flex;
+
+        a {
+            width: 100%;
+        }
+    }
+
+    .actionButtonsWrapper {
+        width: 100%;
+        margin-top: 3px;
+
+        button, snake-border-card {
+            width: 100%;
+        }
+
+        button:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    mat-divider {
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
 }

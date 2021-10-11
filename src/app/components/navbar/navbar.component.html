@@ -1,5 +1,5 @@
 <nav mat-tab-nav-bar>
-    <div>
+    <div class="linksWrapper">
         <ng-container *ngFor="let link of links">
             <a mat-tab-link
                 *ngIf="showLink(link.mustBeLoggedIn)"   
@@ -9,7 +9,7 @@
             </a>
         </ng-container>
     </div>
-    
+    <mat-divider></mat-divider>
     <div class="actionButtonsWrapper">
         <!-- <mat-card class="cashCard" textColor *ngIf="isLoggedIn()">Cash: {{ loggedInUserData?.cash | currency}}</mat-card> -->
         <snake-border-card [@cashChanged]="loggedInUserData?.cash" [themeColor]="'var(--cash)'" *ngIf="isLoggedIn()">{{ loggedInUserData?.cash | currency}}</snake-border-card>

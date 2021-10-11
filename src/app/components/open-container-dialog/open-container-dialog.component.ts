@@ -35,6 +35,6 @@ export class OpenContainerDialogComponent {
   }
 
   public getIconFullUrl(iconUrl: string): string {
-    return `${ CSGO_API_IMAGE_URL }${ iconUrl }`;
+    return `${ this._api.getApiUrl("api/getItemImage?imageUrl=") }${ iconUrl }`;
   }
 }

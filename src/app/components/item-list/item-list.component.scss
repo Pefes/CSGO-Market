@@ -22,6 +22,10 @@
     box-shadow: inset 8px 8px 6px 0px rgba(255, 255, 255, 0.32);
 }
 
+.itemsListWrapper::-webkit-scrollbar-corner {
+    background-color: var(--app-background-secondary);
+}
+
 .itemsWrapper {
     display: grid;
     grid-template-columns: repeat(auto-fill, 325px);
@@ -51,4 +55,10 @@ mat-paginator {
 
 .itemListFooter {
     border-top: 1px solid #313131;
+}
+
+@media (max-width: 370px) {
+    .itemsWrapper {
+        grid-template-columns: repeat(auto-fill, 280px);
+    }
 }
