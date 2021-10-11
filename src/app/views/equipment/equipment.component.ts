@@ -34,7 +34,6 @@ export class EquipmentComponent implements OnInit {
 
   private _getOwnedItems(): void {
     this._api.getOwnedItems({ filtersData: this._itemListFiltersData, paginatorData: this._itemListPaginatorData }).subscribe(data => {
-      console.log(data);
       this.ownedItems = data.items;
       this.querySize = data.querySize
     });

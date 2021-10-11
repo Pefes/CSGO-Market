@@ -16,7 +16,6 @@ export class ApiService {
   constructor(private _http: HttpClient) { }
 
   public getApiUrl(path: string): string {
-    console.log(`${ environment.apiUrl }${ path }`)
     return `${ environment.apiUrl }${ path }`;
   }
 

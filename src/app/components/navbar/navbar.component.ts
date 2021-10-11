@@ -65,7 +65,6 @@ export class NavbarComponent {
     const dialogRef = this._dialogService.open(LoginDialogComponent, { data: { login: true } });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
     });
   }
 
@@ -73,7 +72,6 @@ export class NavbarComponent {
     const dialogRef = this._dialogService.open(LoginDialogComponent, { data: { login: false } });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
     });
   }
 

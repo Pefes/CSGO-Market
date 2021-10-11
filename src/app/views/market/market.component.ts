@@ -34,7 +34,6 @@ export class MarketComponent implements OnInit {
 
   private _getMarketItems(): void {
     this._api.getMarketItems({ filtersData: this._itemListFiltersData, paginatorData: this._itemListPaginatorData }).subscribe(data => {
-      console.log(data);
       this.marketItems = data.items;
       this.querySize = data.querySize;
     });

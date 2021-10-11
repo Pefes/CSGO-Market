@@ -31,7 +31,6 @@ export class ShowDrawnItemDialogComponent implements OnInit {
   }
   
   public buttonCloseClickHandler(): void {
-    console.log(this.data);
     this._itemsService.addOwnedItem(this.data);
     this.dialogRef.close();
   }
