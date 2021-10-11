@@ -10,6 +10,7 @@ import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { ItemsService } from "src/app/services/items.service";
 import { animate, style, transition, trigger } from "@angular/animations";
+import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 
 @Component({
   selector: "item-list",
@@ -33,6 +34,7 @@ export class ItemListComponent {
   public currentPageSize: number = 25;
   public currentPageIndex: number = 0;
   public paginatorDisabled: boolean = false;
+  public hidePageSize: boolean = false;
 
   private _items: Item[] = [];
   public get items(): Item[] { return this._items };
@@ -51,7 +53,13 @@ export class ItemListComponent {
     private _dialogService: MatDialog,
     private _api: ApiService,
     private _authenticationService: AuthenticationService,
-    private _itemsService: ItemsService) { }
+    private _itemsService: ItemsService,
+    private _breakpointObserver: BreakpointObserver) {
+
+    this._breakpointObserver.observe("(max-width: 480px)").subscribe((result: BreakpointState) => {
+        this.hidePageSize = result.matches;
+    });
+  }
 
   public paginatorChangedHandler(event: PageEvent): void {
     this.currentPageSize = event.pageSize;
