@@ -15,12 +15,13 @@ export class ApiService {
 
   constructor(private _http: HttpClient) { }
 
-  private _getUrl(path: string): string {
+  public getApiUrl(path: string): string {
+    console.log(`${ environment.apiUrl }${ path }`)
     return `${ environment.apiUrl }${ path }`;
   }
 
   public getMarketItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {
-    return this._http.post(this._getUrl("api/getMarketItems"), params).pipe(map((data: any) => data.data));
+    return this._http.post(this.getApiUrl("api/getMarketItems"), params).pipe(map((data: any) => data.data));
 
     // MOCK DATA
     // return of(marketItems).pipe(map((response: any) => {
@@ -32,22 +33,22 @@ export class ApiService {
   }
 
   public getOwnedItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {
-    return this._http.post(this._getUrl("api/getOwnedItems"), params).pipe(map((data: any) => data.data));
+    return this._http.post(this.getApiUrl("api/getOwnedItems"), params).pipe(map((data: any) => data.data));
   }
 
   public buyItem(itemId: string): Observable<any> {
-    return this._http.post(this._getUrl("api/buyItem"), { itemId });
+    return this._http.post(this.getApiUrl("api/buyItem"), { itemId });
   }
   
   public sellItem(itemId: string): Observable<any> {
-    return this._http.post(this._getUrl("api/sellItem"), { itemId });
+    return this._http.post(this.getApiUrl("api/sellItem"), { itemId });
   }
 
   public openContainer(containerId: string): Observable<any> {
-    return this._http.post(this._getUrl("api/openContainer"), { containerId });
+    return this._http.post(this.getApiUrl("api/openContainer"), { containerId });
   }
 
   public getItemImage(imageId: string): Observable<any> {
-    return this._http.get(`${ CSGO_API_IMAGE_URL }${ imageId }`);
+    return this._http.get(`${ this.getApiUrl("api/getItemImage?imageUrl=") }${ imageId }`);
   }
 }

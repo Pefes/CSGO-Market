@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { CSGO_API_IMAGE_URL } from "src/app/data/variables-messages.data";
 import { Item } from "src/app/models/item.model";
+import { ApiService } from "src/app/services/api.service";
 
 @Component({
   selector: "item",
@@ -15,7 +16,7 @@ export class ItemComponent {
   public get data(): Item { return this._data; }
   @Input() public set data(data: Item) {
     this._data = data;
-    this.imageUrl = this._data.iconUrl ? `${ CSGO_API_IMAGE_URL }${ this._data.iconUrl }` : "";
+    this.imageUrl = this._data.iconUrl ? `${ this._api.getApiUrl("api/getItemImage?imageUrl=") }${ this._data.iconUrl }` : "";
   }
 
   @Input() public showBuyButton: boolean = false;
@@ -25,7 +26,7 @@ export class ItemComponent {
   @Output() public sellButtonClicked: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() public openButtonClicked: EventEmitter<Item> = new EventEmitter<Item>();
 
-  constructor() { }
+  constructor(private _api: ApiService) { }
 
   public checkIfEmpty(value: string): string {
     return value ?? "-";

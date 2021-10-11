@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { shareReplay, tap } from "rxjs/operators";
 import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, LOGIN_URL, MARKET_URL, REGISTER_URL, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
 import { UserData } from "../models/user-data.model";
+import { ApiService } from "./api.service";
 
 
 @Injectable({
@@ -15,18 +16,22 @@ import { UserData } from "../models/user-data.model";
 export class AuthenticationService {
   private _userData: BehaviorSubject<UserData | null> = new BehaviorSubject<UserData | null>(null);
 
-  constructor(private _http: HttpClient, private _router: Router) {
+  constructor(
+    private _http: HttpClient,
+    private _router: Router,
+    private _api: ApiService
+    ) {
     this._getLoggedInUserDataFromStorage();
   }
 
   public register(username: string, password: string): Observable<any> {
-    return this._http.post(REGISTER_URL, { username, password }).pipe(
+    return this._http.post(this._api.getApiUrl(REGISTER_URL), { username, password }).pipe(
       shareReplay()
     );
   }
 
   public logIn(username: string, password: string): Observable<any> {
-    return this._http.post(LOGIN_URL, { username, password }).pipe(
+    return this._http.post(this._api.getApiUrl(LOGIN_URL), { username, password }).pipe(
       tap((data) => { this._setSession(data) }),
       shareReplay()
     );
