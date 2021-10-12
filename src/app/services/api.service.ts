@@ -1,9 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 import { environment } from "src/environments/environment";
-import { API_URL as URL } from "../data/variables-messages.data";
+import { YesNoDialogComponent } from "../components/yes-no-dialog/yes-no-dialog.component";
+import { API_URL as URL, FAIL } from "../data/variables-messages.data";
 import { ItemListFiltersData } from "../models/item-list-filters-data.model";
 import { ItemListPaginatorData } from "../models/item-list-paginator-data.model";
 
@@ -12,7 +14,7 @@ import { ItemListPaginatorData } from "../models/item-list-paginator-data.model"
 })
 export class ApiService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private _dialogService: MatDialog) { }
 
   public getApiUrl(path: string): string {
     return `${ environment.apiUrl }${ path }`;
@@ -23,7 +25,18 @@ export class ApiService {
   }
 
   public post(url: string, params: any): Observable<any> {
-    return this._http.post(this.getApiUrl(url), params);
+    return this._http.post(this.getApiUrl(url), params).pipe(tap((response: any) => {
+      if (response.status === FAIL) {
+        this._dialogService.open(YesNoDialogComponent, {
+          data: {
+            title: "Something went wrong...",
+            contentText: response.message,
+            showYesButton: false,
+            showNoButton: false
+          }
+        })
+      }
+    }));
   }
 
   public getMarketItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {

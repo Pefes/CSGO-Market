@@ -5,7 +5,7 @@ import * as moment from "moment";
 import { Moment } from "moment";
 import { BehaviorSubject, Observable } from "rxjs";
 import { shareReplay, tap } from "rxjs/operators";
-import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, MARKET_URL, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
+import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, FAIL, MARKET_URL, SUCCESS, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
 import { API_URL as URL} from "../data/variables-messages.data";
 import { UserData } from "../models/user-data.model";
 import { ApiService } from "./api.service";
@@ -25,15 +25,16 @@ export class AuthenticationService {
   }
 
   public register(username: string, password: string): Observable<any> {
-    return this._api.post(URL.REGISTER, { username, password }).pipe(
-      shareReplay()
-    );
+    return this._api.post(URL.REGISTER, { username, password });
   }
 
   public logIn(username: string, password: string): Observable<any> {
     return this._api.post(URL.LOGIN, { username, password }).pipe(
-      tap((data) => { this._setSession(data) }),
-      shareReplay()
+      tap((response) => {
+        if (response.status === SUCCESS) {
+          this._setSession(response)
+        }
+      })
     );
   }
 

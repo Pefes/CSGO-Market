@@ -19,11 +19,11 @@ export class YesNoDialogComponent {
     public dialogRef: MatDialogRef<YesNoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: YesNoDialogData
   ) {
-    data.title ? this.title = data.title : null;
-    data.contentText ? this.contentText = data.contentText : null;
-    data.showYesButton ? this.showYesButton = data.showYesButton : null;
-    data.showNoButton ? this.showNoButton = data.showNoButton : null;
-    data.showCancelButton ? this.showCancelButton = data.showCancelButton : null;
+    this.title = data.title ?? this.title;
+    this.contentText = data.contentText ?? this.contentText;
+    this.showYesButton = data.showYesButton ?? this.showYesButton;
+    this.showNoButton = data.showNoButton ?? this.showNoButton;
+    this.showCancelButton = data.showCancelButton ?? this.showCancelButton;
   }
 
   public buttonClickHandler(result: boolean | null): void {

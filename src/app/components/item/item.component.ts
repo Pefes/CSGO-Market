@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Item } from "src/app/models/item.model";
 import { ApiService } from "src/app/services/api.service";
+import { AuthenticationService } from "src/app/services/authentication.service";
 
 @Component({
   selector: "item",
@@ -25,7 +26,11 @@ export class ItemComponent {
   @Output() public sellButtonClicked: EventEmitter<Item> = new EventEmitter<Item>();
   @Output() public openButtonClicked: EventEmitter<Item> = new EventEmitter<Item>();
 
-  constructor(private _api: ApiService) { }
+  constructor(private _api: ApiService, private _authenticationService: AuthenticationService) { }
+
+  public isLoggedIn(): boolean {
+    return this._authenticationService.isLoggedIn();
+  }
 
   public checkIfEmpty(value: string): string {
     return value ?? "-";
