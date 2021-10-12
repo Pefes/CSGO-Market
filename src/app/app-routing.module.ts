@@ -6,6 +6,7 @@ import { EquipmentComponent } from "./views/equipment/equipment.component";
 import { MarketComponent } from "./views/market/market.component";
 
 const routes: Routes = [
+  { path: "", redirectTo: "/market", pathMatch: "full" },
   { path: MARKET_URL, component: MarketComponent },
   { path: EQUIPMENT_URL, component: EquipmentComponent, canActivate: [AuthGuardService] }
 ];
