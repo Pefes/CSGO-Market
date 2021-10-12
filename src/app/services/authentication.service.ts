@@ -18,7 +18,6 @@ export class AuthenticationService {
   private _userData: BehaviorSubject<UserData | null> = new BehaviorSubject<UserData | null>(null);
 
   constructor(
-    private _http: HttpClient,
     private _router: Router,
     private _api: ApiService
     ) {
@@ -26,13 +25,13 @@ export class AuthenticationService {
   }
 
   public register(username: string, password: string): Observable<any> {
-    return this._http.post(this._api.getApiUrl(URL.REGISTER), { username, password }).pipe(
+    return this._api.post(URL.REGISTER, { username, password }).pipe(
       shareReplay()
     );
   }
 
   public logIn(username: string, password: string): Observable<any> {
-    return this._http.post(this._api.getApiUrl(URL.LOGIN), { username, password }).pipe(
+    return this._api.post(URL.LOGIN, { username, password }).pipe(
       tap((data) => { this._setSession(data) }),
       shareReplay()
     );

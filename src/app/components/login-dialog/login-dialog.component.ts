@@ -36,7 +36,9 @@ export class LoginDialogComponent {
     const password = this.form.value.password;
 
     if (this.login) {
-      this._authenticationService.logIn(username, password).subscribe()
+      this._authenticationService.logIn(username, password).subscribe(response => {
+        console.log(response)
+      })
     } else {
       this._authenticationService.register(username, password).subscribe();
     }
