@@ -47,6 +47,8 @@ export class ItemListComponent {
   @Input() public showBuyButton: boolean = false;
   @Input() public showSellButton: boolean = false;
   @Input() public showOpenButton: boolean = false;
+  @Input() public showPaginator: boolean = false;
+  @Input() public isTryOut: boolean = false;
   @Output() public paginatorChanged: EventEmitter<ItemListPaginatorData> = new EventEmitter<ItemListPaginatorData>();
 
   constructor(
@@ -78,7 +80,7 @@ export class ItemListComponent {
 
   public openOpenContainerDialog(itemData: Item): MatDialogRef<OpenContainerDialogComponent> {
     return this._dialogService.open(OpenContainerDialogComponent, {
-      data: itemData
+      data: { itemData: itemData, isTryOut: this.isTryOut }
     });
   }
 

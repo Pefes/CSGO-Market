@@ -11,6 +11,6 @@ export interface Item {
     price: number,
     purchasable: boolean,
     openable: boolean,
-    content: string[],
-    [key: string]: string | boolean | number | string[]
+    content: any,
+    [key: string]: string | boolean | number | string[] | any
 }

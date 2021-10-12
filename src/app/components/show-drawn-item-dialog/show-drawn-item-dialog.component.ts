@@ -14,7 +14,9 @@ import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
   styleUrls: ["./show-drawn-item-dialog.component.scss"]
 })
 export class ShowDrawnItemDialogComponent implements OnInit {
+
   public propertiesToShow: string[] = ["name", "type", "exterior", "rarity", "price"];
+  public showSellButton: boolean = true;
 
   constructor(
     public dialogRef: MatDialogRef<ShowDrawnItemDialogComponent>,
@@ -23,15 +25,17 @@ export class ShowDrawnItemDialogComponent implements OnInit {
     private _api: ApiService,
     private _authenticationService: AuthenticationService,
     @Inject(DOCUMENT) private _document: Document,
-    @Inject(MAT_DIALOG_DATA) public data: Item) {  }
+    @Inject(MAT_DIALOG_DATA) public data: { itemData: Item, [key: string]: any }) {
+      this.showSellButton = this.data.showSellButton ?? this.showSellButton;
+    }
 
   public ngOnInit(): void {
     const matDialogElement: any = this._document.querySelector(`.${ OPEN_CONTAINER_DIALOG_PANEL_CLASS } mat-dialog-container`);
-    matDialogElement.style.boxShadow = `0px 0px 200px 0px #${ this.data.rarityColor }`;
+    matDialogElement.style.boxShadow = `0px 0px 200px 0px #${ this.data.itemData.rarityColor }`;
   }
   
   public buttonCloseClickHandler(): void {
-    this._itemsService.addOwnedItem(this.data);
+    this._itemsService.addOwnedItem(this.data.itemData);
     this.dialogRef.close();
   }
 
@@ -41,10 +45,10 @@ export class ShowDrawnItemDialogComponent implements OnInit {
         contentText: "Are you sure you want to sell this item?"
     }}).afterClosed().subscribe(result => {
       if (result) {
-        this._api.sellItem(this.data._id).subscribe(response => {
+        this._api.sellItem(this.data.itemData._id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this._itemsService.removeOwnedItem(this.data._id);
-            this._authenticationService.addValueToUserCash(this.data.price);
+            this._itemsService.removeOwnedItem(this.data.itemData._id);
+            this._authenticationService.addValueToUserCash(this.data.itemData.price);
           }
 
           this.dialogRef.close();
@@ -54,6 +58,6 @@ export class ShowDrawnItemDialogComponent implements OnInit {
   }
 
   public getIconFullUrl(): string {
-    return this._api.getImageApiUrl(this.data.iconUrl);
+    return this._api.getImageApiUrl(this.data.itemData.iconUrl);
   }
 }

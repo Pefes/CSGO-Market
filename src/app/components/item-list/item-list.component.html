@@ -18,7 +18,7 @@
         <p>No items found...</p>
     </div>
 </section>
-<section class="itemListFooter">
+<section class="itemListFooter" *ngIf="showPaginator">
     <mat-paginator
         [length]="querySize"
         [pageSize]="currentPageSize"

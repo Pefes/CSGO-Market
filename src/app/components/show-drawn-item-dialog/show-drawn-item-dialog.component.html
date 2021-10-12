@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <p>You received new item!</p>
     <section class="imageWrapper">
-        <snake-border-card [themeColor]="'#' + data.rarityColor">
+        <snake-border-card [themeColor]="'#' + data.itemData.rarityColor">
             <img src="{{ getIconFullUrl() }}"/>
         </snake-border-card>
     </section>
@@ -10,18 +10,18 @@
         <ng-container *ngFor="let property of propertiesToShow">
             <div *ngIf="property == 'price'; else rarity" class="propertyWrapper">
                 <div>{{ property | titlecase }}</div>
-                <div textColor>{{ data[property] | currency }}</div>
+                <div textColor>{{ data.itemData[property] | currency }}</div>
             </div>
             <ng-template #rarity>
                 <div *ngIf="property == 'rarity'; else allProperties" class="propertyWrapper">
                     <div>{{ property | titlecase }}</div>
-                    <div [textColor]="'#' + data.rarityColor">{{ data[property] }}</div>
+                    <div [textColor]="'#' + data.itemData.rarityColor">{{ data.itemData[property] }}</div>
                 </div>
             </ng-template>
             <ng-template #allProperties>
                 <div class="propertyWrapper">
                     <div>{{ property | titlecase }}</div>
-                    <div>{{ data[property] }}</div>
+                    <div>{{ data.itemData[property] }}</div>
                 </div>
             </ng-template>
         </ng-container>
@@ -30,5 +30,5 @@
 <mat-divider></mat-divider>
 <div mat-dialog-actions>
     <button mat-raised-button (click)="buttonCloseClickHandler()">Close</button>
-    <button mat-raised-button color="primary" (click)="buttonSellClickHandler()">Sell</button>
+    <button mat-raised-button color="primary" *ngIf="showSellButton" (click)="buttonSellClickHandler()">Sell</button>
 </div>

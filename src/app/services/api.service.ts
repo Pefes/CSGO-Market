@@ -39,6 +39,10 @@ export class ApiService {
     }));
   }
 
+  public getTryOutItems(): Observable<any> {
+    return this._http.get(this.getApiUrl(URL.GET_TRY_OUT_ITEMS)).pipe(map((data: any) => data.data));
+  }
+
   public getMarketItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {
     return this.post(URL.GET_MARKET_ITEMS, params).pipe(map((data: any) => data.data));
   }
@@ -57,6 +61,10 @@ export class ApiService {
 
   public openContainer(containerId: string): Observable<any> {
     return this.post(URL.OPEN_CONTAINER, { containerId });
+  }
+
+  public openTryOutContainer(containerId: string): Observable<any> {
+    return this.post(URL.OPEN_TRY_OUT_CONTAINER, { containerId });
   }
 
   public getItemImage(imageId: string): Observable<any> {

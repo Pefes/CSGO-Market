@@ -22,6 +22,7 @@ import { ShowDrawnItemDialogComponent } from "./components/show-drawn-item-dialo
 import { TextColorDirective } from "./directives/text-color.directive";
 import { BackgroundColorDirective } from './directives/background-color.directive';
 import { SnakeBorderCardComponent } from './components/snake-border-card/snake-border-card.component';
+import { TryOutComponent } from './views/try-out/try-out.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SnakeBorderCardComponent } from './components/snake-border-card/snake-b
     ShowDrawnItemDialogComponent,
     TextColorDirective,
     BackgroundColorDirective,
-    SnakeBorderCardComponent
+    SnakeBorderCardComponent,
+    TryOutComponent
   ],
   imports: [
     BrowserModule,

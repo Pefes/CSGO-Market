@@ -1,12 +1,12 @@
-<h1 mat-dialog-title>{{ itemData.name }} | Open</h1>
+<h1 mat-dialog-title>{{ data.itemData.name }} | Open</h1>
 <mat-divider></mat-divider>
 <div class="dialogContent" mat-dialog-content>
     <section class="caseConsistsOf">
-        <img src="{{ getIconFullUrl(itemData.iconUrl) }}"/>
-        <p>{{ itemData.name }} contains one of these items:</p>
+        <img src="{{ getIconFullUrl(data.itemData.iconUrl) }}"/>
+        <p>{{ data.itemData.name }} contains one of these items:</p>
     </section>
     <section class="contentItems">
-        <ng-container *ngFor="let contentItem of itemData.content">
+        <ng-container *ngFor="let contentItem of data.itemData.content">
             <article>
                 <div class="imageWrapper">
                     <img src="{{ getIconFullUrl(contentItem.iconUrl) }}"/>
