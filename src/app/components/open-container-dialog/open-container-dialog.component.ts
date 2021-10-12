@@ -1,6 +1,6 @@
 import { Component, Inject } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { CSGO_API_IMAGE_URL, OPEN_CONTAINER_DIALOG_PANEL_CLASS, SUCCESS } from "src/app/data/variables-messages.data";
+import { OPEN_CONTAINER_DIALOG_PANEL_CLASS, SUCCESS } from "src/app/data/variables-messages.data";
 import { ApiService } from "src/app/services/api.service";
 import { ItemsService } from "src/app/services/items.service";
 import { ShowDrawnItemDialogComponent } from "../show-drawn-item-dialog/show-drawn-item-dialog.component";
@@ -35,6 +35,6 @@ export class OpenContainerDialogComponent {
   }
 
   public getIconFullUrl(iconUrl: string): string {
-    return `${ this._api.getApiUrl("api/getItemImage?imageUrl=") }${ iconUrl }`;
+    return this._api.getImageApiUrl(iconUrl);
   }
 }

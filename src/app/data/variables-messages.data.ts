@@ -1,7 +1,16 @@
-export const CSGO_API_URL = "/api/GetItemsList/v2/";
-export const CSGO_API_IMAGE_URL = "http://cdn.steamcommunity.com/economy/image/";
-export const REGISTER_URL = "api/register";
-export const LOGIN_URL = "api/login";
+export const API_URL = {
+    CSGO_API: "/api/GetItemsList/v2/",
+    CSGO_API_IMAGE: "http://cdn.steamcommunity.com/economy/image/",
+    REGISTER: "api/register",
+    LOGIN: "api/login",
+    GET_MARKET_ITEMS: "api/getMarketItems",
+    GET_OWNED_ITEMS: "api/getOwnedItems",
+    BUY_ITEM: "api/buyItem",
+    SELL_ITEM: "api/sellItem",
+    OPEN_CONTAINER: "api/openContainer",
+    GET_ITEM_IMAGE: "api/getItemImage?imageUrl="
+};
+
 export const PRICE_HIGHEST = "Price - highest first";
 export const PRICE_LOWEST = "Price - lowest first";
 export const SORT_ASCENDING = "asc";

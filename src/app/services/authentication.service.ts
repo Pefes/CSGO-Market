@@ -1,17 +1,18 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import * as moment from "moment";
 import { Moment } from "moment";
 import { BehaviorSubject, Observable } from "rxjs";
 import { shareReplay, tap } from "rxjs/operators";
-import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, LOGIN_URL, MARKET_URL, REGISTER_URL, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
+import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, MARKET_URL, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
+import { API_URL as URL} from "../data/variables-messages.data";
 import { UserData } from "../models/user-data.model";
 import { ApiService } from "./api.service";
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthenticationService {
   private _userData: BehaviorSubject<UserData | null> = new BehaviorSubject<UserData | null>(null);
@@ -25,13 +26,13 @@ export class AuthenticationService {
   }
 
   public register(username: string, password: string): Observable<any> {
-    return this._http.post(this._api.getApiUrl(REGISTER_URL), { username, password }).pipe(
+    return this._http.post(this._api.getApiUrl(URL.REGISTER), { username, password }).pipe(
       shareReplay()
     );
   }
 
   public logIn(username: string, password: string): Observable<any> {
-    return this._http.post(this._api.getApiUrl(LOGIN_URL), { username, password }).pipe(
+    return this._http.post(this._api.getApiUrl(URL.LOGIN), { username, password }).pipe(
       tap((data) => { this._setSession(data) }),
       shareReplay()
     );
