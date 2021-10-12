@@ -7,7 +7,7 @@
 
 .itemsListWrapper {
     overflow: auto;
-    padding: 50px 0;
+    padding: 50px 25px;
 }
 
 .itemsListWrapper::-webkit-scrollbar {
@@ -28,7 +28,7 @@
 
 .itemsWrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 325px);
+    grid-template-columns: repeat(auto-fill, clamp(275px, 100%, 325px));
     justify-content: center;
     grid-gap: 50px;
 }
@@ -55,10 +55,4 @@ mat-paginator {
 
 .itemListFooter {
     border-top: 1px solid #313131;
-}
-
-@media (max-width: 370px) {
-    .itemsWrapper {
-        grid-template-columns: repeat(auto-fill, 280px);
-    }
 }

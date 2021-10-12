@@ -29,7 +29,7 @@ nav {
     }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 750px) {
     :host nav ::ng-deep .mat-tab-links {
         flex-direction: column-reverse;
     }
