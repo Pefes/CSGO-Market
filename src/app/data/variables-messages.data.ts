@@ -26,3 +26,6 @@ export const MARKET_URL = "market";
 export const EQUIPMENT_URL = "equipment";
 export const TRY_OUT_URL = "equipment";
 export const OPEN_CONTAINER_DIALOG_PANEL_CLASS = "drawnItemDialogContainer";
+export const SUCCESS_TITLE = "Success!"
+export const REGISTER_SUCCESS = "Your account has been created"
+export const LOGIN_SUCCESS = "You have been logged in"

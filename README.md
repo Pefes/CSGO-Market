@@ -61,7 +61,7 @@ npm start
 
 ## Deployment
 
-\<in-progress> ---> instead you can look at the images below :arrow_down: :arrow_down:
+https://csgo-market-app.herokuapp.com/ ---> also look at the images below :arrow_down: :arrow_down: :arrow_down: :arrow_down: :arrow_down: :arrow_down:
 
 ## Built With
 
