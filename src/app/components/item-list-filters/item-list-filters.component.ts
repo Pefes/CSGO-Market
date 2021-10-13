@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { PRICE_HIGHEST, PRICE_LOWEST, SORT_ASCENDING, SORT_DESCENDING } from "src/app/data/variables-messages.data";
 import { ItemListFiltersData } from "src/app/models/item-list-filters-data.model";
 
 @Component({
-  selector: 'item-list-filters',
-  templateUrl: './item-list-filters.component.html',
-  styleUrls: ['./item-list-filters.component.scss']
+  selector: "item-list-filters",
+  templateUrl: "./item-list-filters.component.html",
+  styleUrls: ["./item-list-filters.component.scss"]
 })
 export class ItemListFiltersComponent implements OnInit {
 
@@ -50,6 +50,9 @@ export class ItemListFiltersComponent implements OnInit {
       sorting
     };
 
-    this.onFiltersApplied.emit(filtersData);
+    const filtersAsArray: any[] = Object.entries(filtersData).filter(([key, value]) => value);
+    const filtersAsObject: object = Object.assign({}, ...filtersAsArray.map(([key, value]) => ({ [key]: value })));
+
+    this.onFiltersApplied.emit(filtersAsObject);
   }
 }

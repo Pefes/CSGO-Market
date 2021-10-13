@@ -10,6 +10,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatIconModule,
     MatSelectModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
   ],
   exports: [
     MatTabsModule,
@@ -38,7 +40,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     MatIconModule,
     MatSelectModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

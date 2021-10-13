@@ -7,17 +7,29 @@
     <section class="formFields" [formGroup]="filtersForm" (keyup.enter)="applyFilters()">
         <div class="filters">
             <ng-container *ngFor="let filter of propertiesToFilter">
-                <mat-form-field appearance="outline">
-                    <mat-label>{{ filter.property | titlecase}}</mat-label>
-                    <input matInput
-                        formControlName="{{ filter.property }}"
-                        placeholder="{{ filter.property | titlecase }}">
-                    <mat-icon matSuffix
-                        [class.hideCloseIcon]="!filtersForm.value[filter.property]"
-                        (click)="clearSingleFilter(filter.property)">
-                        close
-                    </mat-icon>
-                </mat-form-field>
+                <ng-container *ngIf="filter.select; else other">
+                    <mat-form-field appearance="outline" class="selectFormField">
+                        <mat-label>{{ filter.property | titlecase}}</mat-label>
+                        <mat-select formControlName="{{ filter.property }}">
+                            <ng-container *ngFor="let option of filter.options">
+                                <mat-option [value]="option.value">{{ option.label }}</mat-option>
+                            </ng-container>
+                        </mat-select>
+                    </mat-form-field>
+                </ng-container>
+                <ng-template #other>
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{ filter.property | titlecase}}</mat-label>
+                        <input matInput
+                            formControlName="{{ filter.property }}"
+                            placeholder="{{ filter.property | titlecase }}">
+                        <mat-icon matSuffix
+                            [class.hideCloseIcon]="!filtersForm.value[filter.property]"
+                            (click)="clearSingleFilter(filter.property)">
+                            close
+                        </mat-icon>
+                    </mat-form-field>
+                </ng-template>
             </ng-container>
         </div>
         <div class="sorting">

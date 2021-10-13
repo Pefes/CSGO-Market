@@ -33,16 +33,24 @@ nav {
         justify-content: space-between;
         align-items: center;
         padding-left: 10px;
-
-        .cashWrapper {
-            padding-left: 16px;
-        }
-
-        mat-divider {
-            height: 24px;
-            margin-left: 6px;
-        }
     }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+
+    mat-divider {
+        height: 24px;
+        margin-left: 6px;
+    }
+}
+
+.cashWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-left: 16px;
 }
 
 @media (max-width: 750px) {
@@ -72,7 +80,7 @@ nav {
         }
     }
 
-    mat-divider {
+    mat-divider.navbarDivider {
         width: 100%;
         margin: 15px 0 0 0;
     }

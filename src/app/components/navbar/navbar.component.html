@@ -9,15 +9,17 @@
             </a>
         </ng-container>
     </div>
-    <mat-divider></mat-divider>
+    <mat-divider class="navbarDivider"></mat-divider>
     <div class="actionButtonsWrapper">
         <!-- <mat-card class="cashCard" textColor *ngIf="isLoggedIn()">Cash: {{ loggedInUserData?.cash | currency}}</mat-card> -->
         <snake-border-card
             *ngIf="isLoggedIn()"
             [@cashChanged]="loggedInUserData?.cash"
             [themeColor]="'var(--cash)'">
-            <mat-icon>attach_money</mat-icon>
-            <mat-divider [vertical]="true"></mat-divider>
+            <div class="iconWrapper">
+                <mat-icon>attach_money</mat-icon>
+                <mat-divider [vertical]="true"></mat-divider>
+            </div>
             <div class="cashWrapper">{{ loggedInUserData?.cash | currency: "" : "" }}</div>
         </snake-border-card>
         <button mat-stroked-button color="primary" *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">Login</button>
