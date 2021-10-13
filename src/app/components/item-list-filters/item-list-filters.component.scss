@@ -63,9 +63,14 @@ mat-icon:hover {
 }
 
 @media (max-height: 750px) {
-    .formFields mat-form-field {
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 11px;
+    .formFields {
+        max-height: 310px;
+        overflow: auto;
+
+        mat-form-field {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 11px;
+        }
     }
 }
