@@ -45,7 +45,6 @@ article:hover {
 
     mat-card-header ::ng-deep {
         width: 100%;
-        height: 10%;
         margin-bottom: 10px;
 
         div.mat-card-header-text {
@@ -75,11 +74,14 @@ article:hover {
             max-height: 100%;
             align-self: center;
         }
+
+        .hideImage {
+            display: none;
+        }
     }
     
     mat-card-content {
         width: 100%;
-        height: 20%;
         margin: 0;
         margin-bottom: 10px;
         padding: 0;
@@ -96,7 +98,6 @@ article:hover {
     
     mat-card-actions {
         width: 100%;
-        height: 10%;
         margin: 0;
         padding: 0;
         display: flex;

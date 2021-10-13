@@ -10,12 +10,14 @@ import { ApiService } from "src/app/services/api.service";
 export class TryOutComponent implements OnInit {
 
   public tryOutItems: Item[] = [];
+  public itemsLoading: boolean = true;
 
   constructor(private _api: ApiService) {  }
 
   public ngOnInit(): void {
     this._api.getTryOutItems().subscribe(items => {
       this.tryOutItems = [...items];
+      this.itemsLoading = false;
     });
   }
 

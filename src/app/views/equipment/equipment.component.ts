@@ -15,6 +15,7 @@ export class EquipmentComponent implements OnInit {
   public ownedItems: Item[] = [];
   public propertiesToFilter: any[] = propertiesToFilter;
   public querySize: number = 0;
+  public itemsLoading: boolean = true;
   private _itemListPaginatorData: ItemListPaginatorData = {} as ItemListPaginatorData;
   private _itemListFiltersData: ItemListFiltersData = {} as ItemListFiltersData;
 
@@ -35,7 +36,8 @@ export class EquipmentComponent implements OnInit {
   private _getOwnedItems(): void {
     this._api.getOwnedItems({ filtersData: this._itemListFiltersData, paginatorData: this._itemListPaginatorData }).subscribe(data => {
       this.ownedItems = data.items;
-      this.querySize = data.querySize
+      this.querySize = data.querySize;
+      this.itemsLoading = false;
     });
   }
 

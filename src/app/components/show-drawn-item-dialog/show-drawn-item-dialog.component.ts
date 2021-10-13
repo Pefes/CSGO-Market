@@ -17,6 +17,7 @@ export class ShowDrawnItemDialogComponent implements OnInit {
 
   public propertiesToShow: string[] = ["name", "type", "exterior", "rarity", "price"];
   public showSellButton: boolean = true;
+  public imageLoading: boolean = true;
 
   constructor(
     public dialogRef: MatDialogRef<ShowDrawnItemDialogComponent>,
@@ -59,5 +60,9 @@ export class ShowDrawnItemDialogComponent implements OnInit {
 
   public getIconFullUrl(): string {
     return this._api.getImageApiUrl(this.data.itemData.iconUrl);
+  }
+
+  public imageLoadedHandler(): void {
+    this.imageLoading = false;
   }
 }

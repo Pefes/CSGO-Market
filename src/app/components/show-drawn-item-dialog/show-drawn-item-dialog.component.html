@@ -2,8 +2,9 @@
 <div mat-dialog-content>
     <p>You received new item!</p>
     <section class="imageWrapper">
-        <snake-border-card [themeColor]="'#' + data.itemData.rarityColor">
-            <img src="{{ getIconFullUrl() }}"/>
+        <mat-spinner *ngIf="imageLoading"></mat-spinner>
+        <snake-border-card [class.hideImage]="imageLoading" [themeColor]="'#' + data.itemData.rarityColor">
+            <img src="{{ getIconFullUrl() }}" (load)="imageLoadedHandler()" />
         </snake-border-card>
     </section>
     <section>

@@ -49,6 +49,7 @@ export class ItemListComponent {
   @Input() public showOpenButton: boolean = false;
   @Input() public showPaginator: boolean = false;
   @Input() public isTryOut: boolean = false;
+  @Input() public itemsLoading: boolean = true;
   @Output() public paginatorChanged: EventEmitter<ItemListPaginatorData> = new EventEmitter<ItemListPaginatorData>();
 
   constructor(

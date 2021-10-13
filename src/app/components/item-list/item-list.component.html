@@ -1,5 +1,6 @@
 <section class="itemsListWrapper">
-    <div class="itemsWrapper">
+    <div class="spinnerWrapper" *ngIf="itemsLoading"><mat-spinner></mat-spinner></div>
+    <div class="itemsWrapper" *ngIf="!itemsLoading">
         <ng-container *ngFor="let item of items">
             <item
                 @itemAddRemove
@@ -13,7 +14,7 @@
             </item>
         </ng-container>
     </div>
-    <div class="noItemsFound" *ngIf="items.length === 0">
+    <div class="noItemsFound" *ngIf="!itemsLoading && items.length === 0">
         <mat-icon>search</mat-icon>
         <p>No items found...</p>
     </div>

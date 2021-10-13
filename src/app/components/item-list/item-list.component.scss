@@ -8,6 +8,15 @@
 .itemsListWrapper {
     overflow: auto;
     padding: 50px 25px;
+    height: 100%;
+}
+
+.spinnerWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .itemsListWrapper::-webkit-scrollbar {

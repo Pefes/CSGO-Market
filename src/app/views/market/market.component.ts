@@ -15,6 +15,7 @@ export class MarketComponent implements OnInit {
   public marketItems: any[] = [];
   public propertiesToFilter: any[] = propertiesToFilter;
   public querySize: number = 0;
+  public itemsLoading: boolean = true;
   private _itemListPaginatorData: ItemListPaginatorData = {} as ItemListPaginatorData;
   private _itemListFiltersData: ItemListFiltersData = {} as ItemListFiltersData;
 
@@ -36,6 +37,7 @@ export class MarketComponent implements OnInit {
     this._api.getMarketItems({ filtersData: this._itemListFiltersData, paginatorData: this._itemListPaginatorData }).subscribe(data => {
       this.marketItems = data.items;
       this.querySize = data.querySize;
+      this.itemsLoading = false;
     });
   }
 

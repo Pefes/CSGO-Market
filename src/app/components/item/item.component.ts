@@ -11,6 +11,7 @@ import { AuthenticationService } from "src/app/services/authentication.service";
 export class ItemComponent {
 
   public imageUrl: string = "";
+  public imageLoading: boolean = true;
 
   private _data: Item = {} as Item;
   public get data(): Item { return this._data; }
@@ -46,5 +47,9 @@ export class ItemComponent {
 
   public openButtonClickedHandler(): void {
     this.openButtonClicked.emit(this.data);
+  }
+
+  public imageLoadedHandler(): void {
+    this.imageLoading = false;
   }
 }
