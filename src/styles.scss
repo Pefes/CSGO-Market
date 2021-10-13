@@ -17,3 +17,20 @@ body {
     box-shadow: 0px 0px 200px 0px var(--app-primary);
     border: 1px solid var(--border);
 }
+
+*::-webkit-scrollbar {
+    background-color: var(--app-background-secondary);
+    width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--app-primary);
+    border-radius: 5px;
+    -webkit-box-shadow: inset 8px 8px 24px -25px rgba(255, 255, 255, 1);
+    -moz-box-shadow: inset 8px 8px 24px -25px rgba(255, 255, 255, 1);
+    box-shadow: inset 8px 8px 24px -25px rgba(255, 255, 255, 1);
+}
+
+*::-webkit-scrollbar-corner {
+    background-color: var(--app-background-secondary);
+}
