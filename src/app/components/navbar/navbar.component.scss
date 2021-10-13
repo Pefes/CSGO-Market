@@ -27,6 +27,22 @@ nav {
         -moz-box-shadow: 0px 0px 20px 1px var(--app-primary);
         box-shadow: 0px 0px 20px 1px var(--app-primary);
     }
+
+    snake-border-card mat-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+
+        .cashWrapper {
+            padding-left: 16px;
+        }
+
+        mat-divider {
+            height: 24px;
+            margin-left: 6px;
+        }
+    }
 }
 
 @media (max-width: 750px) {

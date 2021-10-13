@@ -12,7 +12,14 @@
     <mat-divider></mat-divider>
     <div class="actionButtonsWrapper">
         <!-- <mat-card class="cashCard" textColor *ngIf="isLoggedIn()">Cash: {{ loggedInUserData?.cash | currency}}</mat-card> -->
-        <snake-border-card [@cashChanged]="loggedInUserData?.cash" [themeColor]="'var(--cash)'" *ngIf="isLoggedIn()">{{ loggedInUserData?.cash | currency}}</snake-border-card>
+        <snake-border-card
+            *ngIf="isLoggedIn()"
+            [@cashChanged]="loggedInUserData?.cash"
+            [themeColor]="'var(--cash)'">
+            <mat-icon>attach_money</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div class="cashWrapper">{{ loggedInUserData?.cash | currency: "" : "" }}</div>
+        </snake-border-card>
         <button mat-stroked-button color="primary" *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">Login</button>
         <button mat-raised-button color="primary" *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">Register</button>
         <button mat-raised-button *ngIf="isLoggedIn()" (click)="logoutButtonHandler()">Logout</button>

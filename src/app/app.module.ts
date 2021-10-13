@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { DEFAULT_CURRENCY_CODE, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -57,6 +57,9 @@ import { TryOutComponent } from './views/try-out/try-out.component';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptor,
       multi: true
+    }, {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: "USD"
     }
   ],
   bootstrap: [AppComponent]
