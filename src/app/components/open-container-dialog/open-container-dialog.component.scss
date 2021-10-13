@@ -21,7 +21,7 @@
         border: 1px solid #a7a7a7;
         border-radius: 5px;
 
-        .imageWrapper {
+        image-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -29,13 +29,6 @@
             -webkit-box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
             -moz-box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
             box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
-        }
-
-        img {
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
         }
 
         p {
@@ -63,8 +56,4 @@
 
 .dialogContent {
     max-height: 68vh;
-}
-
-.hideImage {
-    display: none;
 }

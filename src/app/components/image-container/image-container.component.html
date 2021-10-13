@@ -1,0 +1,5 @@
+<mat-spinner *ngIf="imageLoading"></mat-spinner>
+<img
+    [class.hideImage]="imageLoading"
+    [src]="getImageUrl()"
+    (load)="imageLoadedHandler()"/>

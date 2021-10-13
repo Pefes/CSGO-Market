@@ -1,12 +1,9 @@
 <h1 mat-dialog-title>Congratulations!</h1>
 <div mat-dialog-content>
     <p>You received new item!</p>
-    <section class="imageWrapper">
-        <mat-spinner *ngIf="imageLoading"></mat-spinner>
-        <snake-border-card [class.hideImage]="imageLoading" [themeColor]="'#' + data.itemData.rarityColor">
-            <img src="{{ getIconFullUrl() }}" (load)="imageLoadedHandler()" />
-        </snake-border-card>
-    </section>
+    <snake-border-card [themeColor]="'#' + data.itemData.rarityColor">
+        <image-container [imageUrlId]="data.itemData.iconUrl"></image-container>
+    </snake-border-card>
     <section>
         <ng-container *ngFor="let property of propertiesToShow">
             <div *ngIf="property == 'price'; else rarity" class="propertyWrapper">

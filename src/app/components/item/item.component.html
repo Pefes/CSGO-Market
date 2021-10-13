@@ -3,13 +3,7 @@
         <mat-card-header>
             <mat-card-title>{{ data.name }}</mat-card-title>
         </mat-card-header>
-        <div class="imageWrapper">
-            <mat-spinner *ngIf="imageLoading"></mat-spinner>
-            <img
-                [class.hideImage]="imageLoading"
-                src="{{ imageUrl }}"
-                (load)="imageLoadedHandler()"/>
-        </div>
+        <image-container [imageUrlId]="data.iconUrl"></image-container>
         <mat-card-content>
             <div class="dataWrapper">
                 <div>Type:</div>

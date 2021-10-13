@@ -2,17 +2,13 @@
 <mat-divider></mat-divider>
 <div class="dialogContent" mat-dialog-content>
     <section class="caseConsistsOf">
-        <mat-spinner *ngIf="imageLoading"></mat-spinner>
-        <img [class.hideImage]="imageLoading" src="{{ getIconFullUrl(data.itemData.iconUrl) }}" (load)="imageLoadedHandler()" />
+        <image-container [imageUrlId]="data.itemData.iconUrl"></image-container>
         <p>{{ data.itemData.name }} contains one of these items:</p>
     </section>
     <section class="contentItems">
         <ng-container *ngFor="let contentItem of data.itemData.content">
             <article>
-                <div class="imageWrapper">
-                    <mat-spinner *ngIf="imageLoading"></mat-spinner>
-                    <img [class.hideImage]="imageLoading" src="{{ getIconFullUrl(contentItem.iconUrl) }}" (load)="imageLoadedHandler()" />
-                </div>
+                <image-container [imageUrlId]="contentItem.iconUrl"></image-container>
                 <p [backgroundColor]="contentItem.rarityColor">{{ contentItem.name }}</p>
             </article>
         </ng-container>

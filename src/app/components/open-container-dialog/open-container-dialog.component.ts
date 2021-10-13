@@ -13,8 +13,6 @@ import { ShowDrawnItemDialogComponent } from "../show-drawn-item-dialog/show-dra
 })
 export class OpenContainerDialogComponent {
 
-  public imageLoading: boolean = true;
-
   constructor(
     public dialogRef: MatDialogRef<OpenContainerDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { itemData: Item, [key: string]: any },
@@ -64,13 +62,5 @@ export class OpenContainerDialogComponent {
 
   public closeButtonClickHandler(): void {
     this.dialogRef.close();
-  }
-
-  public getIconFullUrl(iconUrl: string): string {
-    return this._api.getImageApiUrl(iconUrl);
-  }
-
-  public imageLoadedHandler(): void {
-    this.imageLoading = false;
   }
 }
