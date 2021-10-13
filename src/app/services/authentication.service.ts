@@ -94,7 +94,7 @@ export class AuthenticationService {
   public addValueToUserCash(value: number): void {
     const userData: UserData | null = this._userData.getValue();
 
-    if (!this.isLoggedIn() || !userData?.cash) {
+    if (!this.isLoggedIn() || userData?.cash == null) {
       return;
     }
 
