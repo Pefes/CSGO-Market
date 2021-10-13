@@ -2,4 +2,5 @@
 <img
     [class.hideImage]="imageLoading"
     [src]="getImageUrl()"
-    (load)="imageLoadedHandler()"/>
+    (load)="imageLoadedHandler()"
+    (error)="errorHandler($event)" />

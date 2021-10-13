@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Congratulations!</h1>
-<div mat-dialog-content>
+<div mat-dialog-content class="matDialogContent">
     <p>You received new item!</p>
     <snake-border-card [themeColor]="'#' + data.itemData.rarityColor">
         <image-container [imageUrlId]="data.itemData.iconUrl"></image-container>
@@ -12,14 +12,14 @@
             </div>
             <ng-template #rarity>
                 <div *ngIf="property == 'rarity'; else allProperties" class="propertyWrapper">
-                    <div>{{ property | titlecase }}</div>
-                    <div [textColor]="'#' + data.itemData.rarityColor">{{ data.itemData[property] }}</div>
+                    <div class="propertyName">{{ property | titlecase }}:</div>
+                    <div class="propertyValue" [textColor]="'#' + data.itemData.rarityColor">{{ data.itemData[property] }}</div>
                 </div>
             </ng-template>
             <ng-template #allProperties>
                 <div class="propertyWrapper">
-                    <div>{{ property | titlecase }}</div>
-                    <div>{{ data.itemData[property] }}</div>
+                    <div class="propertyName">{{ property | titlecase }}:</div>
+                    <div class="propertyValue">{{ data.itemData[property] }}</div>
                 </div>
             </ng-template>
         </ng-container>

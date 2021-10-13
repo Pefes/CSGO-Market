@@ -2,10 +2,25 @@
     -webkit-box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
     -moz-box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
     box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.29);
+    padding: 2px;
 }
 
 .propertyWrapper {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+
+    .propertyName {
+        padding-right: 10px;
+    }
+
+    .propertyValue {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.matDialogContent {
+    max-height: unset;
 }

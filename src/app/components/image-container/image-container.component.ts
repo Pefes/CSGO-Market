@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { NO_IMAGE_URL } from "src/app/data/variables-messages.data";
 import { ApiService } from "src/app/services/api.service";
 
 @Component({
@@ -20,5 +21,9 @@ export class ImageContainerComponent {
 
   public getImageUrl(): string {
     return this.imageUrlId ? this._api.getImageApiUrl(this.imageUrlId) : "";
+  }
+
+  public errorHandler(event: any): void {
+    event.target.src = NO_IMAGE_URL;
   }
 }
