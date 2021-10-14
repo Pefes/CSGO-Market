@@ -4,3 +4,4 @@
     [src]="getImageUrl()"
     (load)="imageLoadedHandler()"
     (error)="errorHandler($event)" />
+<div *ngIf="showBackgroundImage" class="backgroundImage"></div>

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     z-index: 0;
 }
 
@@ -15,4 +16,15 @@ img {
 
 .hideImage {
     display: none;
+}
+
+.backgroundImage {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/images/background.png");
+    background-size: cover;
+    z-index: -2;
+    opacity: 0.15;
 }

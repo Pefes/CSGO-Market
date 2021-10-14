@@ -12,6 +12,7 @@ export class ImageContainerComponent {
   public imageLoading: boolean = true;
   
   @Input() public imageUrlId: string = "";
+  @Input() public showBackgroundImage: boolean = true;
 
   constructor(private _api: ApiService) { }
 
