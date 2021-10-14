@@ -71,11 +71,11 @@ nav {
         width: 100%;
         margin-top: 3px;
 
-        user-menu, snake-border-card {
+        button, user-menu, snake-border-card {
             width: 100%;
         }
 
-        user-menu {
+        button:last-of-type, user-menu {
             margin-right: 0;
         }
     }

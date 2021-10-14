@@ -11,7 +11,8 @@ export const API_URL = {
     OPEN_CONTAINER: "api/openContainer",
     OPEN_TRY_OUT_CONTAINER: "api/openTryOutContainer",
     GET_ITEM_IMAGE: "api/getItemImage?imageUrl=",
-    GET_AUTOCOMPLETE_OPTIONS: "api/getAutocompleteOptions?property="
+    GET_AUTOCOMPLETE_OPTIONS: "api/getAutocompleteOptions?property=",
+    SET_USER_DARK_THEME_OPTION: "api/setUserDarkThemeOption"
 };
 
 export const PRICE_HIGHEST = "Price - highest first";

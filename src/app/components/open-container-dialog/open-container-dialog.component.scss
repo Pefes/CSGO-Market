@@ -17,8 +17,7 @@
         justify-content: space-between;
         width: 200px;
         margin: 5px;
-        background: #4a4a4a;
-        border: 1px solid #a7a7a7;
+        border: 1px solid var(--border);
         border-radius: 5px;
 
         image-container {
@@ -36,8 +35,7 @@
             align-items: center;
             margin: 0;
             padding: 5px;
-            border-top: 1px solid #a7a7a7;
-            background: #ec6b97;
+            border-top: 1px solid var(--border);
             border-radius: 0 0 5px 5px;
         }
     }

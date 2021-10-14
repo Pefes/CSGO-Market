@@ -74,4 +74,8 @@ export class ApiService {
   public getAutocompleteOptions(property: string): Observable<any> {
     return this._http.get(this.getApiUrl(`${ URL.GET_AUTOCOMPLETE_OPTIONS }${ property }`));
   }
+
+  public setUserDarkThemeOption(darkTheme: boolean): Observable<any> {
+    return this.post(URL.SET_USER_DARK_THEME_OPTION, { darkTheme });
+  }
 }

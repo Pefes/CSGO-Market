@@ -6,8 +6,10 @@
     <mat-icon [@menuOpened]="isMenuOpened ? 'opened' : 'closed'">keyboard_arrow_down</mat-icon>
 </button>
 <mat-menu #userMenu class="userMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
+    <div class="darkMode" (click)="$event.stopPropagation();">
+        <mat-icon>dark_mode</mat-icon>
+        <span><mat-slide-toggle [(ngModel)]="darkTheme" (change)="themeChangedHandler($event)"></mat-slide-toggle></span>
+    </div>
     <mat-divider class="userMenuDivider"></mat-divider>
     <button mat-menu-item (click)="logOutButtonHandler()">
         <mat-icon>logout</mat-icon>

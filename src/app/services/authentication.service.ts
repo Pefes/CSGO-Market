@@ -101,4 +101,13 @@ export class AuthenticationService {
     this._userData.next({ ...this._userData.getValue(), cash: userData.cash + value });
     localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.getValue()));
   }
+
+  public setUserDarkTheme(setDarkTheme: boolean): void {
+    this._api.setUserDarkThemeOption(setDarkTheme).subscribe((response: any) => {
+      if (response.status === SUCCESS) {
+        this._userData.next({ ...this._userData.getValue(), darkTheme: setDarkTheme });
+        localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.getValue()));
+      }
+    });
+  }
 }

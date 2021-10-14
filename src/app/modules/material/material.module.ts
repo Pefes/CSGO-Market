@@ -14,6 +14,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatMenuModule } from "@angular/material/menu";
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatTabsModule,
@@ -50,7 +52,8 @@ import { MatMenuModule } from "@angular/material/menu";
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }
