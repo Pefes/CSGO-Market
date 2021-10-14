@@ -25,6 +25,11 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
         animate("50ms", style({ transform: "translate3d(1px, 0, 0) rotate(-1deg)" })),
         animate("50ms", style({ transform: "translate3d(-1px, 0, 0) rotate(1deg)" }))
       ])
+    ]),
+    trigger("menuOpened", [
+      state("opened", style({ transform: "rotate(180deg)" })),
+      state("closed", style({ transform: "rotate(360deg)" })),
+      transition("opened <=> closed", [animate("250ms ease-out")])
     ])
   ]
 })
@@ -37,6 +42,7 @@ export class NavbarComponent {
   ];
   private _activeLink: string = MARKET_URL;
   public loggedInUserData: UserData | null = null;
+  public isMenuOpened: boolean = false;
 
   constructor(
     private _router: Router,
@@ -81,5 +87,9 @@ export class NavbarComponent {
 
   public isLoggedIn(): boolean {
     return this._authenticationService.isLoggedIn();
+  }
+
+  public menuEventHandler(opened: boolean): void {
+    this.isMenuOpened = opened;
   }
 }

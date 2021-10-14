@@ -24,6 +24,22 @@
         </snake-border-card>
         <button mat-stroked-button color="primary" *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">Login</button>
         <button mat-raised-button color="primary" *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">Register</button>
-        <button mat-raised-button *ngIf="isLoggedIn()" (click)="logoutButtonHandler()">Logout</button>
+        <button mat-stroked-button class="userButton"
+            *ngIf="isLoggedIn()"
+            [matMenuTriggerFor]="userMenu"
+            (menuOpened)="menuEventHandler(true)"
+            (menuClosed)="menuEventHandler(false)">
+            {{ loggedInUserData?.username }}
+            <mat-icon [@menuOpened]="isMenuOpened ? 'opened' : 'closed'">keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #userMenu class="userMenu">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+            <mat-divider class="userMenuDivider"></mat-divider>
+            <button mat-menu-item (click)="logoutButtonHandler()">
+                <mat-icon>logout</mat-icon>
+                <span>Log Out</span>
+            </button>
+        </mat-menu>
     </div>
 </nav>

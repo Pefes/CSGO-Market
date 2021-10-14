@@ -34,3 +34,10 @@ body {
 *::-webkit-scrollbar-corner {
     background-color: var(--app-background-secondary);
 }
+
+.userMenu div.mat-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
