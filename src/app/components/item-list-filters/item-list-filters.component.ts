@@ -37,9 +37,13 @@ export class ItemListFiltersComponent implements OnInit {
 
   public clearAllFilters(): void {
     this.filtersForm.reset();
+    Object.keys(this.filtersForm.controls).forEach((key: string) => {
+      this.filtersForm.get(key)?.setValue("");
+    });
   }
 
   public applyFilters(): void {
+    setInterval(() => { console.log(this.filtersForm.value) }, 1000)
     let sorting = null;
     if (this.filtersForm.value.sortingOption) {
       sorting = { price: this.filtersForm.value.sortingOption === PRICE_HIGHEST ? SORT_DESCENDING : SORT_ASCENDING };
