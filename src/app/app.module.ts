@@ -25,6 +25,7 @@ import { SnakeBorderCardComponent } from './components/snake-border-card/snake-b
 import { TryOutComponent } from './views/try-out/try-out.component';
 import { ImageContainerComponent } from './components/image-container/image-container.component';
 import { AutocompleteFormFieldComponent } from './components/autocomplete-form-field/autocomplete-form-field.component';
+import { UserMenuComponent } from './components/user-menu/user-menu.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AutocompleteFormFieldComponent } from './components/autocomplete-form-f
     SnakeBorderCardComponent,
     TryOutComponent,
     ImageContainerComponent,
-    AutocompleteFormFieldComponent
+    AutocompleteFormFieldComponent,
+    UserMenuComponent
   ],
   imports: [
     BrowserModule,

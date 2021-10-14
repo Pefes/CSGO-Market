@@ -71,11 +71,11 @@ nav {
         width: 100%;
         margin-top: 3px;
 
-        button, snake-border-card {
+        user-menu, snake-border-card {
             width: 100%;
         }
 
-        button:last-of-type {
+        user-menu {
             margin-right: 0;
         }
     }
@@ -84,12 +84,4 @@ nav {
         width: 100%;
         margin: 15px 0 0 0;
     }
-}
-
-.userButton {
-    padding-right: 7px;
-}
-
-mat-divider.userMenuDivider {
-    width: 80%;
 }
