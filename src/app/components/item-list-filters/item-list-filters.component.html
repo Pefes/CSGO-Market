@@ -10,7 +10,7 @@
                 <ng-container *ngIf="filter.select; else other">
                     <mat-form-field appearance="outline" class="selectFormField">
                         <mat-label>{{ filter.property | titlecase}}</mat-label>
-                        <mat-select formControlName="{{ filter.property }}">
+                        <mat-select [formControlName]="filter.property">
                             <ng-container *ngFor="let option of filter.options">
                                 <mat-option [value]="option.value">{{ option.label }}</mat-option>
                             </ng-container>
@@ -18,17 +18,12 @@
                     </mat-form-field>
                 </ng-container>
                 <ng-template #other>
-                    <mat-form-field appearance="outline">
-                        <mat-label>{{ filter.property | titlecase}}</mat-label>
-                        <input matInput
-                            formControlName="{{ filter.property }}"
-                            placeholder="{{ filter.property | titlecase }}">
-                        <mat-icon matSuffix
-                            [class.hideCloseIcon]="!filtersForm.value[filter.property]"
-                            (click)="clearSingleFilter(filter.property)">
-                            close
-                        </mat-icon>
-                    </mat-form-field>
+                    <autocomplete-form-field
+                        [formFieldControl]="getFormControl(filter.property)"
+                        [acProperty]="filter.property"
+                        [label]="filter.property | titlecase"
+                        [placeholder]="filter.property | titlecase">
+                    </autocomplete-form-field>
                 </ng-template>
             </ng-container>
         </div>
@@ -38,7 +33,7 @@
                 <mat-select formControlName="sortingOption">
                     <mat-option value="" selected>None</mat-option>
                     <ng-container *ngFor="let option of sortingOptions">
-                        <mat-option value="{{ option }}">{{ option }}</mat-option>
+                        <mat-option [value]="option">{{ option }}</mat-option>
                     </ng-container>
                 </mat-select>
             </mat-form-field>

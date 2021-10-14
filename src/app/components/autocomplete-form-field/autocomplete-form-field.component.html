@@ -1,0 +1,17 @@
+<mat-form-field appearance="outline">
+    <mat-label>{{ label }}</mat-label>
+    <input matInput
+        [formControl]="formFieldControl"
+        [placeholder]="placeholder"
+        [matAutocomplete]="autocomplete">
+    <mat-icon matSuffix
+        [class.hideCloseIcon]="!formFieldControl.value"
+        (click)="clearFormFieldHandler()">
+        close
+    </mat-icon>
+    <mat-autocomplete #autocomplete="matAutocomplete">
+        <mat-option *ngFor="let option of filteredAcOptions" [value]="option">
+            {{ option }}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>

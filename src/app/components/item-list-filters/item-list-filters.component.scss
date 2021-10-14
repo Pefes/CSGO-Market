@@ -6,28 +6,11 @@
     border-radius: 0px;
 }
 
-mat-icon {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-mat-icon:hover {
-    background-color: var(--app-background-primary);
-}
-
-.hideCloseIcon {
-    opacity: 0;
-    pointer-events: none;
-}
-
 .formFields {
     display: flex;
     justify-content: space-between;
 
-    mat-form-field {
+    mat-form-field, autocomplete-form-field {
         margin: 10px;
     }
 
@@ -55,7 +38,7 @@ mat-icon:hover {
     .formFields {
         flex-direction: column;
 
-        mat-form-field {
+        mat-form-field, autocomplete-form-field {
             width: 95% !important;
             margin: 0;
         }
@@ -67,7 +50,7 @@ mat-icon:hover {
         max-height: 310px;
         overflow: auto;
 
-        mat-form-field {
+        mat-form-field, autocomplete-form-field {
             margin-top: 0;
             margin-bottom: 0;
             font-size: 11px;

@@ -24,6 +24,7 @@ import { BackgroundColorDirective } from './directives/background-color.directiv
 import { SnakeBorderCardComponent } from './components/snake-border-card/snake-border-card.component';
 import { TryOutComponent } from './views/try-out/try-out.component';
 import { ImageContainerComponent } from './components/image-container/image-container.component';
+import { AutocompleteFormFieldComponent } from './components/autocomplete-form-field/autocomplete-form-field.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ImageContainerComponent } from './components/image-container/image-cont
     BackgroundColorDirective,
     SnakeBorderCardComponent,
     TryOutComponent,
-    ImageContainerComponent
+    ImageContainerComponent,
+    AutocompleteFormFieldComponent
   ],
   imports: [
     BrowserModule,

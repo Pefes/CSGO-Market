@@ -55,4 +55,8 @@ export class ItemListFiltersComponent implements OnInit {
 
     this.onFiltersApplied.emit(filtersAsObject);
   }
+
+  public getFormControl(property: string): FormControl {
+    return this.filtersForm.controls[property] as FormControl;
+  }
 }

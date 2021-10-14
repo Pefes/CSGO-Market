@@ -70,4 +70,8 @@ export class ApiService {
   public getItemImage(imageId: string): Observable<any> {
     return this._http.get(this.getImageApiUrl(imageId));
   }
+
+  public getAutocompleteOptions(property: string): Observable<any> {
+    return this._http.get(this.getApiUrl(`${ URL.GET_AUTOCOMPLETE_OPTIONS }${ property }`));
+  }
 }

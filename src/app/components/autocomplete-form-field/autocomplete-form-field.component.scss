@@ -1,0 +1,20 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-icon {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+mat-icon:hover {
+    background-color: var(--app-background-primary);
+}
+
+.hideCloseIcon {
+    opacity: 0;
+    pointer-events: none;
+}
