@@ -1,8 +1,8 @@
 <mat-form-field appearance="outline">
-    <mat-label>{{ label }}</mat-label>
+    <mat-label>{{ label | translate }}</mat-label>
     <input matInput
         [formControl]="formFieldControl"
-        [placeholder]="placeholder"
+        [placeholder]="placeholder | translate"
         [matAutocomplete]="autocomplete">
     <mat-icon matSuffix
         [class.hideCloseIcon]="!formFieldControl.value"
@@ -11,7 +11,7 @@
     </mat-icon>
     <mat-autocomplete #autocomplete="matAutocomplete">
         <mat-option *ngFor="let option of filteredAcOptions" [value]="option">
-            {{ option }}
+            {{ acProperty + "." + option | uppercase | translate }}
         </mat-option>
     </mat-autocomplete>
 </mat-form-field>

@@ -15,8 +15,8 @@ export const API_URL = {
     SET_USER_DARK_THEME_OPTION: "api/setUserDarkThemeOption"
 };
 
-export const PRICE_HIGHEST = "Price - highest first";
-export const PRICE_LOWEST = "Price - lowest first";
+export const PRICE_HIGHEST = "ITEM_LIST_FILTERS.PRICE_HIGHEST";
+export const PRICE_LOWEST = "ITEM_LIST_FILTERS.PRICE_LOWEST";
 export const SORT_ASCENDING = "asc";
 export const SORT_DESCENDING = "desc";
 export const REGISTER = "REGISTER";

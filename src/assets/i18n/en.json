@@ -2,14 +2,64 @@
     "CANCEL": "Cancel",
     "CLOSE": "Close",
     "SELL": "Sell",
+    "BUY": "Buy",
+    "OPEN": "Open",
     "LOGIN": "Log In",
     "REGISTER":"Register",
     "YES": "Yes",
-    "No": "No",
+    "NO": "No",
+    "RARITY": {
+        "BASE GRADE": "Base Grade",
+        "CLASSIFIED": "Classified",
+        "CONSUMER GRADE": "Consumer Grade",
+        "CONTRABAND": "Contraband",
+        "COVERT": "Covert",
+        "DISTINGUISHED": "Distinguished",
+        "EXCEPTIONAL": "Exceptional",
+        "EXOTIC": "Exotic",
+        "EXTRA RARE": "Extra rare",
+        "EXTRAORDINARY": "Extraordinary",
+        "HIGH GRADE": "High Grade",
+        "INDUSTRIAL GRADE": "Industrial Grade",
+        "MASTER": "Master",
+        "MIL-SPEC GRADE": "Mil-Spec Grade",
+        "REMARKABLE": "Remarkable",
+        "RESTRICTED": "Restricted",
+        "SUPERIOR": "Superior",
+        "UNDEFINED": "-"
+    },
+    "EXTERIOR": {
+        "BATTLE-SCARRED": "Battle-Scarred",
+        "FACTORY NEW": "Factory New",
+        "FIELD-TESTED": "Field-Tested",
+        "MINIMAL WEAR": "Minimal Wear",
+        "NOT PAINTED": "Not Painted",
+        "WELL-WORN": "Well-Worn",
+        "UNDEFINED": "-"
+    },
+    "TYPE": {
+        "COLLECTIBLE": "Collectible",
+        "CONTAINER": "Container",
+        "GIFT": "Gift",
+        "GLOVES": "Gloves",
+        "GRAFFITI": "Graffiti",
+        "KEY": "Key",
+        "MUSIC KIT": "Music Kit",
+        "PASS": "Pass",
+        "WEAPON": "Weapon",
+        "UNDEFINED": "-"
+    },
     "NAVBAR": {
         "MARKET": "Market",
         "EQUIPMENT": "Equipment",
         "TRY_OUT": "Try Out!"
+    },
+    "ITEM": {
+        "TYPE": "Type",
+        "EXTERIOR": "Exterior",
+        "RARITY": "Rarity",
+        "NAME": "Name",
+        "OPENABLE": "Openable"
     },
     "ITEM_LIST": {
         "NO_ITEMS_FOUND": "No items found...",
@@ -20,7 +70,11 @@
         "TITLE": "Filter/Sort",
         "DESCRIPTION": "Click to see filters and sorting",
         "CLEAR": "Clear",
-        "APPLY": "Apply"
+        "APPLY": "Apply",
+        "NONE": "None",
+        "PRICE_HIGHEST": "Price - highest first",
+        "PRICE_LOWEST": "Price - lowest first",
+        "SORT_BY": "Sort By"
     },
     "LOGIN_DIALOG": {
         "USERNAME": "Username",
@@ -30,7 +84,6 @@
         "REGISTER": "Register"
     },
     "OPEN_CONTAINER_DIALOG": {
-        "OPEN": "Open",
         "CONTAINS": "contains one of these items"
     },
     "SHOW_DRAWN_ITEM_DIALOG": {
@@ -42,5 +95,8 @@
     },
     "YES_NO_DIALOG": {
         "ARE_YOU_SURE": "Are you sure?"
+    },
+    "TRY_OUT": {
+        "TITLE": "Select container and try to open it. It's free!"
     }
 }

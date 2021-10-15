@@ -14,6 +14,7 @@ export class AutocompleteFormFieldComponent {
   public filteredAcOptions: string[] = [];
 
   private _acProperty: string = "";
+  public get acProperty(): string { return this._acProperty };
   @Input() public set acProperty(newAcProperty: string) {
     this._acProperty = newAcProperty;
     this._getAcOptions();

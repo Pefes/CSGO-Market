@@ -6,16 +6,16 @@
         <image-container [imageUrlId]="data.iconUrl"></image-container>
         <mat-card-content>
             <div class="dataWrapper">
-                <div>Type:</div>
-                <div>{{ checkIfEmpty(data.type) }}</div>
+                <div>{{ "ITEM.TYPE" | translate }}:</div>
+                <div>{{ "TYPE." + data.type | uppercase | translate }}</div>
             </div>
             <div class="dataWrapper">
-                <div>Exterior:</div>
-                <div>{{ checkIfEmpty(data.exterior) }}</div>
+                <div>{{ "ITEM.EXTERIOR" | translate }}:</div>
+                <div>{{ "EXTERIOR." + data.exterior | uppercase | translate }}</div>
             </div>
             <div class="dataWrapper">
-                <div>Rarity:</div>
-                <div [textColor]="'#' + data.rarityColor">{{ checkIfEmpty(data.rarity) }}</div>
+                <div>{{ "ITEM.RARITY" | translate }}:</div>
+                <div [textColor]="'#' + data.rarityColor">{{ "RARITY." + data.rarity | uppercase | translate }}</div>
             </div>
             <mat-divider class="itemDivider"></mat-divider>
         </mat-card-content>
@@ -26,21 +26,21 @@
                     color="primary"
                     *ngIf="showBuyButton && isLoggedIn()"
                     (click)="buyButtonClickedHandler()">
-                    BUY
+                    {{ "BUY" | translate | uppercase }}
                 </button>
                 <button
                     mat-raised-button
                     color="primary"
                     *ngIf="showSellButton"
                     (click)="sellButtonClickedHandler()">
-                    SELL
+                    {{ "SELL" | translate | uppercase }}
                 </button>
                 <button
                     mat-raised-button
                     color="primary"
                     *ngIf="showOpenButton && data.openable"
                     (click)="openButtonClickedHandler()">
-                    OPEN
+                    {{ "OPEN" | translate | uppercase }}
                 </button>
             </div>
             <div class="price" [textColor]="'var(--cash)'">{{ data.price | currency }}</div>
