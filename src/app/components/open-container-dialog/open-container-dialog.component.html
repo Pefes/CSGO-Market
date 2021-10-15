@@ -1,9 +1,9 @@
-<h1 mat-dialog-title>{{ data.itemData.name }} | Open</h1>
+<h1 mat-dialog-title>{{ data.itemData.name }} | {{ "OPEN_CONTAINER_DIALOG.OPEN" | translate }}</h1>
 <mat-divider></mat-divider>
 <div class="dialogContent" mat-dialog-content>
     <section class="caseConsistsOf">
         <image-container [imageUrlId]="data.itemData.iconUrl" [showBackgroundImage]="false"></image-container>
-        <p>{{ data.itemData.name }} contains one of these items:</p>
+        <p>{{ data.itemData.name }} {{ "OPEN_CONTAINER_DIALOG.CONTAINS" | translate }}:</p>
     </section>
     <section class="contentItems">
         <ng-container *ngFor="let contentItem of data.itemData.content">
@@ -16,6 +16,6 @@
 </div>
 <mat-divider class="bottomDivider"></mat-divider>
 <div mat-dialog-actions class="dialogActions">
-    <button mat-raised-button (click)="closeButtonClickHandler()">Cancel</button>
-    <button mat-raised-button color="primary" (click)="openButtonClickHandler()">Open</button>
+    <button mat-raised-button (click)="closeButtonClickHandler()">{{ "CANCEL" | translate }}</button>
+    <button mat-raised-button color="primary" (click)="openButtonClickHandler()">{{ "OPEN_CONTAINER_DIALOG.OPEN" | translate }}</button>
 </div>

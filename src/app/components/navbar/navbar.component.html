@@ -5,13 +5,12 @@
                 *ngIf="showLink(link.mustBeLoggedIn)"   
                 (click)="clickLinkHandler(link.url)"
                 [active]="isActive(link.url)">
-                {{ link.linkName }}
+                {{ "NAVBAR." + link.linkName.toUpperCase()| translate }}
             </a>
         </ng-container>
     </div>
     <mat-divider class="navbarDivider"></mat-divider>
     <div class="actionButtonsWrapper">
-        <!-- <mat-card class="cashCard" textColor *ngIf="isLoggedIn()">Cash: {{ loggedInUserData?.cash | currency}}</mat-card> -->
         <snake-border-card
             *ngIf="isLoggedIn()"
             [@cashChanged]="loggedInUserData?.cash"
@@ -22,8 +21,8 @@
             </div>
             <div class="cashWrapper">{{ loggedInUserData?.cash | currency: "" : "" }}</div>
         </snake-border-card>
-        <button mat-stroked-button color="primary" *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">Login</button>
-        <button mat-raised-button color="primary" *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">Register</button>
+        <button mat-stroked-button color="primary" *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">{{ "LOGIN" | translate }}</button>
+        <button mat-raised-button color="primary" *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">{{ "REGISTER" | translate }}</button>
         <user-menu *ngIf="isLoggedIn()"></user-menu>
     </div>
 </nav>

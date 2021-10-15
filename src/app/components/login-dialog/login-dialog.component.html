@@ -1,13 +1,13 @@
 <h1 mat-dialog-title>{{ getLabel() }}</h1>
 <form class="inputForm" [formGroup]="form" (keyup.enter)="submitButtonHandler()">
     <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
+        <mat-label>{{ "LOGIN_DIALOG.USERNAME" | translate }}</mat-label>
         <input matInput
             formControlName="username"
             placeholder="Username">
     </mat-form-field>
     <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
+        <mat-label>{{ "LOGIN_DIALOG.PASSWORD" | translate }}</mat-label>
         <input matInput
             type="password"
             formControlName="password"
@@ -15,6 +15,6 @@
     </mat-form-field>
 </form>
 <div mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="submitButtonHandler()">{{ getLabel() }}</button>
-    <button mat-raised-button (click)="cancelButtonHandler()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submitButtonHandler()">{{ getLabel() | translate }}</button>
+    <button mat-raised-button (click)="cancelButtonHandler()">{{ "CANCEL" | translate }}</button>
 </div>

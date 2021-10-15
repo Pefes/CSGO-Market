@@ -9,7 +9,7 @@ import { YesNoDialogData } from "src/app/models/yes-no-dialog-data.model";
 })
 export class YesNoDialogComponent {
 
-  public title: string = "Are you sure?";
+  public title: string = "YES_NO_DIALOG.ARE_YOU_SURE";
   public contentText: string = "";
   public showYesButton: boolean = true;
   public showNoButton: boolean = true;

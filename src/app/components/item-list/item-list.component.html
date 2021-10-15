@@ -16,7 +16,7 @@
     </div>
     <div class="noItemsFound" *ngIf="!itemsLoading && items.length === 0">
         <mat-icon>search</mat-icon>
-        <p>No items found...</p>
+        <p>{{ "ITEM_LIST.NO_ITEMS_FOUND" | translate }}</p>
     </div>
 </section>
 <section class="itemListFooter" *ngIf="showPaginator">

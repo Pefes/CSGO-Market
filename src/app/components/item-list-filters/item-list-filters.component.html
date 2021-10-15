@@ -1,7 +1,7 @@
 <mat-expansion-panel>
     <mat-expansion-panel-header>
-        <mat-panel-title>Filter/Sort</mat-panel-title>
-        <mat-panel-description>Click to see filters and sorting</mat-panel-description>
+        <mat-panel-title>{{ "ITEM_LIST_FILTERS.TITLE" | translate }}</mat-panel-title>
+        <mat-panel-description>{{ "ITEM_LIST_FILTERS.DESCRIPTION" | translate }}</mat-panel-description>
     </mat-expansion-panel-header>
     <mat-divider></mat-divider>
     <section class="formFields" [formGroup]="filtersForm" (keyup.enter)="applyFilters()">
@@ -41,7 +41,7 @@
     </section>
     <mat-divider></mat-divider>
     <section class="actions">
-        <button mat-raised-button (click)="clearAllFilters()">Clear</button>
-        <button mat-raised-button color="primary" (click)="applyFilters()">Apply</button>
+        <button mat-raised-button (click)="clearAllFilters()">{{ "ITEM_LIST_FILTERS.CLEAR" | translate }}</button>
+        <button mat-raised-button color="primary" (click)="applyFilters()">{{ "ITEM_LIST_FILTERS.APPLY" | translate }}</button>
     </section>
 </mat-expansion-panel>

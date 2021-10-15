@@ -38,11 +38,11 @@ export class ItemListComponent {
 
   private _items: Item[] = [];
   public get items(): Item[] { return this._items };
-  public set items(newItems: Item[]) {
+  @Input() public set items(newItems: Item[]) {
     this._items = [...newItems];
     this.paginatorDisabled = false;
   }
-  @Input() public items: Item[] = [];
+  
   @Input() public querySize: number = 0;
   @Input() public showBuyButton: boolean = false;
   @Input() public showSellButton: boolean = false;
@@ -86,7 +86,7 @@ export class ItemListComponent {
   }
 
   public buyButtonHandler(item: Item): void {
-    this.openYesNoDialog("Are you sure you want to buy this item?")
+    this.openYesNoDialog("ITEM_LIST.BUY_ARE_YOU_SURE")
     .afterClosed().subscribe(result => {
       if (result) {
         this._api.buyItem(item._id).subscribe(response => {
@@ -100,7 +100,7 @@ export class ItemListComponent {
   }
   
   public sellButtonHandler(item: Item): void {
-    this.openYesNoDialog("Are you sure you want to sell this item?")
+    this.openYesNoDialog("ITEM_LIST.SELL_ARE_YOU_SURE")
     .afterClosed().subscribe(result => {
       if (result) {
         this._api.sellItem(item._id).subscribe(response => {

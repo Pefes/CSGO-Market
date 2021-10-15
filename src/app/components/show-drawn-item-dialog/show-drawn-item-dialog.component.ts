@@ -42,7 +42,7 @@ export class ShowDrawnItemDialogComponent implements OnInit {
   public buttonSellClickHandler(): void {
     this._dialogService.open(YesNoDialogComponent, {
       data: {
-        contentText: "Are you sure you want to sell this item?"
+        contentText: "ITEM_LIST.SELL_ARE_YOU_SURE"
     }}).afterClosed().subscribe(result => {
       if (result) {
         this._api.sellItem(this.data.itemData._id).subscribe(response => {

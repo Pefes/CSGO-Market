@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Congratulations!</h1>
+<h1 mat-dialog-title>{{ "SHOW_DRAWN_ITEM_DIALOG.CONGRATULATIONS" | translate }}!</h1>
 <div mat-dialog-content class="matDialogContent">
-    <p>You received new item!</p>
+    <p>{{ "SHOW_DRAWN_ITEM_DIALOG.RECEIVED" | translate }}!</p>
     <snake-border-card [themeColor]="'#' + data.itemData.rarityColor">
         <image-container [imageUrlId]="data.itemData.iconUrl"></image-container>
     </snake-border-card>
@@ -27,6 +27,6 @@
 </div>
 <mat-divider></mat-divider>
 <div mat-dialog-actions>
-    <button mat-raised-button (click)="buttonCloseClickHandler()">Close</button>
-    <button mat-raised-button color="primary" *ngIf="showSellButton" (click)="buttonSellClickHandler()">Sell</button>
+    <button mat-raised-button (click)="buttonCloseClickHandler()">{{ "CLOSE" | translate }}</button>
+    <button mat-raised-button color="primary" *ngIf="showSellButton" (click)="buttonSellClickHandler()">{{ "SELL" | translate }}</button>
 </div>

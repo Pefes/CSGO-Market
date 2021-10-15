@@ -1,0 +1,46 @@
+{
+    "CANCEL": "Cancel",
+    "CLOSE": "Close",
+    "SELL": "Sell",
+    "LOGIN": "Log In",
+    "REGISTER":"Register",
+    "YES": "Yes",
+    "No": "No",
+    "NAVBAR": {
+        "MARKET": "Market",
+        "EQUIPMENT": "Equipment",
+        "TRY_OUT": "Try Out!"
+    },
+    "ITEM_LIST": {
+        "NO_ITEMS_FOUND": "No items found...",
+        "BUY_ARE_YOU_SURE": "Are you sure you want to buy this item?",
+        "SELL_ARE_YOU_SURE": "Are you sure you want to sell this item?"
+    },
+    "ITEM_LIST_FILTERS": {
+        "TITLE": "Filter/Sort",
+        "DESCRIPTION": "Click to see filters and sorting",
+        "CLEAR": "Clear",
+        "APPLY": "Apply"
+    },
+    "LOGIN_DIALOG": {
+        "USERNAME": "Username",
+        "PASSWORD": "Password",
+        "CANCEL": "Cancel",
+        "LOGIN": "Log In",
+        "REGISTER": "Register"
+    },
+    "OPEN_CONTAINER_DIALOG": {
+        "OPEN": "Open",
+        "CONTAINS": "contains one of these items"
+    },
+    "SHOW_DRAWN_ITEM_DIALOG": {
+        "CONGRATULATIONS": "Congratulations",
+        "RECEIVED": "You received new item"
+    },
+    "USER_MENU": {
+        "LOG_OUT": "Log Out"
+    },
+    "YES_NO_DIALOG": {
+        "ARE_YOU_SURE": "Are you sure?"
+    }
+}

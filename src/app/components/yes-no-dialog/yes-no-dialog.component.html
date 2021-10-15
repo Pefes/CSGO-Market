@@ -1,11 +1,11 @@
-<h1 mat-dialog-title>{{ title }}</h1>
+<h1 mat-dialog-title>{{ title | translate }}</h1>
 <div mat-dialog-content>
-    <p>{{ contentText }}</p>
+    <p>{{ contentText | translate }}</p>
 </div>
 <div mat-dialog-actions class="buttonsWrapper">
     <div class="yesNoWrapper">
-        <button mat-raised-button color="primary" *ngIf="showYesButton" (click)="buttonClickHandler(true)">Yes</button>
-        <button mat-raised-button *ngIf="showNoButton" (click)="buttonClickHandler(false)">No</button>
+        <button mat-raised-button color="primary" *ngIf="showYesButton" (click)="buttonClickHandler(true)">{{ "YES" | translate }}</button>
+        <button mat-raised-button *ngIf="showNoButton" (click)="buttonClickHandler(false)">{{ "NO" | translate }}</button>
     </div>
-    <button mat-stroked-button *ngIf="showCancelButton" (click)="buttonClickHandler(null)">Cancel</button>
+    <button mat-stroked-button *ngIf="showCancelButton" (click)="buttonClickHandler(null)">{{ "CANCEL" | translate }}</button>
 </div>

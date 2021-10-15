@@ -31,9 +31,9 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 export class NavbarComponent {
   
   public links: { linkName: string, url: string, mustBeLoggedIn: boolean }[] = [
-    { linkName: "Market", url: MARKET_URL, mustBeLoggedIn: false },
-    { linkName: "Equipment", url: EQUIPMENT_URL, mustBeLoggedIn: true },
-    { linkName: "Try Out!", url: TRY_OUT_URL, mustBeLoggedIn: false }
+    { linkName: "market", url: MARKET_URL, mustBeLoggedIn: false },
+    { linkName: "equipment", url: EQUIPMENT_URL, mustBeLoggedIn: true },
+    { linkName: "try_out", url: TRY_OUT_URL, mustBeLoggedIn: false }
   ];
   private _activeLink: string = MARKET_URL;
   public loggedInUserData: UserData | null = null;
