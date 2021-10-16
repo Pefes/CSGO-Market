@@ -12,7 +12,7 @@
                         <mat-label>{{ "ITEM." + filter.property | uppercase | translate }}</mat-label>
                         <mat-select [formControlName]="filter.property">
                             <ng-container *ngFor="let option of filter.options">
-                                <mat-option [value]="option.value">{{ option.label | translate }}</mat-option>
+                                <mat-option [value]="option.value">{{ option.label | uppercase | translate }}</mat-option>
                             </ng-container>
                         </mat-select>
                     </mat-form-field>
@@ -31,9 +31,8 @@
             <mat-form-field appearance="outline">
                 <mat-label>{{ "ITEM_LIST_FILTERS.SORT_BY" | translate }}</mat-label>
                 <mat-select formControlName="sortingOption">
-                    <mat-option value="" selected>{{ "ITEM_LIST_FILTERS.NONE" | translate }}</mat-option>
                     <ng-container *ngFor="let option of sortingOptions">
-                        <mat-option [value]="option">{{ option | translate }}</mat-option>
+                        <mat-option [value]="option.value">{{ option.label | uppercase | translate }}</mat-option>
                     </ng-container>
                 </mat-select>
             </mat-form-field>

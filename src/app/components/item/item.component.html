@@ -7,15 +7,15 @@
         <mat-card-content>
             <div class="dataWrapper">
                 <div>{{ "ITEM.TYPE" | translate }}:</div>
-                <div>{{ "TYPE." + data.type | uppercase | translate }}</div>
+                <div>{{ data.type | titlecase }}</div>
             </div>
             <div class="dataWrapper">
                 <div>{{ "ITEM.EXTERIOR" | translate }}:</div>
-                <div>{{ "EXTERIOR." + data.exterior | uppercase | translate }}</div>
+                <div>{{ data.exterior | titlecase }}</div>
             </div>
             <div class="dataWrapper">
                 <div>{{ "ITEM.RARITY" | translate }}:</div>
-                <div [textColor]="'#' + data.rarityColor">{{ "RARITY." + data.rarity | uppercase | translate }}</div>
+                <div [textColor]="'#' + data.rarityColor">{{ data.rarity | titlecase }}</div>
             </div>
             <mat-divider class="itemDivider"></mat-divider>
         </mat-card-content>

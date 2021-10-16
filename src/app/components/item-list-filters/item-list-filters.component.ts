@@ -10,7 +10,11 @@ import { ItemListFiltersData } from "src/app/models/item-list-filters-data.model
 })
 export class ItemListFiltersComponent implements OnInit {
 
-  public sortingOptions: any[] = [PRICE_HIGHEST, PRICE_LOWEST];
+  public sortingOptions: { value: string, label: string }[] = [
+    { value: SORT_DESCENDING, label: PRICE_HIGHEST },
+    { value: SORT_ASCENDING, label: PRICE_LOWEST },
+    { value: "", label: "None" }
+  ];
   public selectedSortingOption: string = "";
 
   public filtersForm: FormGroup = new FormGroup({});
@@ -45,7 +49,7 @@ export class ItemListFiltersComponent implements OnInit {
   public applyFilters(): void {
     let sorting = null;
     if (this.filtersForm.value.sortingOption) {
-      sorting = { price: this.filtersForm.value.sortingOption === PRICE_HIGHEST ? SORT_DESCENDING : SORT_ASCENDING };
+      sorting = { price: this.filtersForm.value.sortingOption };
     }
 
     const { sortingOption = null, ...filtersData } = {
