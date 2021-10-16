@@ -1,7 +1,8 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { Component } from "@angular/core";
-import { MatSlideToggleChange } from "@angular/material/slide-toggle";
+import { FormControl } from "@angular/forms";
 import { TranslateService } from "@ngx-translate/core";
+import { UserData } from "src/app/models/user-data.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { ThemeService } from "src/app/services/theme.service";
 
@@ -20,18 +21,20 @@ import { ThemeService } from "src/app/services/theme.service";
 export class UserMenuComponent {
 
   public isMenuOpened: boolean = false;
-  public darkTheme: boolean = true;
-  public currentUsername: string = "";
-  public language: string = "en";
+  public userData: UserData = {};
+  public darkThemeControl: FormControl = new FormControl(true);
+  public languageControl: FormControl = new FormControl("en");
 
   constructor(
     private _authenticationService: AuthenticationService,
     private _themeService: ThemeService,
     private _translateService: TranslateService) {
     this._authenticationService.getLoggedInUserData().subscribe(userData => {
-      this.currentUsername = userData?.username ?? "user";
-      this.darkTheme = userData?.darkTheme ?? true;
-      this._themeService.setDarkTheme(this.darkTheme);
+      this.userData = { ...userData };
+      this.darkThemeControl.setValue(userData?.userSettings?.darkTheme ?? true);
+      this._themeService.setDarkTheme(this.darkThemeControl.value);
+      this.languageControl.setValue(userData?.userSettings?.language ?? "en");
+      this._translateService.setDefaultLang(this.languageControl.value);
     });
   }
 
@@ -43,13 +46,19 @@ export class UserMenuComponent {
     this._authenticationService.logOut();
   }
 
-  public themeChangedHandler(event: MatSlideToggleChange): void {
-    this._authenticationService.setUserDarkTheme(event.checked);
-    this._themeService.setDarkTheme(event.checked);
+  public themeChangedHandler(): void {
+    this._themeService.setDarkTheme(this.darkThemeControl.value);
+    if (this.userData.userSettings) {
+      this.userData.userSettings.darkTheme = this.darkThemeControl.value;
+      this._authenticationService.saveUserSettings(this.userData.userSettings);
+    }
   }
 
   public languageChangedHandler(): void {
-    console.log(this.language)
-    this._translateService.setDefaultLang(this.language);
+    this._translateService.setDefaultLang(this.languageControl.value);
+    if (this.userData.userSettings) {
+      this.userData.userSettings.language = this.languageControl.value;
+      this._authenticationService.saveUserSettings(this.userData.userSettings);
+    }
   }
 }

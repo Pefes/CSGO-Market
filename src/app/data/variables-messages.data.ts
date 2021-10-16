@@ -12,7 +12,7 @@ export const API_URL = {
     OPEN_TRY_OUT_CONTAINER: "api/openTryOutContainer",
     GET_ITEM_IMAGE: "api/getItemImage?imageUrl=",
     GET_AUTOCOMPLETE_OPTIONS: "api/getAutocompleteOptions?property=",
-    SET_USER_DARK_THEME_OPTION: "api/setUserDarkThemeOption"
+    SET_USER_SETTINGS: "api/setUserSettings"
 };
 
 export const PRICE_HIGHEST = "ITEM_LIST_FILTERS.PRICE_HIGHEST";

@@ -2,24 +2,24 @@
     [matMenuTriggerFor]="userMenu"
     (menuOpened)="menuEventHandler(true)"
     (menuClosed)="menuEventHandler(false)">
-    {{ currentUsername }}
+    {{ userData.username }}
     <mat-icon [@menuOpened]="isMenuOpened ? 'opened' : 'closed'">keyboard_arrow_down</mat-icon>
 </button>
 <mat-menu #userMenu class="userMenu">
-    <div class="language" (click)="$event.stopPropagation();">
+    <div class="languageSelection" (click)="$event.stopPropagation();">
         <div class="flagImages">
             <img src="../../../assets/images/usa_flag.png"/>
             <img src="../../../assets/images/poland_flag.png"/>
         </div>
-        <mat-radio-group [(ngModel)]="language" (change)="languageChangedHandler()">
+        <mat-radio-group [formControl]="languageControl" (change)="languageChangedHandler()">
             <mat-radio-button value="en"></mat-radio-button>
             <mat-radio-button value="pl"></mat-radio-button>
         </mat-radio-group>
     </div>
     
-    <div class="darkMode" (click)="$event.stopPropagation();">
+    <div class="darkModeSelection" (click)="$event.stopPropagation();">
         <mat-icon>dark_mode</mat-icon>
-        <span><mat-slide-toggle [(ngModel)]="darkTheme" (change)="themeChangedHandler($event)"></mat-slide-toggle></span>
+        <span><mat-slide-toggle [formControl]="darkThemeControl" (change)="themeChangedHandler()"></mat-slide-toggle></span>
     </div>
 
     <mat-divider class="userMenuDivider"></mat-divider>

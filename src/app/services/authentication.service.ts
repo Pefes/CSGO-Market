@@ -1,13 +1,12 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import * as moment from "moment";
 import { Moment } from "moment";
 import { BehaviorSubject, Observable } from "rxjs";
-import { shareReplay, tap } from "rxjs/operators";
-import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, FAIL, MARKET_URL, SUCCESS, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
+import { tap } from "rxjs/operators";
+import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, MARKET_URL, SUCCESS, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
 import { API_URL as URL} from "../data/variables-messages.data";
-import { UserData } from "../models/user-data.model";
+import { UserData, UserSettings } from "../models/user-data.model";
 import { ApiService } from "./api.service";
 
 
@@ -91,6 +90,10 @@ export class AuthenticationService {
     return !this.isLoggedIn();
   }
 
+  public saveUserDataToLocalStorage(): void {
+    localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.getValue()));
+  }
+
   public addValueToUserCash(value: number): void {
     const userData: UserData | null = this._userData.getValue();
 
@@ -99,15 +102,17 @@ export class AuthenticationService {
     }
 
     this._userData.next({ ...this._userData.getValue(), cash: userData.cash + value });
-    localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.getValue()));
+    this.saveUserDataToLocalStorage();
   }
 
-  public setUserDarkTheme(setDarkTheme: boolean): void {
-    this._api.setUserDarkThemeOption(setDarkTheme).subscribe((response: any) => {
-      if (response.status === SUCCESS) {
-        this._userData.next({ ...this._userData.getValue(), darkTheme: setDarkTheme });
-        localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.getValue()));
-      }
-    });
+  public saveUserSettings(userSettings: UserSettings): void {
+    if (userSettings) {
+      this._api.setUserSettings(userSettings).subscribe((response: any) => {
+        if (response.status === SUCCESS) {
+          this._userData.next({ ...this._userData.getValue(), userSettings: { ...userSettings } });
+          this.saveUserDataToLocalStorage();
+        }
+      });
+    }
   }
 }

@@ -8,6 +8,7 @@ import { YesNoDialogComponent } from "../components/yes-no-dialog/yes-no-dialog.
 import { API_URL as URL, FAIL } from "../data/variables-messages.data";
 import { ItemListFiltersData } from "../models/item-list-filters-data.model";
 import { ItemListPaginatorData } from "../models/item-list-paginator-data.model";
+import { UserSettings } from "../models/user-data.model";
 
 @Injectable({
   providedIn: "root"
@@ -75,7 +76,7 @@ export class ApiService {
     return this._http.get(this.getApiUrl(`${ URL.GET_AUTOCOMPLETE_OPTIONS }${ property }`));
   }
 
-  public setUserDarkThemeOption(darkTheme: boolean): Observable<any> {
-    return this.post(URL.SET_USER_DARK_THEME_OPTION, { darkTheme });
+  public setUserSettings(userSettings: UserSettings): Observable<any> {
+    return this.post(URL.SET_USER_SETTINGS, { userSettings });
   }
 }
