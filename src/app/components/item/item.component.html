@@ -31,7 +31,6 @@
                 <button
                     mat-raised-button
                     color="primary"
-                    class="sellButton"
                     *ngIf="showSellButton"
                     (click)="sellButtonClickedHandler()">
                     {{ "SELL" | translate | uppercase }}
@@ -39,6 +38,7 @@
                 <button
                     mat-raised-button
                     color="primary"
+                    class="openButton"
                     *ngIf="showOpenButton && data.openable"
                     (click)="openButtonClickedHandler()">
                     {{ "OPEN" | translate | uppercase }}
