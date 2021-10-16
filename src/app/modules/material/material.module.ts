@@ -15,6 +15,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatRadioModule } from "@angular/material/radio";
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatMenuModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatRadioModule
   ],
   exports: [
     MatTabsModule,
@@ -53,7 +55,8 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatMenuModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

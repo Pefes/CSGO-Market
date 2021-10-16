@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { Component } from "@angular/core";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
+import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { ThemeService } from "src/app/services/theme.service";
 
@@ -21,8 +22,12 @@ export class UserMenuComponent {
   public isMenuOpened: boolean = false;
   public darkTheme: boolean = true;
   public currentUsername: string = "";
+  public language: string = "en";
 
-  constructor(private _authenticationService: AuthenticationService, private _themeService: ThemeService) {
+  constructor(
+    private _authenticationService: AuthenticationService,
+    private _themeService: ThemeService,
+    private _translateService: TranslateService) {
     this._authenticationService.getLoggedInUserData().subscribe(userData => {
       this.currentUsername = userData?.username ?? "user";
       this.darkTheme = userData?.darkTheme ?? true;
@@ -41,5 +46,10 @@ export class UserMenuComponent {
   public themeChangedHandler(event: MatSlideToggleChange): void {
     this._authenticationService.setUserDarkTheme(event.checked);
     this._themeService.setDarkTheme(event.checked);
+  }
+
+  public languageChangedHandler(): void {
+    console.log(this.language)
+    this._translateService.setDefaultLang(this.language);
   }
 }

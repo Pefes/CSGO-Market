@@ -6,11 +6,24 @@
     <mat-icon [@menuOpened]="isMenuOpened ? 'opened' : 'closed'">keyboard_arrow_down</mat-icon>
 </button>
 <mat-menu #userMenu class="userMenu">
+    <div class="language" (click)="$event.stopPropagation();">
+        <div class="flagImages">
+            <img src="../../../assets/images/usa_flag.png"/>
+            <img src="../../../assets/images/poland_flag.png"/>
+        </div>
+        <mat-radio-group [(ngModel)]="language" (change)="languageChangedHandler()">
+            <mat-radio-button value="en"></mat-radio-button>
+            <mat-radio-button value="pl"></mat-radio-button>
+        </mat-radio-group>
+    </div>
+    
     <div class="darkMode" (click)="$event.stopPropagation();">
         <mat-icon>dark_mode</mat-icon>
         <span><mat-slide-toggle [(ngModel)]="darkTheme" (change)="themeChangedHandler($event)"></mat-slide-toggle></span>
     </div>
+
     <mat-divider class="userMenuDivider"></mat-divider>
+
     <button mat-menu-item (click)="logOutButtonHandler()">
         <mat-icon>logout</mat-icon>
         <span>{{ "USER_MENU.LOG_OUT" | translate }}</span>

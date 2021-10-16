@@ -1,3 +1,103 @@
 {
-    "TEST": "TEST PL"
+    "CANCEL": "Anuluj",
+    "CLOSE": "Zamknij",
+    "SELL": "Sprzedaj",
+    "BUY": "Kup",
+    "OPEN": "Otwórz",
+    "LOGIN": "Zaloguj",
+    "REGISTER":"Rejestracja",
+    "YES": "Tak",
+    "NO": "Nie",
+    "RARITY": {
+        "BASE GRADE": "Base Grade",
+        "CLASSIFIED": "Classified",
+        "CONSUMER GRADE": "Consumer Grade",
+        "CONTRABAND": "Contraband",
+        "COVERT": "Covert",
+        "DISTINGUISHED": "Distinguished",
+        "EXCEPTIONAL": "Exceptional",
+        "EXOTIC": "Exotic",
+        "EXTRA RARE": "Extra rare",
+        "EXTRAORDINARY": "Extraordinary",
+        "HIGH GRADE": "High Grade",
+        "INDUSTRIAL GRADE": "Industrial Grade",
+        "MASTER": "Master",
+        "MIL-SPEC GRADE": "Mil-Spec Grade",
+        "REMARKABLE": "Remarkable",
+        "RESTRICTED": "Restricted",
+        "SUPERIOR": "Superior",
+        "UNDEFINED": "-"
+    },
+    "EXTERIOR": {
+        "BATTLE-SCARRED": "Zaprawiona w walkach",
+        "FACTORY NEW": "Fabrycznie nowa",
+        "FIELD-TESTED": "Przetestowana w boju",
+        "MINIMAL WEAR": "Lekko używana",
+        "NOT PAINTED": "Niemalowana",
+        "WELL-WORN": "Wysłużona",
+        "UNDEFINED": "-"
+    },
+    "TYPE": {
+        "COLLECTIBLE": "Kolekcjonerski",
+        "CONTAINER": "Kontener",
+        "GIFT": "Podarunek",
+        "GLOVES": "Rękawiczki",
+        "GRAFFITI": "Graffiti",
+        "KEY": "Klucz",
+        "MUSIC KIT": "Zestaw muzyczny",
+        "PASS": "Przepustka",
+        "WEAPON": "Broń",
+        "UNDEFINED": "-"
+    },
+    "NAVBAR": {
+        "MARKET": "Sklep",
+        "EQUIPMENT": "Ekwipunek",
+        "TRY_OUT": "Wypróbuj!"
+    },
+    "ITEM": {
+        "TYPE": "Typ",
+        "EXTERIOR": "Stan zewnętrzny",
+        "RARITY": "Jakość",
+        "NAME": "Nazwa",
+        "OPENABLE": "Do otwarcia",
+        "PRICE": "Cena"
+    },
+    "ITEM_LIST": {
+        "NO_ITEMS_FOUND": "Nie znaleziono przedmiotów...",
+        "BUY_ARE_YOU_SURE": "Jesteś pewien, że chcesz kupić ten przedmiot?",
+        "SELL_ARE_YOU_SURE": "Jesteś pewien, że chcesz sprzedać ten przedmiot?"
+    },
+    "ITEM_LIST_FILTERS": {
+        "TITLE": "Filtrowanie/Sortowanie",
+        "DESCRIPTION": "Kliknij, aby zobaczyć filtry i sortowanie",
+        "CLEAR": "Wyczyść",
+        "APPLY": "Zastosuj",
+        "NONE": "Brak",
+        "PRICE_HIGHEST": "Cena - od najwyższej",
+        "PRICE_LOWEST": "Cena - od najniższej",
+        "SORT_BY": "Sortuj wg"
+    },
+    "LOGIN_DIALOG": {
+        "USERNAME": "Nazwa użytkownika",
+        "PASSWORD": "Hasło",
+        "CANCEL": "Anuluj",
+        "LOGIN": "Zaloguj",
+        "REGISTER": "Zarejestruj"
+    },
+    "OPEN_CONTAINER_DIALOG": {
+        "CONTAINS": "zawiera jeden z następujących przedmiotów"
+    },
+    "SHOW_DRAWN_ITEM_DIALOG": {
+        "CONGRATULATIONS": "Gratulacje",
+        "RECEIVED": "Otrzymałeś nowy przedmiot"
+    },
+    "USER_MENU": {
+        "LOG_OUT": "Wyloguj"
+    },
+    "YES_NO_DIALOG": {
+        "ARE_YOU_SURE": "Jesteś pewien?"
+    },
+    "TRY_OUT": {
+        "TITLE": "Wybierz skrzynię i spróbuj otworzyć. Za darmo!"
+    }
 }

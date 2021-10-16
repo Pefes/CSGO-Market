@@ -7,19 +7,27 @@
     <section>
         <ng-container *ngFor="let property of propertiesToShow">
             <div *ngIf="property == 'price'; else rarity" class="propertyWrapper">
-                <div>{{ property | titlecase }}</div>
+                <div>{{ "ITEM." + property | uppercase | translate }}:</div>
                 <div textColor>{{ data.itemData[property] | currency }}</div>
             </div>
             <ng-template #rarity>
-                <div *ngIf="property == 'rarity'; else allProperties" class="propertyWrapper">
-                    <div class="propertyName">{{ property | titlecase }}:</div>
-                    <div class="propertyValue" [textColor]="'#' + data.itemData.rarityColor">{{ data.itemData[property] }}</div>
+                <div *ngIf="property == 'rarity'; else name" class="propertyWrapper">
+                    <div class="propertyName">{{ "ITEM." + property | uppercase | translate }}:</div>
+                    <div class="propertyValue" [textColor]="'#' + data.itemData.rarityColor">
+                        {{ property + "." + data.itemData[property] | uppercase | translate }}
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template #name>
+                <div *ngIf="property == 'name'; else allProperties" class="propertyWrapper">
+                    <div class="propertyName">{{ "ITEM." + property | uppercase | translate }}:</div>
+                    <div class="propertyValue">{{ data.itemData[property] }}</div>
                 </div>
             </ng-template>
             <ng-template #allProperties>
                 <div class="propertyWrapper">
-                    <div class="propertyName">{{ property | titlecase }}:</div>
-                    <div class="propertyValue">{{ data.itemData[property] }}</div>
+                    <div class="propertyName">{{ "ITEM." + property | uppercase | translate }}:</div>
+                    <div class="propertyValue">{{ property + "." + data.itemData[property] | uppercase | translate }}</div>
                 </div>
             </ng-template>
         </ng-container>

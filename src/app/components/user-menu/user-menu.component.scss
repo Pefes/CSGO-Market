@@ -21,3 +21,37 @@ mat-divider.userMenuDivider {
         align-items: center;
     }
 }
+
+.language {
+    width: 100%;
+    padding: 0 16px;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+
+    .flagImages {
+        padding: 2px 0;
+    }
+
+    .flagImages, mat-radio-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    img {
+        width: 20px;
+        height: 15px;
+    }
+
+    mat-radio-button:last-of-type {
+        margin-top: 5px;
+    }
+
+    mat-radio-button ::ng-deep label {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+}

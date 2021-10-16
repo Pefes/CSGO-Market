@@ -59,7 +59,8 @@
         "EXTERIOR": "Exterior",
         "RARITY": "Rarity",
         "NAME": "Name",
-        "OPENABLE": "Openable"
+        "OPENABLE": "Openable",
+        "PRICE": "Price"
     },
     "ITEM_LIST": {
         "NO_ITEMS_FOUND": "No items found...",
