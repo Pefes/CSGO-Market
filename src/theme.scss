@@ -40,7 +40,7 @@ $light-theme: mat-light-theme((
 ));
 
 .lightTheme {
-  @include angular-material-theme($light-theme);
+  @include angular-material-color($light-theme);
   --app-primary: #3f51b5;
   --app-accent: #3f51b5;
   --app-warn: #3f51b5;
