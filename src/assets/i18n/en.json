@@ -68,7 +68,7 @@
         "SELL_ARE_YOU_SURE": "Are you sure you want to sell this item?"
     },
     "ITEM_LIST_FILTERS": {
-        "TITLE": "Filter/Sort",
+        "TITLE": "Filters",
         "DESCRIPTION": "Click to see filters and sorting",
         "CLEAR": "Clear",
         "APPLY": "Apply",
@@ -82,7 +82,10 @@
         "PASSWORD": "Password",
         "CANCEL": "Cancel",
         "LOGIN": "Log In",
-        "REGISTER": "Register"
+        "REGISTER": "Register",
+        "SUCCESS_TITLE": "Success!",
+        "LOGIN_SUCCESS": "You have been logged in",
+        "REGISTER_SUCCESS": "Your account has been created"
     },
     "OPEN_CONTAINER_DIALOG": {
         "CONTAINS": "contains one of these items"

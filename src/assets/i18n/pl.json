@@ -69,7 +69,7 @@
         "SELL_ARE_YOU_SURE": "Jesteś pewien, że chcesz sprzedać ten przedmiot?"
     },
     "ITEM_LIST_FILTERS": {
-        "TITLE": "Filtrowanie/Sortowanie",
+        "TITLE": "Filtry",
         "DESCRIPTION": "Kliknij, aby zobaczyć filtry i sortowanie",
         "CLEAR": "Wyczyść",
         "APPLY": "Zastosuj",
@@ -83,7 +83,10 @@
         "PASSWORD": "Hasło",
         "CANCEL": "Anuluj",
         "LOGIN": "Zaloguj",
-        "REGISTER": "Zarejestruj"
+        "REGISTER": "Zarejestruj",
+        "SUCCESS_TITLE": "Sukces!",
+        "LOGIN_SUCCESS": "Zostałeś zalogowany",
+        "REGISTER_SUCCESS": "Twoje konto zostało utworzone"
     },
     "OPEN_CONTAINER_DIALOG": {
         "CONTAINS": "zawiera jeden z następujących przedmiotów"

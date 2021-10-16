@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ getLabel() }}</h1>
+<h1 mat-dialog-title>{{ getLabel() | translate }}</h1>
 <form class="inputForm" [formGroup]="form" (keyup.enter)="submitButtonHandler()">
     <mat-form-field appearance="outline">
         <mat-label>{{ "LOGIN_DIALOG.USERNAME" | translate }}</mat-label>
