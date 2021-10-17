@@ -1,4 +1,13 @@
 <div class="rarityBlock" [backgroundColor]="item.itemRarityColor"></div>
 <image-container [imageUrlId]="item.itemIconUrl"></image-container>
 <div class="itemName">{{ item.itemName }}</div>
-<div class="hoverInfo"></div>
+<div class="hoverInfo" [@hover]="isHovered ? 'mouseEntered' : 'mouseLeft'">
+    <image-container [imageUrlId]="item.containerIconUrl" [showBackgroundImage]="false"></image-container>
+    <div class="hoverInfoText">
+        <div>{{ item.containerName }}</div>
+        <div class="ownerName">
+            <mat-icon>person</mat-icon>
+            {{ item.ownerUsername }}
+        </div>
+    </div>
+</div>

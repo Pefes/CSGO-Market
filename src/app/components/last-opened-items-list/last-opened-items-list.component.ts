@@ -19,8 +19,4 @@ export class LastOpenedItemsListComponent {
       }
     });
   }
-
-  public mouseEnterHandler(): void {
-    console.log("mouse enter")
-  }
 }
