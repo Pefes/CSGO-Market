@@ -1,10 +1,18 @@
 :host {
     display: flex;
     flex-direction: column;
+    position: relative;
     width: 200px;
     height: 100%;
     padding-right: 5px;
     background-color: var(--app-background-secondary);
     border-right: 1px solid var(--border);
     overflow: hidden;
+}
+
+mat-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

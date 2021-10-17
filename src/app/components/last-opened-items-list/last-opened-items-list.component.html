@@ -1,4 +1,10 @@
-<h3>Last opened</h3>
-<ng-container *ngFor="let item of lastOpenedItems">
-    <last-opened-item [item]="item"></last-opened-item>
+<h3 (click)="addElement()">Last opened</h3>
+<ng-container *ngIf="lastOpenedItems.length > 0">
+    <last-opened-item
+        *ngFor="let item of lastOpenedItems"
+        [item]="item"
+        @itemEnterLeave
+        [@.disabled]="disableAnimations">
+    </last-opened-item>
 </ng-container>
+<mat-spinner *ngIf="lastOpenedItems.length === 0"></mat-spinner>
