@@ -12,7 +12,8 @@ export const API_URL = {
     OPEN_TRY_OUT_CONTAINER: "api/openTryOutContainer",
     GET_ITEM_IMAGE: "api/getItemImage?imageUrl=",
     GET_AUTOCOMPLETE_OPTIONS: "api/getAutocompleteOptions?property=",
-    SET_USER_SETTINGS: "api/setUserSettings"
+    SET_USER_SETTINGS: "api/setUserSettings",
+    GET_LAST_OPENED_ITEMS: "api/getLastOpenedItems"
 };
 
 export const PRICE_HIGHEST = "ITEM_LIST_FILTERS.PRICE_HIGHEST";

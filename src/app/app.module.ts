@@ -28,6 +28,8 @@ import { AutocompleteFormFieldComponent } from './components/autocomplete-form-f
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { LastOpenedItemsListComponent } from './components/last-opened-items-list/last-opened-items-list.component';
+import { LastOpenedItemComponent } from './components/last-opened-item/last-opened-item.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,7 +57,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     TryOutComponent,
     ImageContainerComponent,
     AutocompleteFormFieldComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    LastOpenedItemsListComponent,
+    LastOpenedItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 100%;
+    padding-right: 5px;
+    background-color: var(--app-background-secondary);
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+}

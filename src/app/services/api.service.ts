@@ -76,6 +76,10 @@ export class ApiService {
     return this._http.get(this.getApiUrl(`${ URL.GET_AUTOCOMPLETE_OPTIONS }${ property }`));
   }
 
+  public getLastOpenedItems(): Observable<any> {
+    return this._http.get(this.getApiUrl(URL.GET_LAST_OPENED_ITEMS));
+  }
+
   public setUserSettings(userSettings: UserSettings): Observable<any> {
     return this.post(URL.SET_USER_SETTINGS, { userSettings });
   }
