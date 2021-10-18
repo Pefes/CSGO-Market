@@ -1,4 +1,5 @@
 export interface LastOpenedItem {
+    _id: string,
     containerName: string,
     containerIconUrl: string,
     itemIconUrl: string,

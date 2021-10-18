@@ -35,7 +35,11 @@ export class LastOpenedItemsListComponent {
     }))
     .subscribe((response: any) => {
       if (response.status === SUCCESS) {
-        this.lastOpenedItems = [...response.data];
+        response.data.forEach((lastOpenedItem: LastOpenedItem) => {
+          if (!this.lastOpenedItems.some((item: LastOpenedItem) => item._id === lastOpenedItem._id)) {
+            this.lastOpenedItems.unshift(lastOpenedItem);
+          }
+        });
       }
     });
   }
