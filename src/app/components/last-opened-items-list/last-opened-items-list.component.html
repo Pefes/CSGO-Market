@@ -1,10 +1,17 @@
-<h1 (click)="addElement()">Last opened</h1>
-<ng-container *ngIf="lastOpenedItems.length > 0">
-    <last-opened-item
-        *ngFor="let item of lastOpenedItems"
-        [item]="item"
-        @itemEnterLeave
-        [@.disabled]="disableAnimations">
-    </last-opened-item>
-</ng-container>
-<mat-spinner *ngIf="lastOpenedItems.length === 0"></mat-spinner>
+<div class="lastOpenedItemsList">
+    <h1 (click)="addElement()">Last opened</h1>
+    <ng-container *ngIf="lastOpenedItems.length > 0">
+        <last-opened-item
+            *ngFor="let item of lastOpenedItems"
+            [item]="item"
+            @itemEnterLeave
+            [@.disabled]="disableAnimations">
+        </last-opened-item>
+    </ng-container>
+    <mat-spinner *ngIf="lastOpenedItems.length === 0"></mat-spinner>
+</div>
+<div class="toggleButton">
+    <mat-icon>arrow_right</mat-icon>
+    <mat-icon>arrow_right</mat-icon>
+    <mat-icon>arrow_right</mat-icon>
+</div>
