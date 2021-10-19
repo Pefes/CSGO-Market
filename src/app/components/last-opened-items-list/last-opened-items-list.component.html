@@ -1,4 +1,4 @@
-<div class="lastOpenedItemsList">
+<div class="lastOpenedItemsList" [@sideMenuToggle]="sideMenuOpened ? 'opened' : 'closed'">
     <h1 (click)="addElement()">Last opened</h1>
     <ng-container *ngIf="lastOpenedItems.length > 0">
         <last-opened-item
@@ -10,7 +10,7 @@
     </ng-container>
     <mat-spinner *ngIf="lastOpenedItems.length === 0"></mat-spinner>
 </div>
-<div class="toggleButton">
+<div class="toggleButton" (click)="toggleButtonClickedHandler()">
     <mat-icon>arrow_right</mat-icon>
     <mat-icon>arrow_right</mat-icon>
     <mat-icon>arrow_right</mat-icon>

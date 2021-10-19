@@ -15,8 +15,7 @@
     height: 100%;
     background-color: var(--app-background-secondary);
     border-right: 1px solid var(--border);
-    overflow-y: hidden;
-    overflow-x: visible;
+    overflow: hidden;
 }
 
 mat-spinner {
@@ -63,4 +62,6 @@ last-opened-item {
     justify-content: center;
     align-items: center;
     color: var(--app-primary);
+    user-select: none;
+    cursor: pointer;
 }

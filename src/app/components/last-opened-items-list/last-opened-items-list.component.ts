@@ -1,4 +1,4 @@
-import { animate, style, transition, trigger } from "@angular/animations";
+import { animate, state, style, transition, trigger } from "@angular/animations";
 import { Component, OnInit } from "@angular/core";
 import { interval } from "rxjs";
 import { mergeMap } from "rxjs/operators";
@@ -20,6 +20,11 @@ import { ApiService } from "src/app/services/api.service";
         style({ height: "100%" }),
         animate("2500ms", style({ height: "0%" }))
       ])
+    ]),
+    trigger("sideMenuToggle", [
+      state("opened", style({ width: "200px", opacity: 1 })),
+      state("closed", style({ width: "0px", opacity: 0 })),
+      transition("opened <=> closed", [animate("250ms")])
     ])
   ]
 })
@@ -27,6 +32,7 @@ export class LastOpenedItemsListComponent {
 
   public lastOpenedItems: LastOpenedItem[] = [];
   public disableAnimations: boolean = true;
+  public sideMenuOpened: boolean = true;
 
   constructor(private _api: ApiService) {
     interval(3000).pipe(mergeMap((callNumber: number) => {
@@ -46,5 +52,9 @@ export class LastOpenedItemsListComponent {
 
   public addElement(): void {
     this.lastOpenedItems.unshift({...this.lastOpenedItems[19]})
+  }
+
+  public toggleButtonClickedHandler(): void {
+    this.sideMenuOpened = !this.sideMenuOpened;
   }
 }
