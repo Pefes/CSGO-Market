@@ -1,5 +1,6 @@
 nav {
     margin-bottom: 15px;
+    z-index: 1;
 }
 
 .actionButtonsWrapper {
@@ -53,9 +54,13 @@ nav {
     padding-left: 16px;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 935px) {
     :host nav ::ng-deep .mat-tab-links {
         flex-direction: column-reverse;
+
+        .mat-tab-link {
+            min-width: 72px;
+        }
     }
 
     .linksWrapper {

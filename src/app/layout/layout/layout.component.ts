@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 import { Component } from "@angular/core";
 
 @Component({
@@ -7,5 +8,11 @@ import { Component } from "@angular/core";
 })
 export class LayoutComponent {
 
-  constructor() { }
+  public showSideNav: boolean = true;
+
+  constructor(private _breakpointObserver: BreakpointObserver) {
+    this._breakpointObserver.observe("(max-width: 530px)").subscribe((result: BreakpointState) => {
+      this.showSideNav = !result.matches;
+  });
+  }
 }

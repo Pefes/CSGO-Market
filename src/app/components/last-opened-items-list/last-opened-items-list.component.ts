@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
-import { Component, OnInit } from "@angular/core";
-import { interval } from "rxjs";
-import { mergeMap } from "rxjs/operators";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { interval, Subject } from "rxjs";
+import { mergeMap, takeUntil } from "rxjs/operators";
 import { SUCCESS } from "src/app/data/variables-messages.data";
 import { LastOpenedItem } from "src/app/models/last-opened-item.model";
 import { ApiService } from "src/app/services/api.service";
@@ -22,22 +22,28 @@ import { ApiService } from "src/app/services/api.service";
       ])
     ]),
     trigger("sideMenuToggle", [
-      state("opened", style({ width: "200px", opacity: 1 })),
-      state("closed", style({ width: "0px", opacity: 0 })),
-      transition("opened <=> closed", [animate("250ms")])
+      state("opened", style({ width: "200px" })),
+      state("closed", style({ width: "0px" })),
+      state("toggleButtonOpened", style({ transform: "rotate(180deg)" })),
+      state("toggleButtonClosed", style({ transform: "rotate(0deg)" })),
+      transition("opened <=> closed", [animate("250ms")]),
+      transition("toggleButtonOpened <=> toggleButtonClosed", [animate("250ms")])
     ])
   ]
 })
-export class LastOpenedItemsListComponent {
+export class LastOpenedItemsListComponent implements OnDestroy {
 
   public lastOpenedItems: LastOpenedItem[] = [];
   public disableAnimations: boolean = true;
   public sideMenuOpened: boolean = true;
+  private _unsubscriber: Subject<any> = new Subject();
 
   constructor(private _api: ApiService) {
-    interval(3000).pipe(mergeMap((callNumber: number) => {
-      callNumber === 1 ? this.disableAnimations = false : null;
-      return this._api.getLastOpenedItems();
+    interval(3000).pipe(
+      takeUntil(this._unsubscriber),
+      mergeMap((callNumber: number) => {
+        callNumber === 1 ? this.disableAnimations = false : null;
+        return this._api.getLastOpenedItems();
     }))
     .subscribe((response: any) => {
       if (response.status === SUCCESS) {
@@ -49,12 +55,13 @@ export class LastOpenedItemsListComponent {
       }
     });
   }
-
-  public addElement(): void {
-    this.lastOpenedItems.unshift({...this.lastOpenedItems[19]})
-  }
-
+  
   public toggleButtonClickedHandler(): void {
     this.sideMenuOpened = !this.sideMenuOpened;
+  }
+
+  public ngOnDestroy(): void {
+    this._unsubscriber.next();
+    this._unsubscriber.complete();
   }
 }
