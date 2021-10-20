@@ -1,12 +1,15 @@
 <nav mat-tab-nav-bar [disablePagination]="true">
     <div class="linksWrapper">
         <ng-container *ngFor="let link of links">
-            <a mat-tab-link
-                *ngIf="showLink(link.mustBeLoggedIn)"   
-                (click)="clickLinkHandler(link.url)"
-                [active]="isActive(link.url)">
-                {{ "NAVBAR." + link.linkName | uppercase | translate }}
-            </a>
+            <div class="singleLinkWrapper">
+                <a mat-tab-link
+                    *ngIf="showLink(link.mustBeLoggedIn)"   
+                    (click)="clickLinkHandler(link.url)"
+                    [active]="isActive(link.url)">
+                    {{ "NAVBAR." + link.linkName | uppercase | translate }}
+                </a>
+                <mat-divider [vertical]="true"></mat-divider>
+            </div>
         </ng-container>
     </div>
     <mat-divider class="navbarDivider"></mat-divider>

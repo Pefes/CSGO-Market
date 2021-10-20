@@ -1,5 +1,5 @@
-import { animate, query, stagger, state, style, transition, trigger } from "@angular/animations";
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { animate, style, transition, trigger } from "@angular/animations";
+import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { EQUIPMENT_URL, MARKET_URL, TRY_OUT_URL } from "src/app/data/variables-messages.data";

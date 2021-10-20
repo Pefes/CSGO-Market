@@ -3,6 +3,20 @@ nav {
     z-index: 1;
 }
 
+.linksWrapper {
+    display: flex;
+}
+
+.singleLinkWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    mat-divider {
+        height: 20px;
+    }
+}
+
 .actionButtonsWrapper {
     display: flex;
     justify-content: space-between;
@@ -69,6 +83,10 @@ nav {
 
         a {
             width: 100%;
+        }
+
+        .singleLinkWrapper:last-of-type mat-divider {
+            display: none;
         }
     }
 
