@@ -6,20 +6,20 @@ describe('EquipmentComponent', () => {
   let component: EquipmentComponent;
   let fixture: ComponentFixture<EquipmentComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ EquipmentComponent ]
-    })
-    .compileComponents();
-  });
+  // beforeEach(async () => {
+  //   await TestBed.configureTestingModule({
+  //     declarations: [ EquipmentComponent ]
+  //   })
+  //   .compileComponents();
+  // });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(EquipmentComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(EquipmentComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  // });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });

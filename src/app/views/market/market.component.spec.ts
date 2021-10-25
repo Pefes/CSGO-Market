@@ -6,20 +6,20 @@ describe("MarketComponent", () => {
   let component: MarketComponent;
   let fixture: ComponentFixture<MarketComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ MarketComponent ]
-    })
-    .compileComponents();
-  });
+  // beforeEach(async () => {
+  //   await TestBed.configureTestingModule({
+  //     declarations: [ MarketComponent ]
+  //   })
+  //   .compileComponents();
+  // });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MarketComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(MarketComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  // });
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+  // it("should create", () => {
+  //   expect(component).toBeTruthy();
+  // });
 });
