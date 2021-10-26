@@ -33,7 +33,7 @@ export class OpenContainerDialogComponent {
       if (response.status === SUCCESS) {
         this._dialogService.open(ShowDrawnItemDialogComponent, {
           panelClass: OPEN_CONTAINER_DIALOG_PANEL_CLASS,
-          data: { 
+          data: {
             itemData: response.data.drawnItem,
             showSellButton: false
           }

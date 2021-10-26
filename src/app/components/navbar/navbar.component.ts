@@ -29,7 +29,7 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
   ]
 })
 export class NavbarComponent {
-  
+
   public links: { linkName: string, url: string, mustBeLoggedIn: boolean }[] = [
     { linkName: "market", url: MARKET_URL, mustBeLoggedIn: false },
     { linkName: "equipment", url: EQUIPMENT_URL, mustBeLoggedIn: true },

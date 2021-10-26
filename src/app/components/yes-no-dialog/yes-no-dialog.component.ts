@@ -1,11 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { YesNoDialogData } from "src/app/models/yes-no-dialog-data.model";
 
 @Component({
-  selector: 'yes-no-dialog',
-  templateUrl: './yes-no-dialog.component.html',
-  styleUrls: ['./yes-no-dialog.component.scss']
+  selector: "yes-no-dialog",
+  templateUrl: "./yes-no-dialog.component.html",
+  styleUrls: ["./yes-no-dialog.component.scss"]
 })
 export class YesNoDialogComponent {
 

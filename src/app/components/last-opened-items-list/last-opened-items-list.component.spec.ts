@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LastOpenedItemsListComponent } from './last-opened-items-list.component';
+import { LastOpenedItemsListComponent } from "./last-opened-items-list.component";
 
-describe('LastOpenedItemsListComponent', () => {
+describe("LastOpenedItemsListComponent", () => {
   let component: LastOpenedItemsListComponent;
   let fixture: ComponentFixture<LastOpenedItemsListComponent>;
 

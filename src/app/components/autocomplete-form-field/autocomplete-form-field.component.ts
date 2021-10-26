@@ -14,14 +14,14 @@ export class AutocompleteFormFieldComponent {
   public filteredAcOptions: string[] = [];
 
   private _acProperty: string = "";
-  public get acProperty(): string { return this._acProperty };
+  public get acProperty(): string { return this._acProperty; }
   @Input() public set acProperty(newAcProperty: string) {
     this._acProperty = newAcProperty;
     this._getAcOptions();
   }
 
   private _formFieldControl: FormControl = new FormControl("");
-  public get formFieldControl(): FormControl { return this._formFieldControl };
+  public get formFieldControl(): FormControl { return this._formFieldControl; }
   @Input() public set formFieldControl(newFormFieldControl: FormControl) {
     this._formFieldControl = newFormFieldControl;
     this._listenForFormControlChanges();

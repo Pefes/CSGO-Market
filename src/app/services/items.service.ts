@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { Item } from "../models/item.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ItemsService {
 

@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ItemListFiltersComponent } from './item-list-filters.component';
+import { ItemListFiltersComponent } from "./item-list-filters.component";
 
-describe('ItemListFiltersComponent', () => {
+describe("ItemListFiltersComponent", () => {
   let component: ItemListFiltersComponent;
   let fixture: ComponentFixture<ItemListFiltersComponent>;
 

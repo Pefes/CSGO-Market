@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { propertiesToFilter } from "src/app/config/properties-to-filter.config";
 import { ItemListFiltersData } from "src/app/models/item-list-filters-data.model";
 import { ItemListPaginatorData } from "src/app/models/item-list-paginator-data.model";
@@ -7,9 +7,9 @@ import { ApiService } from "src/app/services/api.service";
 import { ItemsService } from "src/app/services/items.service";
 
 @Component({
-  selector: 'equipment',
-  templateUrl: './equipment.component.html',
-  styleUrls: ['./equipment.component.scss']
+  selector: "equipment",
+  templateUrl: "./equipment.component.html",
+  styleUrls: ["./equipment.component.scss"]
 })
 export class EquipmentComponent implements OnInit {
   public ownedItems: Item[] = [];
@@ -25,7 +25,7 @@ export class EquipmentComponent implements OnInit {
     });
 
     this._itemsService.ownedItemRemoved().subscribe((itemId: string) => {
-      this.ownedItems = this.ownedItems.filter(item => item._id !== itemId);  
+      this.ownedItems = this.ownedItems.filter(item => item._id !== itemId);
     });
   }
 

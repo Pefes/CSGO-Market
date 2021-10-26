@@ -20,20 +20,20 @@ import { AuthenticationInterceptor } from "./services/authentication-interceptor
 import { OpenContainerDialogComponent } from "./components/open-container-dialog/open-container-dialog.component";
 import { ShowDrawnItemDialogComponent } from "./components/show-drawn-item-dialog/show-drawn-item-dialog.component";
 import { TextColorDirective } from "./directives/text-color.directive";
-import { BackgroundColorDirective } from './directives/background-color.directive';
-import { SnakeBorderCardComponent } from './components/snake-border-card/snake-border-card.component';
-import { TryOutComponent } from './views/try-out/try-out.component';
-import { ImageContainerComponent } from './components/image-container/image-container.component';
-import { AutocompleteFormFieldComponent } from './components/autocomplete-form-field/autocomplete-form-field.component';
-import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import { BackgroundColorDirective } from "./directives/background-color.directive";
+import { SnakeBorderCardComponent } from "./components/snake-border-card/snake-border-card.component";
+import { TryOutComponent } from "./views/try-out/try-out.component";
+import { ImageContainerComponent } from "./components/image-container/image-container.component";
+import { AutocompleteFormFieldComponent } from "./components/autocomplete-form-field/autocomplete-form-field.component";
+import { UserMenuComponent } from "./components/user-menu/user-menu.component";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { LastOpenedItemsListComponent } from './components/last-opened-items-list/last-opened-items-list.component';
-import { LastOpenedItemComponent } from './components/last-opened-item/last-opened-item.component';
+import { LastOpenedItemsListComponent } from "./components/last-opened-items-list/last-opened-items-list.component";
+import { LastOpenedItemComponent } from "./components/last-opened-item/last-opened-item.component";
 import { DEFAULT_CURRENCY, DEFAULT_LANGUAGE } from "./data/constants-messages.data";
 
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
 

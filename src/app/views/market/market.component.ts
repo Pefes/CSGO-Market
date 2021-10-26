@@ -25,7 +25,7 @@ export class MarketComponent implements OnInit {
     });
 
     this._itemsService.marketItemRemoved().subscribe((itemId: string) => {
-      this.marketItems = this.marketItems.filter(item => item._id !== itemId);  
+      this.marketItems = this.marketItems.filter(item => item._id !== itemId);
     });
   }
 

@@ -37,12 +37,12 @@ export class ItemListComponent {
   public hidePageSize: boolean = false;
 
   private _items: Item[] = [];
-  public get items(): Item[] { return this._items };
+  public get items(): Item[] { return this._items; }
   @Input() public set items(newItems: Item[]) {
     this._items = [...newItems];
     this.paginatorDisabled = false;
   }
-  
+
   @Input() public querySize: number = 0;
   @Input() public showBuyButton: boolean = false;
   @Input() public showSellButton: boolean = false;
@@ -74,14 +74,14 @@ export class ItemListComponent {
   public openYesNoDialog(contentText: string): MatDialogRef<YesNoDialogComponent> {
     return this._dialogService.open(YesNoDialogComponent, {
       data: {
-        contentText: contentText
+        contentText
       }
     });
   }
 
   public openOpenContainerDialog(itemData: Item): MatDialogRef<OpenContainerDialogComponent> {
     return this._dialogService.open(OpenContainerDialogComponent, {
-      data: { itemData: itemData, isTryOut: this.isTryOut }
+      data: { itemData, isTryOut: this.isTryOut }
     });
   }
 
@@ -98,7 +98,7 @@ export class ItemListComponent {
       }
     });
   }
-  
+
   public sellButtonHandler(item: Item): void {
     this.openYesNoDialog("ITEM_LIST.SELL_ARE_YOU_SURE")
     .afterClosed().subscribe(result => {

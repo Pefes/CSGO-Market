@@ -1,6 +1,6 @@
-import { BackgroundColorDirective } from './background-color.directive';
+import { BackgroundColorDirective } from "./background-color.directive";
 
-describe('BackgroundColorDirective', () => {
+describe("BackgroundColorDirective", () => {
   // it('should create an instance', () => {
   //   const directive = new BackgroundColorDirective();
   //   expect(directive).toBeTruthy();

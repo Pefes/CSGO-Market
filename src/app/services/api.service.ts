@@ -35,7 +35,7 @@ export class ApiService {
             showYesButton: false,
             showNoButton: false
           }
-        })
+        });
       }
     }));
   }
@@ -55,7 +55,7 @@ export class ApiService {
   public buyItem(itemId: string): Observable<any> {
     return this.post(URL.BUY_ITEM, { itemId });
   }
-  
+
   public sellItem(itemId: string): Observable<any> {
     return this.post(URL.SELL_ITEM, { itemId });
   }

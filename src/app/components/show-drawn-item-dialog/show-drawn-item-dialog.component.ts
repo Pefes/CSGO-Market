@@ -33,7 +33,7 @@ export class ShowDrawnItemDialogComponent implements OnInit {
     const matDialogElement: any = this._document.querySelector(`.${ OPEN_CONTAINER_DIALOG_PANEL_CLASS } mat-dialog-container`);
     matDialogElement.style.boxShadow = `0px 0px 200px 0px #${ this.data.itemData.rarityColor }`;
   }
-  
+
   public buttonCloseClickHandler(): void {
     this._itemsService.addOwnedItem(this.data.itemData);
     this.dialogRef.close();

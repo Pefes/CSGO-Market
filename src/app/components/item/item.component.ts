@@ -37,7 +37,7 @@ export class ItemComponent {
   public buyButtonClickedHandler(): void {
     this.buyButtonClicked.emit(this.data);
   }
-  
+
   public sellButtonClickedHandler(): void {
     this.sellButtonClicked.emit(this.data);
   }

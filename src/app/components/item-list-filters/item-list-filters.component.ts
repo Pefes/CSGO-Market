@@ -20,7 +20,7 @@ export class ItemListFiltersComponent implements OnInit {
   public filtersForm: FormGroup = new FormGroup({});
 
   @Input() public propertiesToFilter: any[] = [];
-  @Output() public onFiltersApplied: EventEmitter<ItemListFiltersData> = new EventEmitter<ItemListFiltersData>();
+  @Output() public filtersApplied: EventEmitter<ItemListFiltersData> = new EventEmitter<ItemListFiltersData>();
 
   public ngOnInit(): void {
     this._initFiltersAppliedData();
@@ -31,7 +31,7 @@ export class ItemListFiltersComponent implements OnInit {
     this.propertiesToFilter.forEach(filter => {
       newFiltersApplied[filter.property] = new FormControl("");
     });
-    
+
     this.filtersForm = new FormGroup(newFiltersApplied);
   }
 
@@ -60,7 +60,7 @@ export class ItemListFiltersComponent implements OnInit {
     const filtersAsArray: any[] = Object.entries(filtersData).filter(([key, value]) => value);
     const filtersAsObject: object = Object.assign({}, ...filtersAsArray.map(([key, value]) => ({ [key]: value })));
 
-    this.onFiltersApplied.emit(filtersAsObject);
+    this.filtersApplied.emit(filtersAsObject);
   }
 
   public getFormControl(property: string): FormControl {

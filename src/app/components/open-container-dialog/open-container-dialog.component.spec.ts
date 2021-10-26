@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { OpenContainerDialogComponent } from './open-container-dialog.component';
+import { OpenContainerDialogComponent } from "./open-container-dialog.component";
 
-describe('OpenContainerDialogComponent', () => {
+describe("OpenContainerDialogComponent", () => {
   let component: OpenContainerDialogComponent;
   let fixture: ComponentFixture<OpenContainerDialogComponent>;
 

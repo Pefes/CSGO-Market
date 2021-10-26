@@ -111,7 +111,7 @@ describe("AutocompleteFormFieldComponent", () => {
   it("should hide clear icon when input is empty", () => {
     fixture.detectChanges();
     const matIcon: DebugElement = debug.query(By.css("mat-icon"));
-    expect(component.formFieldControl.value).toEqual("")
+    expect(component.formFieldControl.value).toEqual("");
     expect(matIcon.nativeElement.classList).toContain("hideCloseIcon");
   });
 
@@ -121,7 +121,7 @@ describe("AutocompleteFormFieldComponent", () => {
     const matIcon: DebugElement = debug.query(By.css("mat-icon"));
     expect(matIcon.nativeElement.classList).not.toContain("hideCloseIcon");
   });
-  
+
   it("should clear form control when user click remove icon", () => {
     spyOn(component, "clearFormFieldHandler").and.callThrough();
     fixture.detectChanges();

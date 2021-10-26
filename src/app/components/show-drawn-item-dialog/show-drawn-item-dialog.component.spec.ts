@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ShowDrawnItemDialogComponent } from './show-drawn-item-dialog.component';
+import { ShowDrawnItemDialogComponent } from "./show-drawn-item-dialog.component";
 
-describe('ShowDrawnItemDialogComponent', () => {
+describe("ShowDrawnItemDialogComponent", () => {
   let component: ShowDrawnItemDialogComponent;
   let fixture: ComponentFixture<ShowDrawnItemDialogComponent>;
 

@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { TryOutComponent } from './try-out.component';
+import { TryOutComponent } from "./try-out.component";
 
-describe('TryOutComponent', () => {
+describe("TryOutComponent", () => {
   let component: TryOutComponent;
   let fixture: ComponentFixture<TryOutComponent>;
 

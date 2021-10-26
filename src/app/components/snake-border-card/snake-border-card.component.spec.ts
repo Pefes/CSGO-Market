@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { SnakeBorderCardComponent } from './snake-border-card.component';
+import { SnakeBorderCardComponent } from "./snake-border-card.component";
 
-describe('SnakeBorderCardComponent', () => {
+describe("SnakeBorderCardComponent", () => {
   let component: SnakeBorderCardComponent;
   let fixture: ComponentFixture<SnakeBorderCardComponent>;
 

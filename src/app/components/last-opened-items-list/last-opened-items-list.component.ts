@@ -55,7 +55,7 @@ export class LastOpenedItemsListComponent implements OnDestroy {
       }
     });
   }
-  
+
   public toggleButtonClickedHandler(): void {
     this.sideMenuOpened = !this.sideMenuOpened;
   }

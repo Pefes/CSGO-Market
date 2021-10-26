@@ -1,3 +1,3 @@
 export interface LoginDialogData {
-    login: boolean
+    login: boolean;
 }

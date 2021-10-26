@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { UserMenuComponent } from './user-menu.component';
+import { UserMenuComponent } from "./user-menu.component";
 
-describe('UserMenuComponent', () => {
+describe("UserMenuComponent", () => {
   let component: UserMenuComponent;
   let fixture: ComponentFixture<UserMenuComponent>;
 

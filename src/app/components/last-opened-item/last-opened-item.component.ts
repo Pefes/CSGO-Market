@@ -24,11 +24,11 @@ export class LastOpenedItemComponent {
 
   @Input() public item: LastOpenedItem = {} as LastOpenedItem;
 
-  @HostListener("mouseenter") mouseEnterHandler() {
+  @HostListener("mouseenter") mouseEnterHandler(): void {
     this.isHovered = true;
   }
 
-  @HostListener("mouseleave") mouseLeaveHandler() {
+  @HostListener("mouseleave") mouseLeaveHandler(): void {
     this.isHovered = false;
   }
 

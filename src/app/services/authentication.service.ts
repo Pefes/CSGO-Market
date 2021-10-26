@@ -31,7 +31,7 @@ export class AuthenticationService {
     return this._api.post(URL.LOGIN, { username, password }).pipe(
       tap((response) => {
         if (response.status === SUCCESS) {
-          this._setSession(response)
+          this._setSession(response);
         }
       })
     );
@@ -51,18 +51,18 @@ export class AuthenticationService {
     localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
     localStorage.removeItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
     localStorage.removeItem(USER_DATA_STORAGE_KEY);
-    
+
     this._router.navigateByUrl(MARKET_URL);
   }
 
   public getExpirationTime(): Moment | null {
     const expirationString = localStorage.getItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
-    
+
     if (expirationString) {
       const expiresAt = JSON.parse(expirationString ?? "");
       return moment(expiresAt);
     }
-    
+
     return null;
   }
 
