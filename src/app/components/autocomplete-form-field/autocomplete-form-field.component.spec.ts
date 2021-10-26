@@ -10,7 +10,7 @@ import { By } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TranslateModule } from "@ngx-translate/core";
 import { of } from "rxjs";
-import { SUCCESS } from "src/app/data/variables-messages.data";
+import { SUCCESS } from "src/app/data/constants-messages.data";
 import { ApiService } from "src/app/services/api.service";
 import { AutocompleteFormFieldComponent } from "./autocomplete-form-field.component";
 

@@ -1,7 +1,7 @@
 import { Component, Inject } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { LOGIN, LOGIN_SUCCESS, REGISTER, REGISTER_SUCCESS, SUCCESS, SUCCESS_TITLE } from "src/app/data/variables-messages.data";
+import { LOGIN, LOGIN_SUCCESS, REGISTER, REGISTER_SUCCESS, SUCCESS, SUCCESS_TITLE } from "src/app/data/constants-messages.data";
 import { LoginDialogData } from "src/app/models/login-dialog-data.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";

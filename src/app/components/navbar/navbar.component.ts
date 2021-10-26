@@ -2,7 +2,7 @@ import { animate, style, transition, trigger } from "@angular/animations";
 import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
-import { EQUIPMENT_URL, MARKET_URL, TRY_OUT_URL } from "src/app/data/variables-messages.data";
+import { EQUIPMENT_URL, MARKET_URL, TRY_OUT_URL } from "src/app/data/constants-messages.data";
 import { UserData } from "src/app/models/user-data.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { LoginDialogComponent } from "../login-dialog/login-dialog.component";

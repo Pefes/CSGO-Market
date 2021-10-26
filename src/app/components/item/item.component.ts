@@ -31,7 +31,7 @@ export class ItemComponent {
   }
 
   public checkIfEmpty(value: string): string {
-    return value ?? "-";
+    return value || "-";
   }
 
   public buyButtonClickedHandler(): void {

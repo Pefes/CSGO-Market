@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { EQUIPMENT_URL, MARKET_URL, TRY_OUT_URL } from "./data/variables-messages.data";
+import { EQUIPMENT_URL, MARKET_URL, TRY_OUT_URL } from "./data/constants-messages.data";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { EquipmentComponent } from "./views/equipment/equipment.component";
 import { MarketComponent } from "./views/market/market.component";

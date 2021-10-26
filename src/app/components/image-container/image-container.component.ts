@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { NO_IMAGE_URL } from "src/app/data/variables-messages.data";
+import { NO_IMAGE_URL } from "src/app/data/constants-messages.data";
 import { ApiService } from "src/app/services/api.service";
 
 @Component({

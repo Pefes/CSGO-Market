@@ -30,6 +30,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { LastOpenedItemsListComponent } from './components/last-opened-items-list/last-opened-items-list.component';
 import { LastOpenedItemComponent } from './components/last-opened-item/last-opened-item.component';
+import { DEFAULT_CURRENCY, DEFAULT_LANGUAGE } from "./data/constants-messages.data";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -70,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
-      defaultLanguage: "en",
+      defaultLanguage: DEFAULT_LANGUAGE,
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
@@ -85,7 +86,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       multi: true
     }, {
       provide: DEFAULT_CURRENCY_CODE,
-      useValue: "USD"
+      useValue: DEFAULT_CURRENCY
     }
   ],
   bootstrap: [AppComponent]

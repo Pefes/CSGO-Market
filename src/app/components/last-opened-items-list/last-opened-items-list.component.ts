@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { interval, Subject } from "rxjs";
 import { mergeMap, takeUntil } from "rxjs/operators";
-import { SUCCESS } from "src/app/data/variables-messages.data";
+import { SUCCESS } from "src/app/data/constants-messages.data";
 import { LastOpenedItem } from "src/app/models/last-opened-item.model";
 import { ApiService } from "src/app/services/api.service";
 

@@ -6,7 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { By } from "@angular/platform-browser";
-import { NO_IMAGE_URL } from "src/app/data/variables-messages.data";
+import { NO_IMAGE_URL } from "src/app/data/constants-messages.data";
 
 
 describe("ImageContainerComponent", () => {

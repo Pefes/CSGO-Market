@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { PageEvent } from "@angular/material/paginator";
-import { SUCCESS } from "src/app/data/variables-messages.data";
+import { SUCCESS } from "src/app/data/constants-messages.data";
 import { Item } from "src/app/models/item.model";
 import { ItemListPaginatorData } from "src/app/models/item-list-paginator-data.model";
 import { ApiService } from "src/app/services/api.service";

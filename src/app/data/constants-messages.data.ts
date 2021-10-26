@@ -16,6 +16,8 @@ export const API_URL = {
     GET_LAST_OPENED_ITEMS: "api/getLastOpenedItems"
 };
 
+export const DEFAULT_CURRENCY = "USD";
+export const DEFAULT_LANGUAGE = "en";
 export const PRICE_HIGHEST = "ITEM_LIST_FILTERS.PRICE_HIGHEST";
 export const PRICE_LOWEST = "ITEM_LIST_FILTERS.PRICE_LOWEST";
 export const SORT_ASCENDING = "asc";

@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { FormControl } from "@angular/forms";
-import { SUCCESS } from "src/app/data/variables-messages.data";
+import { SUCCESS } from "src/app/data/constants-messages.data";
 import { ApiService } from "src/app/services/api.service";
 
 @Component({

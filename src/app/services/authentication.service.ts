@@ -4,8 +4,8 @@ import * as moment from "moment";
 import { Moment } from "moment";
 import { BehaviorSubject, Observable } from "rxjs";
 import { tap } from "rxjs/operators";
-import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, MARKET_URL, SUCCESS, USER_DATA_STORAGE_KEY } from "../data/variables-messages.data";
-import { API_URL as URL} from "../data/variables-messages.data";
+import { ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY, ACCESS_TOKEN_STORAGE_KEY, MARKET_URL, SUCCESS, USER_DATA_STORAGE_KEY } from "../data/constants-messages.data";
+import { API_URL as URL} from "../data/constants-messages.data";
 import { UserData, UserSettings } from "../models/user-data.model";
 import { ApiService } from "./api.service";
 

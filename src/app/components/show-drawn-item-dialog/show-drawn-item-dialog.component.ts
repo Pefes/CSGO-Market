@@ -1,7 +1,7 @@
 import { DOCUMENT } from "@angular/common";
 import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { OPEN_CONTAINER_DIALOG_PANEL_CLASS, SUCCESS } from "src/app/data/variables-messages.data";
+import { OPEN_CONTAINER_DIALOG_PANEL_CLASS, SUCCESS } from "src/app/data/constants-messages.data";
 import { Item } from "src/app/models/item.model";
 import { ApiService } from "src/app/services/api.service";
 import { AuthenticationService } from "src/app/services/authentication.service";

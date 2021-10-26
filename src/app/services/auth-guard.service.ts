@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from "@angular/router";
-import { MARKET_URL } from "../data/variables-messages.data";
+import { MARKET_URL } from "../data/constants-messages.data";
 import { AuthenticationService } from "./authentication.service";
 
 @Injectable({

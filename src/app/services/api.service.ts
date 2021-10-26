@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { map, tap } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { YesNoDialogComponent } from "../components/yes-no-dialog/yes-no-dialog.component";
-import { API_URL as URL, FAIL } from "../data/variables-messages.data";
+import { API_URL as URL, FAIL } from "../data/constants-messages.data";
 import { ItemListFiltersData } from "../models/item-list-filters-data.model";
 import { ItemListPaginatorData } from "../models/item-list-paginator-data.model";
 import { UserSettings } from "../models/user-data.model";
