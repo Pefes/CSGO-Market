@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { interval, Subject } from "rxjs";
 import { mergeMap, takeUntil } from "rxjs/operators";
-import { SUCCESS } from "src/app/data/constants-messages.data";
+import { GET_LAST_OPENED_ITEMS_INTERVAL, SUCCESS } from "src/app/data/constants-messages.data";
 import { LastOpenedItem } from "src/app/models/last-opened-item.model";
 import { ApiService } from "src/app/services/api.service";
 
@@ -31,15 +31,17 @@ import { ApiService } from "src/app/services/api.service";
     ])
   ]
 })
-export class LastOpenedItemsListComponent implements OnDestroy {
+export class LastOpenedItemsListComponent implements OnInit, OnDestroy {
 
   public lastOpenedItems: LastOpenedItem[] = [];
   public disableAnimations: boolean = true;
   public sideMenuOpened: boolean = true;
   private _unsubscriber: Subject<any> = new Subject();
 
-  constructor(private _api: ApiService) {
-    interval(3000).pipe(
+  constructor(private _api: ApiService) {}
+
+  public ngOnInit(): void {
+    interval(GET_LAST_OPENED_ITEMS_INTERVAL).pipe(
       takeUntil(this._unsubscriber),
       mergeMap((callNumber: number) => {
         callNumber === 1 ? this.disableAnimations = false : null;

@@ -15,6 +15,15 @@
     </mat-form-field>
 </form>
 <div mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="submitButtonHandler()">{{ getLabel() | translate }}</button>
-    <button mat-raised-button (click)="cancelButtonHandler()">{{ "CANCEL" | translate }}</button>
+    <button mat-raised-button
+        class="submitButton"
+        color="primary"
+        (click)="submitButtonHandler()">
+        {{ getLabel() | translate }}
+    </button>
+    <button mat-raised-button
+        class="cancelButton"
+        (click)="cancelButtonHandler()">
+        {{ "CANCEL" | translate }}
+    </button>
 </div>

@@ -9,6 +9,7 @@
     "YES": "Tak",
     "NO": "Nie",
     "NONE": "Brak",
+    "LAST_OPENED": "Niedawno otwarte",
     "RARITY": {
         "BASE GRADE": "Standardowej jakości",
         "CLASSIFIED": "klasy \"poufne\"",

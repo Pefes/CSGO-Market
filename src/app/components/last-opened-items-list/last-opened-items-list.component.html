@@ -1,6 +1,6 @@
 <div class="lastOpenedItemsListWrapper" [@sideMenuToggle]="sideMenuOpened ? 'opened' : 'closed'">
     <div class="lastOpenedItemsList">
-        <h1>Last opened</h1>
+        <h1>{{ "LAST_OPENED" | translate }}</h1>
         <ng-container *ngIf="lastOpenedItems.length > 0">
             <last-opened-item
                 *ngFor="let item of lastOpenedItems"

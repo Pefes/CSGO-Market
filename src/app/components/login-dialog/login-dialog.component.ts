@@ -1,7 +1,7 @@
 import { Component, Inject } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { LOGIN, LOGIN_SUCCESS, REGISTER, REGISTER_SUCCESS, SUCCESS, SUCCESS_TITLE } from "src/app/data/constants-messages.data";
+import { LOGIN_LABEL, LOGIN_SUCCESS, REGISTER_LABEL, REGISTER_SUCCESS, SUCCESS, SUCCESS_TITLE } from "src/app/data/constants-messages.data";
 import { LoginDialogData } from "src/app/models/login-dialog-data.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { YesNoDialogComponent } from "../yes-no-dialog/yes-no-dialog.component";
@@ -30,7 +30,7 @@ export class LoginDialogComponent {
   }
 
   public getLabel(): string {
-    return this.login ? LOGIN : REGISTER;
+    return this.login ? LOGIN_LABEL : REGISTER_LABEL;
   }
 
   private _openSuccessDialog(): void {
@@ -66,5 +66,4 @@ export class LoginDialogComponent {
   public cancelButtonHandler(): void {
     this.dialogRef.close();
   }
-
 }
