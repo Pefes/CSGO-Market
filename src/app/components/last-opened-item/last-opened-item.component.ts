@@ -31,6 +31,4 @@ export class LastOpenedItemComponent {
   @HostListener("mouseleave") mouseLeaveHandler(): void {
     this.isHovered = false;
   }
-
-  constructor() { }
 }

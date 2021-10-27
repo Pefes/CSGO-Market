@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { PRICE_HIGHEST, PRICE_LOWEST, SORT_ASCENDING, SORT_DESCENDING } from "src/app/data/constants-messages.data";
 import { ItemListFiltersData } from "src/app/models/item-list-filters-data.model";
+import { PropertyToFilter } from "src/app/models/property-to-filter.model";
 
 @Component({
   selector: "item-list-filters",
@@ -19,7 +20,7 @@ export class ItemListFiltersComponent implements OnInit {
 
   public filtersForm: FormGroup = new FormGroup({});
 
-  @Input() public propertiesToFilter: any[] = [];
+  @Input() public propertiesToFilter: PropertyToFilter[] = [];
   @Output() public filtersApplied: EventEmitter<ItemListFiltersData> = new EventEmitter<ItemListFiltersData>();
 
   public ngOnInit(): void {
@@ -33,10 +34,6 @@ export class ItemListFiltersComponent implements OnInit {
     });
 
     this.filtersForm = new FormGroup(newFiltersApplied);
-  }
-
-  public clearSingleFilter(property: string): void {
-    this.filtersForm.controls[property].setValue("");
   }
 
   public clearAllFilters(): void {
@@ -58,7 +55,7 @@ export class ItemListFiltersComponent implements OnInit {
     };
 
     const filtersAsArray: any[] = Object.entries(filtersData).filter(([key, value]) => value);
-    const filtersAsObject: object = Object.assign({}, ...filtersAsArray.map(([key, value]) => ({ [key]: value })));
+    const filtersAsObject: ItemListFiltersData = Object.assign({}, ...filtersAsArray.map(([key, value]) => ({ [key]: value })));
 
     this.filtersApplied.emit(filtersAsObject);
   }

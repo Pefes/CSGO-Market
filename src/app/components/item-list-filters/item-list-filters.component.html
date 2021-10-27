@@ -40,7 +40,16 @@
     </section>
     <mat-divider></mat-divider>
     <section class="actions">
-        <button mat-raised-button (click)="clearAllFilters()">{{ "ITEM_LIST_FILTERS.CLEAR" | translate }}</button>
-        <button mat-raised-button color="primary" (click)="applyFilters()">{{ "ITEM_LIST_FILTERS.APPLY" | translate }}</button>
+        <button mat-raised-button
+            class="clearButton"
+            (click)="clearAllFilters()">
+            {{ "ITEM_LIST_FILTERS.CLEAR" | translate }}
+        </button>
+        <button mat-raised-button
+            class="applyButton"
+            color="primary"
+            (click)="applyFilters()">
+            {{ "ITEM_LIST_FILTERS.APPLY" | translate }}
+        </button>
     </section>
 </mat-expansion-panel>

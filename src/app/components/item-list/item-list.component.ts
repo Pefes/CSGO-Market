@@ -73,15 +73,13 @@ export class ItemListComponent {
 
   public openYesNoDialog(contentText: string): MatDialogRef<YesNoDialogComponent> {
     return this._dialogService.open(YesNoDialogComponent, {
-      data: {
-        contentText
-      }
+      data: { contentText: contentText }
     });
   }
 
   public openOpenContainerDialog(itemData: Item): MatDialogRef<OpenContainerDialogComponent> {
     return this._dialogService.open(OpenContainerDialogComponent, {
-      data: { itemData, isTryOut: this.isTryOut }
+      data: { itemData: itemData, isTryOut: this.isTryOut }
     });
   }
 
