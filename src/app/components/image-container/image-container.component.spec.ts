@@ -14,7 +14,7 @@ describe("ImageContainerComponent", () => {
   let fixture: ComponentFixture<ImageContainerComponent>;
   let debug: DebugElement;
   let apiService: ApiService;
-  const URL_FROM_API = "urlFromApi";
+  const URL_FROM_API: string = "urlFromApi";
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
