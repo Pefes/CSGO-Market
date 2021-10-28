@@ -3,6 +3,7 @@ import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { EQUIPMENT_URL, MARKET_URL, TRY_OUT_URL } from "src/app/data/constants-messages.data";
+import { TabLink } from "src/app/models/tab-link.model";
 import { UserData } from "src/app/models/user-data.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
@@ -30,7 +31,7 @@ import { LoginDialogComponent } from "../login-dialog/login-dialog.component";
 })
 export class NavbarComponent {
 
-  public links: { linkName: string, url: string, mustBeLoggedIn: boolean }[] = [
+  public links: TabLink[] = [
     { linkName: "market", url: MARKET_URL, mustBeLoggedIn: false },
     { linkName: "equipment", url: EQUIPMENT_URL, mustBeLoggedIn: true },
     { linkName: "try_out", url: TRY_OUT_URL, mustBeLoggedIn: false }
@@ -62,19 +63,11 @@ export class NavbarComponent {
   }
 
   public loginButtonHandler(): void {
-    const dialogRef = this._dialogService.open(LoginDialogComponent, { data: { login: true } });
-
-    dialogRef.afterClosed().subscribe();
+    this._dialogService.open(LoginDialogComponent, { data: { login: true } });
   }
 
   public registerButtonHandler(): void {
-    const dialogRef = this._dialogService.open(LoginDialogComponent, { data: { login: false } });
-
-    dialogRef.afterClosed().subscribe();
-  }
-
-  public logoutButtonHandler(): void {
-    this._authenticationService.logOut();
+    this._dialogService.open(LoginDialogComponent, { data: { login: false } });
   }
 
   public isLoggedIn(): boolean {

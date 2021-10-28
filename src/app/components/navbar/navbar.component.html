@@ -24,8 +24,20 @@
             </div>
             <div class="cashWrapper">{{ loggedInUserData?.cash | currency: "" : "" }}</div>
         </snake-border-card>
-        <button mat-stroked-button color="primary" *ngIf="!isLoggedIn()" (click)="loginButtonHandler()">{{ "LOGIN" | translate }}</button>
-        <button mat-raised-button color="primary" *ngIf="!isLoggedIn()" (click)="registerButtonHandler()">{{ "REGISTER" | translate }}</button>
+        <button mat-stroked-button
+            color="primary"
+            class="loginButton"
+            *ngIf="!isLoggedIn()"
+            (click)="loginButtonHandler()">
+            {{ "LOGIN" | translate }}
+        </button>
+        <button mat-raised-button
+            color="primary"
+            class="registerButton"
+            *ngIf="!isLoggedIn()"
+            (click)="registerButtonHandler()">
+            {{ "REGISTER" | translate }}
+        </button>
         <user-menu *ngIf="isLoggedIn()"></user-menu>
     </div>
 </nav>
