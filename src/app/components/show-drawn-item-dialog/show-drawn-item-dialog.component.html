@@ -29,6 +29,16 @@
 </div>
 <mat-divider></mat-divider>
 <div mat-dialog-actions>
-    <button mat-raised-button (click)="buttonCloseClickHandler()">{{ "CLOSE" | translate }}</button>
-    <button mat-raised-button color="primary" *ngIf="showSellButton" (click)="buttonSellClickHandler()">{{ "SELL" | translate }}</button>
+    <button mat-raised-button
+        class="closeButton"
+        (click)="buttonCloseClickHandler()">
+        {{ "CLOSE" | translate }}
+    </button>
+    <button mat-raised-button
+        class="sellButton"
+        color="primary"
+        *ngIf="showSellButton"
+        (click)="buttonSellClickHandler()">
+        {{ "SELL" | translate }}
+    </button>
 </div>
