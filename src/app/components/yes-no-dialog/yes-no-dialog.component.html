@@ -4,8 +4,24 @@
 </div>
 <div mat-dialog-actions class="buttonsWrapper">
     <div class="yesNoWrapper">
-        <button mat-raised-button color="primary" *ngIf="showYesButton" (click)="buttonClickHandler(true)">{{ "YES" | translate }}</button>
-        <button mat-raised-button *ngIf="showNoButton" (click)="buttonClickHandler(false)">{{ "NO" | translate }}</button>
+        <button mat-raised-button
+            color="primary"
+            class="yesButton"
+            *ngIf="showYesButton"
+            (click)="buttonClickHandler(true)">
+            {{ "YES" | translate }}
+        </button>
+        <button mat-raised-button
+            class="noButton"
+            *ngIf="showNoButton"
+            (click)="buttonClickHandler(false)">
+            {{ "NO" | translate }}
+        </button>
     </div>
-    <button mat-stroked-button *ngIf="showCancelButton" (click)="buttonClickHandler(null)">{{ "CANCEL" | translate }}</button>
+    <button mat-stroked-button
+        class="cancelButton"
+        *ngIf="showCancelButton"
+        (click)="buttonClickHandler(null)">
+        {{ "CANCEL" | translate }}
+    </button>
 </div>

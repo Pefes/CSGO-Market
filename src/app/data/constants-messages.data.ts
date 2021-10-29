@@ -18,6 +18,7 @@ export const API_URL = {
 
 export const DEFAULT_CURRENCY = "USD";
 export const DEFAULT_LANGUAGE = "en";
+export const DEFAULT_DARK_THEME = true;
 export const PRICE_HIGHEST = "ITEM_LIST_FILTERS.PRICE_HIGHEST";
 export const PRICE_LOWEST = "ITEM_LIST_FILTERS.PRICE_LOWEST";
 export const SORT_ASCENDING = "asc";

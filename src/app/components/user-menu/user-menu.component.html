@@ -1,4 +1,5 @@
-<button mat-stroked-button class="userButton"
+<button mat-stroked-button
+    class="userButton"
     [matMenuTriggerFor]="userMenu"
     (menuOpened)="menuEventHandler(true)"
     (menuClosed)="menuEventHandler(false)">
@@ -26,7 +27,7 @@
 
     <mat-divider class="userMenuDivider"></mat-divider>
 
-    <button mat-menu-item (click)="logOutButtonHandler()">
+    <button mat-menu-item class="logOutButton" (click)="logOutButtonHandler()">
         <mat-icon>logout</mat-icon>
         <span>{{ "USER_MENU.LOG_OUT" | translate }}</span>
     </button>
