@@ -23,12 +23,12 @@ describe("LastOpenedItemsListComponent", () => {
   let debug: DebugElement;
   let apiService: ApiService;
   const lastOpenedItems: LastOpenedItem[] = [
-    { _id: "1", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() },
-    { _id: "2", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() },
-    { _id: "3", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() }
+    { id: "1", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() },
+    { id: "2", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() },
+    { id: "3", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() }
   ];
 
-  const additionalLastOpenedItem: LastOpenedItem = { _id: "4", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() };
+  const additionalLastOpenedItem: LastOpenedItem = { id: "4", containerName: "customValue", containerIconUrl: "customValue", itemIconUrl: "customValue", itemName: "customValue", itemType: "customValue", itemExterior: "customValue", itemRarity: "customValue", itemRarityColor: "customValue", itemPrice: 10, ownerUsername: "customValue", openedDate: new Date() };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

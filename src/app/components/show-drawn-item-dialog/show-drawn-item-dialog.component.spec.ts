@@ -31,7 +31,7 @@ describe("ShowDrawnItemDialogComponent", () => {
   let authenticationService: AuthenticationService;
   let apiService: ApiService;
   const itemData: Item = {
-    _id: "id",
+    id: "id",
     name: "name",
     iconUrl: "iconUrl",
     type: "type",
@@ -121,8 +121,8 @@ describe("ShowDrawnItemDialogComponent", () => {
     spyOn(authenticationService, "addValueToUserCash");
     spyOn(component.dialogRef, "close");
     component.buttonSellClickHandler();
-    expect(apiService.sellItem).toHaveBeenCalledWith(component.data.itemData._id);
-    expect(itemsService.removeOwnedItem).toHaveBeenCalledWith(component.data.itemData._id);
+    expect(apiService.sellItem).toHaveBeenCalledWith(component.data.itemData.id);
+    expect(itemsService.removeOwnedItem).toHaveBeenCalledWith(component.data.itemData.id);
     expect(authenticationService.addValueToUserCash).toHaveBeenCalledWith(component.data.itemData.price);
     expect(component.dialogRef.close).toHaveBeenCalled();
   });

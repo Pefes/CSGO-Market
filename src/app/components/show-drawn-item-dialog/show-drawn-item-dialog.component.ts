@@ -48,9 +48,9 @@ export class ShowDrawnItemDialogComponent implements OnInit {
         contentText: "ITEM_LIST.SELL_ARE_YOU_SURE"
     }}).afterClosed().subscribe(result => {
       if (result) {
-        this._api.sellItem(this.data.itemData._id).subscribe(response => {
+        this._api.sellItem(this.data.itemData.id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this._itemsService.removeOwnedItem(this.data.itemData._id);
+            this._itemsService.removeOwnedItem(this.data.itemData.id);
             this._authenticationService.addValueToUserCash(this.data.itemData.price);
           }
 

@@ -87,9 +87,9 @@ export class ItemListComponent {
     this.openYesNoDialog("ITEM_LIST.BUY_ARE_YOU_SURE")
     .afterClosed().subscribe(result => {
       if (result) {
-        this._api.buyItem(item._id).subscribe(response => {
+        this._api.buyItem(item.id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this._itemsService.removeMarketItem(item._id);
+            this._itemsService.removeMarketItem(item.id);
             this._authenticationService.addValueToUserCash(-item.price);
           }
         });
@@ -101,9 +101,9 @@ export class ItemListComponent {
     this.openYesNoDialog("ITEM_LIST.SELL_ARE_YOU_SURE")
     .afterClosed().subscribe(result => {
       if (result) {
-        this._api.sellItem(item._id).subscribe(response => {
+        this._api.sellItem(item.id).subscribe(response => {
           if (response.status === SUCCESS) {
-            this._itemsService.removeOwnedItem(item._id);
+            this._itemsService.removeOwnedItem(item.id);
             this._authenticationService.addValueToUserCash(item.price);
           }
         });

@@ -29,7 +29,7 @@ export class OpenContainerDialogComponent {
   }
 
   private _openTryOutContainer(): void {
-    this._api.openTryOutContainer(this.data.itemData._id).subscribe(response => {
+    this._api.openTryOutContainer(this.data.itemData.id).subscribe(response => {
       if (response.status === SUCCESS) {
         this._dialogService.open(ShowDrawnItemDialogComponent, {
           panelClass: OPEN_CONTAINER_DIALOG_PANEL_CLASS,
@@ -45,7 +45,7 @@ export class OpenContainerDialogComponent {
   }
 
   private _openContainer(): void {
-    this._api.openContainer(this.data.itemData._id).subscribe(response => {
+    this._api.openContainer(this.data.itemData.id).subscribe(response => {
       if (response.status === SUCCESS) {
         this._dialogService.open(ShowDrawnItemDialogComponent, {
           panelClass: OPEN_CONTAINER_DIALOG_PANEL_CLASS,
@@ -53,7 +53,7 @@ export class OpenContainerDialogComponent {
             itemData: response.data.drawnItem
           }
         });
-        this._itemsService.removeOwnedItem(this.data.itemData._id);
+        this._itemsService.removeOwnedItem(this.data.itemData.id);
       }
 
       this.dialogRef.close();

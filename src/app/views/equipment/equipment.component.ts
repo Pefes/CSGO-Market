@@ -25,7 +25,7 @@ export class EquipmentComponent implements OnInit {
     });
 
     this._itemsService.ownedItemRemoved().subscribe((itemId: string) => {
-      this.ownedItems = this.ownedItems.filter(item => item._id !== itemId);
+      this.ownedItems = this.ownedItems.filter(item => item.id !== itemId);
     });
   }
 

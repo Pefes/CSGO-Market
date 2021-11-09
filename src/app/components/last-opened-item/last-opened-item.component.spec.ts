@@ -16,7 +16,7 @@ describe("LastOpenedItemComponent", () => {
   let component: LastOpenedItemComponent;
   let fixture: ComponentFixture<LastOpenedItemComponent>;
   const lastOpenedItemData: LastOpenedItem = {
-    _id: "customValue",
+    id: "customValue",
     containerName: "customValue",
     containerIconUrl: "customValue",
     itemIconUrl: "customValue",

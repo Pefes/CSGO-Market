@@ -50,7 +50,7 @@ export class LastOpenedItemsListComponent implements OnInit, OnDestroy {
     .subscribe((response: any) => {
       if (response.status === SUCCESS) {
         response.data.forEach((lastOpenedItem: LastOpenedItem) => {
-          if (!this.lastOpenedItems.some((item: LastOpenedItem) => item._id === lastOpenedItem._id)) {
+          if (!this.lastOpenedItems.some((item: LastOpenedItem) => item.id === lastOpenedItem.id)) {
             this.lastOpenedItems.unshift(lastOpenedItem);
           }
         });

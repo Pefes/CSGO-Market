@@ -22,7 +22,7 @@ describe("ItemComponent", () => {
   let debug: DebugElement;
   const currencyPipe: CurrencyPipe = new CurrencyPipe(DEFAULT_LANGUAGE);
   const itemData: Item = {
-    _id: "id",
+    id: "id",
     name: "name",
     iconUrl: "iconUrl",
     type: "type",

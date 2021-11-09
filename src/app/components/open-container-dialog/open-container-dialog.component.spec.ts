@@ -26,7 +26,7 @@ describe("OpenContainerDialogComponent", () => {
   let dialogService: MatDialog;
   let itemsService: ItemsService;
   const itemData: Item = {
-    _id: "id",
+    id: "id",
     name: "name",
     iconUrl: "iconUrl",
     type: "type",
@@ -115,7 +115,7 @@ describe("OpenContainerDialogComponent", () => {
     openButton.nativeElement.dispatchEvent(new Event("click"));
     expect(apiService.openContainer).toHaveBeenCalled();
     expect(dialogService.open).toHaveBeenCalled();
-    expect(itemsService.removeOwnedItem).toHaveBeenCalledWith(component.data.itemData._id);
+    expect(itemsService.removeOwnedItem).toHaveBeenCalledWith(component.data.itemData.id);
   });
 
   it("should call api on openTryOutContainer when container opened in try-out view", () => {

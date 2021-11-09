@@ -28,10 +28,10 @@ describe("ItemListComponent", () => {
   let itemsService: ItemsService;
   let authenticationService: AuthenticationService;
   const itemsData: Item[] = [
-    { _id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null },
-    { _id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null },
-    { _id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null },
-    { _id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null }
+    { id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null },
+    { id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null },
+    { id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null },
+    { id: "id", name: "name", iconUrl: "iconUrl", type: "type", weaponType: "weaponType", gunType: "gunType", exterior: "exterior", rarity: "rarity", rarityColor: "rarityColor", price: 10, purchasable: true, openable: true, content: null }
   ];
 
   beforeEach(async () => {
@@ -126,8 +126,8 @@ describe("ItemListComponent", () => {
     spyOn(itemsService, "removeMarketItem");
     spyOn(authenticationService, "addValueToUserCash");
     component.buyButtonHandler(itemsData[0]);
-    expect(apiService.buyItem).toHaveBeenCalledWith(itemsData[0]._id);
-    expect(itemsService.removeMarketItem).toHaveBeenCalledWith(itemsData[0]._id);
+    expect(apiService.buyItem).toHaveBeenCalledWith(itemsData[0].id);
+    expect(itemsService.removeMarketItem).toHaveBeenCalledWith(itemsData[0].id);
     expect(authenticationService.addValueToUserCash).toHaveBeenCalledWith(-itemsData[0].price);
   });
 
@@ -137,8 +137,8 @@ describe("ItemListComponent", () => {
     spyOn(itemsService, "removeOwnedItem");
     spyOn(authenticationService, "addValueToUserCash");
     component.sellButtonHandler(itemsData[0]);
-    expect(apiService.sellItem).toHaveBeenCalledWith(itemsData[0]._id);
-    expect(itemsService.removeOwnedItem).toHaveBeenCalledWith(itemsData[0]._id);
+    expect(apiService.sellItem).toHaveBeenCalledWith(itemsData[0].id);
+    expect(itemsService.removeOwnedItem).toHaveBeenCalledWith(itemsData[0].id);
     expect(authenticationService.addValueToUserCash).toHaveBeenCalledWith(itemsData[0].price);
   });
 });
