@@ -10,7 +10,7 @@ export const API_URL = {
     SELL_ITEM: "api/sellItem",
     OPEN_CONTAINER: "api/openContainer",
     OPEN_TRY_OUT_CONTAINER: "api/openTryOutContainer",
-    GET_ITEM_IMAGE: "api/getItemImage?imageUrl=",
+    GET_ITEM_IMAGE: "steamApi/",
     GET_AUTOCOMPLETE_OPTIONS: "api/getAutocompleteOptions?property=",
     SET_USER_SETTINGS: "api/setUserSettings",
     GET_LAST_OPENED_ITEMS: "api/getLastOpenedItems"

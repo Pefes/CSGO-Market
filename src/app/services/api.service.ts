@@ -17,16 +17,12 @@ export class ApiService {
 
   constructor(private _http: HttpClient, private _dialogService: MatDialog) { }
 
-  public getApiUrl(path: string): string {
-    return `${ environment.apiUrl }${ path }`;
-  }
-
   public getImageApiUrl(imageId: string): string {
-    return `${ environment.apiUrl }${ URL.GET_ITEM_IMAGE }${ imageId }`;
+    return `${ URL.GET_ITEM_IMAGE }${ imageId }`;
   }
 
   public post(url: string, params: any): Observable<any> {
-    return this._http.post(this.getApiUrl(url), params).pipe(tap((response: any) => {
+    return this._http.post(url, params).pipe(tap((response: any) => {
       if (response.status === FAIL) {
         this._dialogService.open(YesNoDialogComponent, {
           data: {
@@ -41,7 +37,7 @@ export class ApiService {
   }
 
   public getTryOutItems(): Observable<any> {
-    return this._http.get(this.getApiUrl(URL.GET_TRY_OUT_ITEMS)).pipe(map((data: any) => data.data.openableItems));
+    return this._http.get(URL.GET_TRY_OUT_ITEMS).pipe(map((data: any) => data.data.openableItems));
   }
 
   public getMarketItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {
@@ -73,11 +69,11 @@ export class ApiService {
   }
 
   public getAutocompleteOptions(property: string): Observable<any> {
-    return this._http.get(this.getApiUrl(`${ URL.GET_AUTOCOMPLETE_OPTIONS }${ property }`));
+    return this._http.get(`${ URL.GET_AUTOCOMPLETE_OPTIONS }${ property }`);
   }
 
   public getLastOpenedItems(): Observable<any> {
-    return this._http.get(this.getApiUrl(URL.GET_LAST_OPENED_ITEMS));
+    return this._http.get(URL.GET_LAST_OPENED_ITEMS);
   }
 
   public setUserSettings(userSettings: UserSettings): Observable<any> {

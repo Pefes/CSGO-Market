@@ -1,6 +1,15 @@
 {
   "/api": {
-    "target": "http://localhost:3000",
+    "target": "http://localhost:8080",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/steamApi": {
+    "target": "http://cdn.steamcommunity.com/economy/image/",
+    "pathRewrite": {
+      "^/steamApi": ""
+    },
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
