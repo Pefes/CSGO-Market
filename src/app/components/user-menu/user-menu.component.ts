@@ -51,17 +51,19 @@ export class UserMenuComponent implements OnInit {
 
   public themeChangedHandler(): void {
     this._themeService.setDarkTheme(this.darkThemeControl.value);
-    if (this.userData.userSettings) {
-      this.userData.userSettings.darkTheme = this.darkThemeControl.value;
-      this._authenticationService.saveUserSettings(this.userData.userSettings);
+    if (!this.userData.userSettings) {
+      this.userData.userSettings = {};
     }
+    this.userData.userSettings.darkTheme = this.darkThemeControl.value;
+    this._authenticationService.saveUserSettings(this.userData.userSettings);
   }
 
   public languageChangedHandler(): void {
     this._translateService.setDefaultLang(this.languageControl.value);
-    if (this.userData.userSettings) {
-      this.userData.userSettings.language = this.languageControl.value;
-      this._authenticationService.saveUserSettings(this.userData.userSettings);
+    if (!this.userData.userSettings) {
+      this.userData.userSettings = {};
     }
+    this.userData.userSettings.language = this.languageControl.value;
+    this._authenticationService.saveUserSettings(this.userData.userSettings);
   }
 }
