@@ -37,7 +37,7 @@ export class ApiService {
   }
 
   public getTryOutItems(): Observable<any> {
-    return this._http.get(URL.GET_TRY_OUT_ITEMS).pipe(map((data: any) => data.data.openableItems));
+    return this._http.get(URL.GET_TRY_OUT_ITEMS).pipe(map((data: any) => data.data.items));
   }
 
   public getMarketItems(params: { filtersData: ItemListFiltersData, paginatorData: ItemListPaginatorData }): Observable<any> {
