@@ -19,7 +19,9 @@ export class EquipmentComponent implements OnInit {
   private _itemListPaginatorData: ItemListPaginatorData = {} as ItemListPaginatorData;
   private _itemListFiltersData: ItemListFiltersData = {} as ItemListFiltersData;
 
-  constructor(private _api: ApiService, private _itemsService: ItemsService) {
+  constructor(private _api: ApiService, private _itemsService: ItemsService) {}
+
+  public ngOnInit(): void {
     this._itemsService.ownedItemAdded().subscribe((item: Item) => {
       this.ownedItems = [item, ...this.ownedItems];
     });
@@ -27,9 +29,7 @@ export class EquipmentComponent implements OnInit {
     this._itemsService.ownedItemRemoved().subscribe((itemId: string) => {
       this.ownedItems = this.ownedItems.filter(item => item.id !== itemId);
     });
-  }
 
-  public ngOnInit(): void {
     this._getOwnedItems();
   }
 

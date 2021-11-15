@@ -19,7 +19,9 @@ export class MarketComponent implements OnInit {
   private _itemListPaginatorData: ItemListPaginatorData = {} as ItemListPaginatorData;
   private _itemListFiltersData: ItemListFiltersData = {} as ItemListFiltersData;
 
-  constructor(private _api: ApiService, private _itemsService: ItemsService) {
+  constructor(private _api: ApiService, private _itemsService: ItemsService) {}
+
+  public ngOnInit(): void {
     this._itemsService.marketItemAdded().subscribe((item: Item) => {
       this.marketItems.unshift(item);
     });
@@ -27,9 +29,7 @@ export class MarketComponent implements OnInit {
     this._itemsService.marketItemRemoved().subscribe((itemId: string) => {
       this.marketItems = this.marketItems.filter(item => item.id !== itemId);
     });
-  }
 
-  public ngOnInit(): void {
     this._getMarketItems();
   }
 
