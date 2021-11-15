@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Input, OnInit } from "@angular/core";
+import { DEFAULT_TEXT_COLOR_DIRECTIVE } from "../data/constants-messages.data";
 
 @Directive({
   selector: "[textColor]"
@@ -6,7 +7,7 @@ import { Directive, ElementRef, Input, OnInit } from "@angular/core";
 export class TextColorDirective implements OnInit {
 
   @Input() public textColor: string = "";
-  private readonly _DEFAULT_COLOR: string = "#00e200";
+  private readonly _DEFAULT_COLOR: string = DEFAULT_TEXT_COLOR_DIRECTIVE;
 
   constructor(private _elementRef: ElementRef) {}
 

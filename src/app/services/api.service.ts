@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Observable } from "rxjs";
 import { map, tap } from "rxjs/operators";
-import { environment } from "src/environments/environment";
 import { YesNoDialogComponent } from "../components/yes-no-dialog/yes-no-dialog.component";
 import { API_URL as URL, FAIL } from "../data/constants-messages.data";
 import { ItemListFiltersData } from "../models/item-list-filters-data.model";

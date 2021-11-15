@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Input, OnInit } from "@angular/core";
+import { DEFAULT_BACKGROUND_COLOR_DIRECTIVE } from "../data/constants-messages.data";
 
 @Directive({
   selector: "[backgroundColor]"
@@ -6,7 +7,7 @@ import { Directive, ElementRef, Input, OnInit } from "@angular/core";
 export class BackgroundColorDirective implements OnInit {
 
   @Input() public backgroundColor: string = "";
-  private readonly _DEFAULT_COLOR: string = "#b0c3d9";
+  private readonly _DEFAULT_COLOR: string = DEFAULT_BACKGROUND_COLOR_DIRECTIVE;
 
   constructor(private _elementRef: ElementRef) {}
 
