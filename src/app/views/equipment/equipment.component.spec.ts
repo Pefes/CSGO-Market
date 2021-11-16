@@ -136,7 +136,7 @@ describe("EquipmentComponent", () => {
     const testData: { test: string } = { test: "test" };
     fixture.detectChanges();
     spyOn(apiService, "getOwnedItems").and.returnValue(of(itemsData));
-    
+
     const itemsListFilters: ItemListFiltersComponent = debug.query(By.css("item-list-filters")).componentInstance;
     itemsListFilters.filtersApplied.emit(testData);
     expect(apiService.getOwnedItems).toHaveBeenCalledWith({ filtersData: testData, paginatorData: {} as ItemListPaginatorData });

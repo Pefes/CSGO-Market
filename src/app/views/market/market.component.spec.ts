@@ -137,7 +137,7 @@ describe("MarketComponent", () => {
     const testData: { test: string } = { test: "test" };
     fixture.detectChanges();
     spyOn(apiService, "getMarketItems").and.returnValue(of(itemsData));
-    
+
     const itemsListFilters: ItemListFiltersComponent = debug.query(By.css("item-list-filters")).componentInstance;
     itemsListFilters.filtersApplied.emit(testData);
     expect(apiService.getMarketItems).toHaveBeenCalledWith({ filtersData: testData, paginatorData: {} as ItemListPaginatorData });

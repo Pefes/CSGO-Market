@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import * as moment from "moment";
 import { Moment } from "moment";
@@ -46,7 +46,7 @@ export class AuthenticationService {
     localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.value));
   }
 
-  public logOut() {
+  public logOut(): void {
     this._userData.next(null);
     localStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
     localStorage.removeItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
@@ -55,7 +55,7 @@ export class AuthenticationService {
     this._router.navigateByUrl(MARKET_URL);
   }
 
-  public getExpirationTime(): Moment | null {
+  private _getExpirationTime(): Moment | null {
     const expirationString = localStorage.getItem(ACCESS_TOKEN_EXPIRES_AT_STORAGE_KEY);
 
     if (expirationString) {
@@ -82,7 +82,7 @@ export class AuthenticationService {
   }
 
   public isLoggedIn(): boolean {
-    const expirationTime = this.getExpirationTime();
+    const expirationTime = this._getExpirationTime();
     return expirationTime !== null && moment().isBefore(expirationTime);
   }
 
@@ -90,7 +90,7 @@ export class AuthenticationService {
     return !this.isLoggedIn();
   }
 
-  public saveUserDataToLocalStorage(): void {
+  private _saveUserDataToLocalStorage(): void {
     localStorage.setItem(USER_DATA_STORAGE_KEY, JSON.stringify(this._userData.getValue()));
   }
 
@@ -102,7 +102,7 @@ export class AuthenticationService {
     }
 
     this._userData.next({ ...this._userData.getValue(), cash: userData.cash + value });
-    this.saveUserDataToLocalStorage();
+    this._saveUserDataToLocalStorage();
   }
 
   public saveUserSettings(userSettings: UserSettings): void {
@@ -110,7 +110,7 @@ export class AuthenticationService {
       this._api.setUserSettings(userSettings).subscribe((response: any) => {
         if (response.status === SUCCESS) {
           this._userData.next({ ...this._userData.getValue(), userSettings: { ...userSettings } });
-          this.saveUserDataToLocalStorage();
+          this._saveUserDataToLocalStorage();
         }
       });
     }
